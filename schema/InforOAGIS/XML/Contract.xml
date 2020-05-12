@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.5"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>Contract</NounName>
+<NounType>MasterData</NounType>
+<Version> 2.13.5</Version> 
+<IDXPath>/*/DataArea/Contract/ContractHeader/DocumentID[1]/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/Contract/ContractHeader/DocumentID[1]/ID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath>/*/DataArea/Contract/ContractHeader/DocumentID[1]/ID[not (@schemeName)]/@location</IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/Contract/ContractHeader/Description | /*/DataArea/Contract/ContractHeader/Description/@languageID</DescriptionXPath>
+<RevisionXPath>/*/DataArea/Contract/ContractHeader/DocumentID[1]/ID[not (@schemeName)]/following-sibling::RevisionID</RevisionXPath>
+<VariationXPath>/*/DataArea/Contract/ContractHeader/DocumentID[1]/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/Contract/ContractHeader/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/Contract/ContractHeader/DocumentDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Acknowledge</SupportedVerb>
+<SupportedVerb>Get</SupportedVerb>
+<SupportedVerb>Process</SupportedVerb>
+<SupportedVerb>Show</SupportedVerb>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>CustomerPartyMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/CustomerParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/CustomerPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/CustomerParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/CustomerParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/CustomerParty/RequesterContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/CustomerParty/PlannerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/CustomerParty/BuyerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/CustomerParty/ReceivingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipToPartyMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/ShipToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/ShipToParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/ShipToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>BillToPartyMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/BillToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/BillToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/BillToParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/BillToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/BillToParty/PlannerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/BillToParty/BuyerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>PayFromPartyMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/PayFromParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/PayFromPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/PayFromParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>SupplierPartyMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/SupplierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/SupplierPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/SupplierParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/SupplierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/SupplierParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/SupplierParty/SalesContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/SupplierParty/ShippingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/SupplierParty/CustomerServiceContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipFromPartyMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/ShipFromParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipFromPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/ShipFromParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/ShipFromParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/ShipFromParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>RemitToPartyMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/RemitToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/RemitToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/RemitToParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/RemitToParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/RemitToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/Location/ParentLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/BuyerReference/IDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractHeader/SalesPersonReference/IDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractSchedule/ContractPrice/Item/ItemID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractSchedule/ContractPrice/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractSchedule/ContractPrice/Location/ParentLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractSchedule/ContractPrice/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipToPartyMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractSchedule/ShipToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractSchedule/ShipToParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractSchedule/ShipToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Contract/ContractSchedule/TransportationTerm/PlaceOfOwnershipTransferLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

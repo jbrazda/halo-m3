@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.5"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>CreditTransfer</NounName>
+<NounType>Transactional</NounType>
+<Version> 2.13.5</Version> 
+<IDXPath>/*/DataArea/CreditTransfer/CreditTransferHeader/DocumentID[1]/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/CreditTransfer/CreditTransferHeader/DocumentID[1]/ID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath>/*/DataArea/CreditTransfer/CreditTransferHeader/DocumentID[1]/ID[not (@schemeName)]/@location</IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/CreditTransfer/CreditTransferHeader/Description | /*/DataArea/CreditTransfer/CreditTransferHeader/Description/@languageID</DescriptionXPath>
+<RevisionXPath>/*/DataArea/CreditTransfer/CreditTransferHeader/DocumentID[1]/ID[not (@schemeName)]/following-sibling::RevisionID</RevisionXPath>
+<VariationXPath>/*/DataArea/CreditTransfer/CreditTransferHeader/DocumentID[1]/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/CreditTransfer/CreditTransferHeader/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/CreditTransfer/CreditTransferHeader/DocumentDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Acknowledge</SupportedVerb>
+<SupportedVerb>Get</SupportedVerb>
+<SupportedVerb>Process</SupportedVerb>
+<SupportedVerb>Show</SupportedVerb>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferHeader/InitiatingParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferHeader/InitiatingParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferHeader/ForwardingAgentParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferHeader/ForwardingAgentParty/BranchParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferPayment/DebtorParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferPayment/DebtorParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferPayment/FirstAgentParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferPayment/FirstAgentParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferPayment/FirstAgentParty/BranchParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferPayment/PaymentTransaction/OriginatorParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferPayment/PaymentTransaction/IntermediaryFinancialParty/Location/ParentLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferPayment/PaymentTransaction/IntermediaryFinancialParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferPayment/PaymentTransaction/IntermediaryFinancialParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferPayment/PaymentTransaction/IntermediaryFinancialParty/BranchParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferPayment/PaymentTransaction/CreditorParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferPayment/PaymentTransaction/CreditorParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferPayment/PaymentTransaction/FinalAgentFinancialParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferPayment/PaymentTransaction/FinalAgentFinancialParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferPayment/PaymentTransaction/FinalAgentFinancialParty/BranchParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CreditTransfer/CreditTransferPayment/PaymentTransaction/FinalParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

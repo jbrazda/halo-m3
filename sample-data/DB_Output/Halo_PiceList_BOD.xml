@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PriceList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns0="http://schema.infor.com/InforOAGIS/2" xmlns="http://schema.infor.com/InforOAGIS/2" languageCode="GB" releaseID="9.2" systemEnvironmentCode="Production" versionID="2.12.2" xsi:type="ns0:ProcessItemMasterType">
+  <ApplicationArea>
+    <Sender>
+      <LogicalID>lid://infor.halo.catalog_dev</LogicalID>
+      <ComponentID>Webstar</ComponentID>
+      <ConfirmationCode>OnError</ConfirmationCode>
+      <AuthorizationID/>
+    </Sender>
+    <CreationDateTime>2020-05-08T00:24:38.872Z</CreationDateTime>
+  </ApplicationArea>
+  <DataArea>
+    <Sync>
+      <TenantID>Infor</TenantID>
+      <AccountingEntityID>210_US</AccountingEntityID>
+      <LocationID>loc123</LocationID>
+      <ActionCriteria>
+        <!-- initial Load should be 'Add' and updates should use Update -->
+        <ActionExpression actionCode="Add" expressionLanguage=""/>
+      </ActionCriteria>
+    </Sync>
+    <Catalog>
+      <CatalogHeader>
+        <Name languageID="GB">CTG1</Name>
+      </CatalogHeader>
+      <CatalogLine>
+        <Item>
+          <ItemID>
+            <ID schemeName="XFTY_CORP">XCZ116C</ID>
+          </ItemID>
+          <Description languageID="GB">XFINITY</Description>
+        </Item>
+        <TimePeriod>
+          <StartDateTime>20200428</StartDateTime>
+          <EndDateTime>20200510</EndDateTime>
+        </TimePeriod>
+        <ItemPrice>
+          <UnitPrice>
+            <Amount currencyID="USD">1.99</Amount>
+            <BaseAmount currencyID="USD">1.99</BaseAmount>
+            <PerQuantity unitCode="EA">1</PerQuantity>
+            <PerBaseUOMQuantity unitCode="EA">EA</PerBaseUOMQuantity>
+          </UnitPrice>
+          <Note languageID="GB"/>
+        </ItemPrice>
+        <ItemPrice>
+          <UnitPrice>
+            <Amount currencyID="USD">23.95</Amount>
+            <BaseAmount currencyID="USD">1.99</BaseAmount>
+            <PerQuantity unitCode="EA">14</PerQuantity>
+            <PerBaseUOMQuantity unitCode="EA">EA</PerBaseUOMQuantity>
+          </UnitPrice>
+          <Note languageID="GB"/>
+        </ItemPrice>
+        <ItemPrice>
+          <UnitPrice>
+            <Amount currencyID="USD">22.95</Amount>
+            <BaseAmount currencyID="USD">1.99</BaseAmount>
+            <PerQuantity unitCode="EA">21</PerQuantity>
+            <PerBaseUOMQuantity unitCode="EA">EA</PerBaseUOMQuantity>
+          </UnitPrice>
+          <Note languageID="GB"/>
+        </ItemPrice>
+        <ItemPrice>
+          <UnitPrice>
+            <Amount currencyID="USD">21.96</Amount>
+            <BaseAmount currencyID="USD">1.99</BaseAmount>
+            <PerQuantity unitCode="EA">28</PerQuantity>
+            <PerBaseUOMQuantity unitCode="EA">EA</PerBaseUOMQuantity>
+          </UnitPrice>
+          <Note languageID="GB"/>
+        </ItemPrice>
+      </CatalogLine>
+      <CatalogLine>
+        <Item>
+          <ItemID>
+            <ID schemeName="XFTY">XCZ116C</ID>
+          </ItemID>
+          <Description languageID="GB">XFINITY</Description>
+        </Item>
+        <TimePeriod>
+          <StartDateTime>20200428</StartDateTime>
+          <EndDateTime>20200510</EndDateTime>
+        </TimePeriod>
+        <ItemPrice>
+          <UnitPrice>
+            <Amount currencyID="USD">1.99</Amount>
+            <BaseAmount currencyID="USD">1.99</BaseAmount>
+            <PerQuantity unitCode="EA">1</PerQuantity>
+            <PerBaseUOMQuantity unitCode="EA">EA</PerBaseUOMQuantity>
+          </UnitPrice>
+          <Note languageID="GB"/>
+        </ItemPrice>
+        <ItemPrice>
+          <UnitPrice>
+            <Amount currencyID="USD">23.95</Amount>
+            <BaseAmount currencyID="USD">1.99</BaseAmount>
+            <PerQuantity unitCode="EA">14</PerQuantity>
+            <PerBaseUOMQuantity unitCode="EA">EA</PerBaseUOMQuantity>
+          </UnitPrice>
+          <Note languageID="GB"/>
+        </ItemPrice>
+        <ItemPrice>
+          <UnitPrice>
+            <Amount currencyID="USD">22.95</Amount>
+            <BaseAmount currencyID="USD">1.99</BaseAmount>
+            <PerQuantity unitCode="EA">21</PerQuantity>
+            <PerBaseUOMQuantity unitCode="EA">EA</PerBaseUOMQuantity>
+          </UnitPrice>
+          <Note languageID="GB"/>
+        </ItemPrice>
+        <ItemPrice>
+          <UnitPrice>
+            <Amount currencyID="USD">21.96</Amount>
+            <BaseAmount currencyID="USD">1.99</BaseAmount>
+            <PerQuantity unitCode="EA">28</PerQuantity>
+            <PerBaseUOMQuantity unitCode="EA">EA</PerBaseUOMQuantity>
+          </UnitPrice>
+          <Note languageID="GB"/>
+        </ItemPrice>
+      </CatalogLine>
+    </Catalog>
+    <Catalog>
+      <CatalogHeader>
+        <Name languageID="GB">CTG2</Name>
+      </CatalogHeader>
+      <CatalogLine>
+        <Item>
+          <ItemID>
+            <ID schemeName="XFTY">XCZ116C</ID>
+          </ItemID>
+          <Description languageID="GB">XFINITY</Description>
+        </Item>
+        <TimePeriod>
+          <StartDateTime>20200428</StartDateTime>
+          <EndDateTime>20200510</EndDateTime>
+        </TimePeriod>
+        <ItemPrice>
+          <UnitPrice>
+            <Amount currencyID="USD">1.99</Amount>
+            <BaseAmount currencyID="USD">1.99</BaseAmount>
+            <PerQuantity unitCode="EA">1</PerQuantity>
+            <PerBaseUOMQuantity unitCode="EA">EA</PerBaseUOMQuantity>
+          </UnitPrice>
+          <Note languageID="GB"/>
+        </ItemPrice>
+        <ItemPrice>
+          <UnitPrice>
+            <Amount currencyID="USD">23.95</Amount>
+            <BaseAmount currencyID="USD">1.99</BaseAmount>
+            <PerQuantity unitCode="EA">14</PerQuantity>
+            <PerBaseUOMQuantity unitCode="EA">EA</PerBaseUOMQuantity>
+          </UnitPrice>
+          <Note languageID="GB"/>
+        </ItemPrice>
+        <ItemPrice>
+          <UnitPrice>
+            <Amount currencyID="USD">22.95</Amount>
+            <BaseAmount currencyID="USD">1.99</BaseAmount>
+            <PerQuantity unitCode="EA">21</PerQuantity>
+            <PerBaseUOMQuantity unitCode="EA">EA</PerBaseUOMQuantity>
+          </UnitPrice>
+          <Note languageID="GB"/>
+        </ItemPrice>
+        <ItemPrice>
+          <UnitPrice>
+            <Amount currencyID="USD">21.96</Amount>
+            <BaseAmount currencyID="USD">1.99</BaseAmount>
+            <PerQuantity unitCode="EA">28</PerQuantity>
+            <PerBaseUOMQuantity unitCode="EA">EA</PerBaseUOMQuantity>
+          </UnitPrice>
+          <Note languageID="GB"/>
+        </ItemPrice>
+      </CatalogLine>
+    </Catalog>
+  </DataArea>
+</PriceList>

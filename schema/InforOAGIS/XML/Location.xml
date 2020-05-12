@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.4"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>Location</NounName>
+<NounType>MasterData</NounType>
+<Version> 2.13.4</Version> 
+<IDXPath>/*/DataArea/Location/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/Location/ID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath></IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/Location/Name|/*/DataArea/Location/Name/@langugeID</DescriptionXPath>
+<RevisionXPath></RevisionXPath>
+<VariationXPath>/*/DataArea/Location/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath></StatusXPath>
+<DocumentDateTimeXPath></DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Acknowledge</SupportedVerb>
+<SupportedVerb>Get</SupportedVerb>
+<SupportedVerb>Process</SupportedVerb>
+<SupportedVerb>Show</SupportedVerb>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Location/ParentLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>SupplierPartyMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Location/WarehouseActivityOwnerParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/SupplierPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.7"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>IoTDevice</NounName>
+<NounType>System</NounType>
+<Version> 2.13.7</Version> 
+<IDXPath>/*/DataArea/IoTDevice[1]/IDs[1]/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath></IDAccountingEntityXPath>
+<IDLocationXPath></IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/IoTDevice/Description|/*/DataArea/IoTDevice/Description/@languageID</DescriptionXPath>
+<RevisionXPath></RevisionXPath>
+<VariationXPath>/*/DataArea/IoTDevice[1]/IDs[1]/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/IoTDevice/Status/Code</StatusXPath>
+<DocumentDateTimeXPath></DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>AssetMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/IoTDevice/Asset/ID</FromNounPath>
+<ToNounPath>/*/DataArea/AssetMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

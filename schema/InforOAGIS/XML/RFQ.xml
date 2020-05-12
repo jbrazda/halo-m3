@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.8"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>RFQ</NounName>
+<NounType>Transactional</NounType>
+<Version> 2.13.8</Version> 
+<IDXPath>/*/DataArea/RFQ/RFQHeader/DocumentID[1]/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/RFQ/RFQHeader/DocumentID[1]/ID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath>/*/DataArea/RFQ/RFQHeader/DocumentID[1]/ID[not (@schemeName)]/@location</IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/RFQ/RFQHeader/Description | /*/DataArea/RFQ/RFQHeader/Description/@languageID</DescriptionXPath>
+<RevisionXPath>/*/DataArea/RFQ/RFQHeader/DocumentID[1]/ID[not (@schemeName)]/following-sibling::RevisionID</RevisionXPath>
+<VariationXPath>/*/DataArea/RFQ/RFQHeader/DocumentID[1]/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/RFQ/RFQHeader/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/RFQ/RFQHeader/DocumentDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Acknowledge</SupportedVerb>
+<SupportedVerb>Get</SupportedVerb>
+<SupportedVerb>Process</SupportedVerb>
+<SupportedVerb>Show</SupportedVerb>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>CustomerPartyMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/CustomerParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/CustomerPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/CustomerParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/CustomerParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/CustomerParty/RequesterContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/CustomerParty/PlannerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/CustomerParty/BuyerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/CustomerParty/ReceivingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>SupplierPartyMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/SupplierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/SupplierPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/SupplierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/SupplierParty/SalesContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/SupplierParty/ShippingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/SupplierParty/CustomerServiceContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipToPartyMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/ShipToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/ShipToParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/ShipToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipFromPartyMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/ShipFromParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipFromPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/ShipFromParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/ShipFromParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/ShipFromParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/PlannerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Catalog</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/CatalogReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Catalog/CatalogHeader/DocumentID[1]/ID[not(@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>BillToPartyMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/BillToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/BillToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/BillToParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/BillToParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/BillToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/BillToParty/PlannerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/BillToParty/BuyerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>CarrierParty</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/CarrierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/CarrierParty/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/CarrierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/CarrierParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>PayFromPartyMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/PayFromParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/PayFromPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/PayFromParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/PayFromParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/TransportationTerm/PlaceOfOwnershipTransferLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/BuyerParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/BuyerParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/BuyerParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/BuyerParty/PlannerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/BuyerParty/BuyerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/RequesterParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/RequesterParty/Location/ParentLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/RequesterParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/RequesterParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/BuyerReference/IDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>RemitToPartyMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/RemitToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/RemitToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/RemitToParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/RemitToParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQHeader/RemitToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/Item/ItemID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/QuantityDistribution/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>ProjectExtension</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/QuantityDistribution/ProjectExtensionReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectExtension/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipToPartyMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/ShipToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/ShipToParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/ShipToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/TransportationTerm/PlaceOfOwnershipTransferLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/BuyerParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/BuyerParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/BuyerParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/BuyerParty/RequesterContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/BuyerParty/PlannerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/BuyerParty/BuyerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/BuyerParty/ReceivingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/RequesterParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/RequesterParty/Location/ParentLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/RequesterParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/RequesterParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>Requisition</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/RequisitionReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Requisition/RequisitionHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/RFQ/RFQLine/RFQSchedule/ShipToParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

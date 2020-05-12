@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.5"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>ReceivableTracker</NounName>
+<NounType>Transactional</NounType>
+<Version> 2.13.5</Version> 
+<IDXPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/DocumentID[1]/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/DocumentID[1]/ID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/DocumentID[1]/ID[not (@schemeName)]/@location</IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/Description | /*/DataArea/ReceivableTracker/ReceivableTrackerHeader/Description/@languageID</DescriptionXPath>
+<RevisionXPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/DocumentID[1]/ID[not (@schemeName)]/following-sibling::RevisionID</RevisionXPath>
+<VariationXPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/DocumentID[1]/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/DocumentDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Acknowledge</SupportedVerb>
+<SupportedVerb>Get</SupportedVerb>
+<SupportedVerb>Process</SupportedVerb>
+<SupportedVerb>Show</SupportedVerb>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>CustomerPartyMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/CustomerParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/CustomerPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/CustomerParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>SupplierPartyMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/SupplierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/SupplierPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/SupplierParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/SupplierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>BillToPartyMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/BillToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/BillToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/BillToParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipToPartyMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/ShipToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/ShipToParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>PayFromPartyMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/PayFromParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/PayFromPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/PayFromParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>RemitToPartyMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/RemitToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/RemitToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/RemitToParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/RemitToParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/SalesLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>Invoice</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ReceivableTracker/ReceivableTrackerHeader/InvoiceReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Invoice/InvoiceHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

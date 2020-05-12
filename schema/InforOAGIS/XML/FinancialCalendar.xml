@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.3"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>FinancialCalendar</NounName>
+<NounType>MasterData</NounType>
+<Version> 2.13.3</Version> 
+<IDXPath>/*/DataArea/FinancialCalendar/FinancialCalendarID[1]/ID</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/FinancialCalendar/FinancialCalendarID[1]/ID/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath>/*/DataArea/FinancialCalendar/FinancialCalendarID[1]/ID/@location</IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/FinancialCalendar/Name|/*/DataArea/FinancialCalendar/Name/@languageID</DescriptionXPath>
+<RevisionXPath>/*/DataArea/FinancialCalendar/FinancialCalendarID[1]/ID/following-sibling::RevisionID</RevisionXPath>
+<VariationXPath>/*/DataArea/FinancialCalendar/FinancialCalendarID[1]/ID/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/FinancialCalendar/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/FinancialCalendar/Status/TimePeriod/StartDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Acknowledge</SupportedVerb>
+<SupportedVerb>Get</SupportedVerb>
+<SupportedVerb>Process</SupportedVerb>
+<SupportedVerb>Show</SupportedVerb>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation/>
+</NounMetadata>

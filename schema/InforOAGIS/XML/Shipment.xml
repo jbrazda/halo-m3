@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.9"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>Shipment</NounName>
+<NounType>Transactional</NounType>
+<Version> 2.13.9</Version> 
+<IDXPath>/*/DataArea/Shipment/ShipmentHeader/DocumentID[1]/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/Shipment/ShipmentHeader/DocumentID[1]/ID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath>/*/DataArea/Shipment/ShipmentHeader/DocumentID[1]/ID[not (@schemeName)]/@location</IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/Shipment/ShipmentHeader/Description | /*/DataArea/Shipment/ShipmentHeader/Description/@languageID</DescriptionXPath>
+<RevisionXPath></RevisionXPath>
+<VariationXPath>/*/DataArea/Shipment/ShipmentHeader/DocumentID[1]/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/Shipment/ShipmentHeader/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/Shipment/ShipmentHeader/DocumentDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Acknowledge</SupportedVerb>
+<SupportedVerb>Get</SupportedVerb>
+<SupportedVerb>Load</SupportedVerb>
+<SupportedVerb>Process</SupportedVerb>
+<SupportedVerb>Show</SupportedVerb>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Warehouse Location for the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/WarehouseLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>CarrierRoute</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Carrier route for the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/CarrierRouteReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/CarrierRoute/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>CarrierParty</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Check with Pat</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/CarrierRouteReference/RouteStop/CarrierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/CarrierParty/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - this is not an internal location</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/CarrierRouteReference/RouteStop/CarrierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Check with Pat</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/CarrierRouteReference/RouteStop/CarrierParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipFromPartyMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Ship from Party on the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/ShipFromParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipFromPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Is this same as Warehouse location?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/ShipFromParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Logistic Location of the Warehouse</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/ShipFromParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Ship From Party's Contact on the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/ShipFromParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>CarrierParty</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Carrier Party on the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/CarrierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/CarrierParty/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - this is not an internal location</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/CarrierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Carrier Contact for this Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/CarrierParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/Party/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/Party/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/Party/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipFromPartyMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Return To Ship From Party on the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/ReturnToShipFromParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipFromPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Return to Ship From Party's Location for the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/ReturnToShipFromParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>What is Parent Location?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/ReturnToShipFromParty/Location/ParentLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - this is not an internal location</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/ReturnToShipFromParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>WorkCenter</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/ReturnToShipFromParty/WorkCenterReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/WorkCenter[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Return to Ship From Party's Contact for the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/ReturnToShipFromParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/IntermediaryShipToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipToPartyMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Ship To Party for the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/ShipToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Ship To Location on the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/ShipToParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>WorkCenter</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/ShipToParty/WorkCenterReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/WorkCenter[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Ship To Party's Contact on the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/ShipToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Place of Ownership Transfer on the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/TransportationTerm/PlaceOfOwnershipTransferLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>CustomerPartyMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Customer for the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/CustomerParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/CustomerPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Customer Location on the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/CustomerParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Customer Contact for the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/CustomerParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Customer's Requester Contact for the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/CustomerParty/RequesterContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Customer's Planner Contact for the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/CustomerParty/PlannerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Customer's Buyer Contact for the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/CustomerParty/BuyerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Customer's Receiving Contact for the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/CustomerParty/ReceivingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>SupplierPartyMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Supplier Party for the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/SupplierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/SupplierPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/SupplierParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - this is not an internal location</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/SupplierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Supplier's Sales Contact for the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/SupplierParty/SalesContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Supplier's Shipping Contact for the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/SupplierParty/ShippingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Supplier's Customer Service Contact for the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/SupplierParty/CustomerServiceContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>Shipment</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Split Shipment ID for this Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentHeader/SplitShipment/ShipmentReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Shipment/ShipmentHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Item shipped on the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentItem/ItemID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Check with Pat</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentItem/OrderQuantityDistribution/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>ProjectExtension</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Check with Pat</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentItem/OrderQuantityDistribution/ProjectExtensionReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectExtension/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Check with Pat</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentItem/ShippedQuantityDistribution/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>ProjectExtension</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Check with Pat</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentItem/ShippedQuantityDistribution/ProjectExtensionReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectExtension/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>PurchaseOrder</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Purchase Order Linked to Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentItem/PurchaseOrderReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/PurchaseOrder/PurchaseOrderHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>SalesOrder</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Sales Order linked to Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentItem/SalesOrderReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>ProjectContract</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentItem/ProjectContractReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectContract/ProjectContractHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentItem/Substitution/Components/ItemID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>BillOfMaterials</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentItem/Substitution/Components/BillOfMaterialsReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentItem/FreightItemID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Component Item on the Shipment Item</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentItem/Components/ItemID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>BillOfMaterials</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Check with Pat</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentItem/Components/BillOfMaterialsReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Packaging Material on the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentUnit/PackingMaterial/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Shipping Material on the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentUnit/ShippingMaterial/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Shipment Unit Container's Shipping Material</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentUnit/ShipmentUnitContainer/ShippingMaterial/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Shipment Unit Item on the Shipment</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentUnit/ShipmentUnitItem/ItemID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Check with Pat</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentUnit/ShipmentUnitItem/OrderQuantityDistribution/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>ProjectExtension</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Check with Pat</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentUnit/ShipmentUnitItem/OrderQuantityDistribution/ProjectExtensionReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectExtension/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>PurchaseOrder</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Purchase Order Linked to Shipment Unit</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentUnit/ShipmentUnitItem/PurchaseOrderReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/PurchaseOrder/PurchaseOrderHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>SalesOrder</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Sales Order linked to Shipment Unit</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentUnit/ShipmentUnitItem/SalesOrderReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Freight Item on the Shipment Unit</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Shipment/ShipmentUnit/ShipmentUnitItem/FreightItemID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

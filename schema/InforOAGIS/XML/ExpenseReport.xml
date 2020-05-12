@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.8"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>ExpenseReport</NounName>
+<NounType>Transactional</NounType>
+<Version> 2.13.8</Version> 
+<IDXPath>/*/DataArea/ExpenseReport/ExpenseReportHeader/DocumentID[1]/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/ExpenseReport/ExpenseReportHeader/DocumentID[1]/ID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath>/*/DataArea/ExpenseReport/ExpenseReportHeader/DocumentID[1]/ID[not (@schemeName)]/@location</IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/ExpenseReport/ExpenseReportHeader/Description | /*/DataArea/ExpenseReport/ExpenseReportHeader/Description/@languageID</DescriptionXPath>
+<RevisionXPath>/*/DataArea/ExpenseReport/ExpenseReportHeader/DocumentID[1]/ID[not (@schemeName)]/following-sibling::RevisionID</RevisionXPath>
+<VariationXPath>/*/DataArea/ExpenseReport/ExpenseReportHeader/DocumentID[1]/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/ExpenseReport/ExpenseReportHeader/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/ExpenseReport/ExpenseReportHeader/DocumentDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Acknowledge</SupportedVerb>
+<SupportedVerb>Get</SupportedVerb>
+<SupportedVerb>Process</SupportedVerb>
+<SupportedVerb>Show</SupportedVerb>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>Personnel</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportHeader/PersonnelReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Personnel/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportHeader/Overage/OverageAllocation/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportHeader/CreatedByID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportHeader/ReviewerPerson/IDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/LineItemization/ExpenseAllocation/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/LineItemization/ExpenseAllocation/ReviewerPerson/IDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/LineItemization/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>AccountingChart</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/LineItemization/DistributedTax/Distribution/GLAccount/AccountingChartReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/AccountingChart/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ChartOfAccounts</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/LineItemization/DistributedTax/Distribution/GLAccount/ChartOfAccountsReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ChartOfAccounts[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/LineItemization/DistributedTax/Distribution/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>SupplierPartyMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/LineItemization/SupplierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/SupplierPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/LineItemization/SupplierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/LineItemization/SupplierParty/SalesContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/LineItemization/SupplierParty/ShippingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/LineItemization/SupplierParty/CustomerServiceContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/ExpenseAllocation/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/ExpenseAllocation/ReviewerPerson/IDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/Guest/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/Guest/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/Overage/OverageAllocation/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>AccountingChart</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/Overage/OverageAllocation/GLAccount/AccountingChartReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/AccountingChart/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ChartOfAccounts</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/Overage/OverageAllocation/GLAccount/ChartOfAccountsReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ChartOfAccounts[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>AccountingChart</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/DistributedTax/Distribution/GLAccount/AccountingChartReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/AccountingChart/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ChartOfAccounts</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/DistributedTax/Distribution/GLAccount/ChartOfAccountsReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ChartOfAccounts[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/DistributedTax/Distribution/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>SupplierPartyMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/SupplierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/SupplierPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/SupplierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/SupplierParty/SalesContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/SupplierParty/ShippingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/SupplierParty/CustomerServiceContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/ExpenseReport/ExpenseReportLine/ReviewerPerson/IDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.1"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>BillOfMaterials</NounName>
+<NounType>MasterData</NounType>
+<Version> 2.13.1</Version> 
+<IDXPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/DocumentID[1]/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/DocumentID[1]/ID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/DocumentID[1]/ID[not (@schemeName)]/@location</IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/Description | /*/DataArea/BillOfMaterials/BillOfMaterialsHeader/Description/@languageID</DescriptionXPath>
+<RevisionXPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/DocumentID[1]/ID[not (@schemeName)]/following-sibling::RevisionID</RevisionXPath>
+<VariationXPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/DocumentID[1]/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/DocumentDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Acknowledge</SupportedVerb>
+<SupportedVerb>Get</SupportedVerb>
+<SupportedVerb>Process</SupportedVerb>
+<SupportedVerb>Show</SupportedVerb>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Output Item for the BOM</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/OutputItem/ItemID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>UOMGroup</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>UoM group of output item</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/OutputItem/UOMGroupReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/UOMGroup/ID</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Work center for the operation</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/OperationReference/WorkCenterID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>BillOfMaterials</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Parent Bill of Material</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/ParentBillOfMaterialsReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Location?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Project of the output item</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>SupplierPartyMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Supplier needed in BoM?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/PackagingUnit/SupplierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/SupplierPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/PackagingUnit/SupplierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Contact in BoM needed?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/PackagingUnit/SupplierParty/SalesContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Contact in BoM needed?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/PackagingUnit/SupplierParty/ShippingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Contact in BoM needed?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/PackagingUnit/SupplierParty/CustomerServiceContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>CustomerPartyMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Customer for the item</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/PackagingUnit/CustomerParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/CustomerPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Relationship not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/PackagingUnit/CustomerParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Contact in BoM needed?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/PackagingUnit/CustomerParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Contact in BoM needed?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/PackagingUnit/CustomerParty/RequesterContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Contact in BoM needed?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/PackagingUnit/CustomerParty/PlannerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Contact in BoM needed?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/PackagingUnit/CustomerParty/BuyerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Contact in BoM needed?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/PackagingUnit/CustomerParty/ReceivingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>HandlingGroup</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Handling group of the packaging unit</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/PackagingUnit/HandlingGroupID</FromNounPath>
+<ToNounPath>/*/DataArea/HandlingGroup/HandlingGroupHeader/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Packaging material of the item</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/PackagingUnit/PackingMaterial/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Consumed item</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsLine/ConsumedItem/ItemID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>BillOfMaterials</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Bill of Material of line item</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsLine/BillOfMaterialsReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Check with Pat</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsLine/BillOfMaterialsReference/QuantityDistribution/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>ProjectExtension</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Project Extension of the output item</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsLine/BillOfMaterialsReference/QuantityDistribution/ProjectExtensionReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectExtension/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Same as row 73</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsLine/Supercedes/Components/ItemID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>BillOfMaterials</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Bill of Material of Superceding item</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsLine/Supercedes/Components/BillOfMaterialsReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Same as row 74</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsLine/Substitutions/Components/ItemID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>BillOfMaterials</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Bill of Material of substitution component</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsLine/Substitutions/Components/BillOfMaterialsReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Work center for the operation</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillOfMaterials/BillOfMaterialsLine/OperationReference/WorkCenterID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

@@ -1,0 +1,4476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+
+            ** OAGIS® Revision: 9.2  ** 
+            ** Date: 11 May 2007 **
+            ** Copyright 1997-2007, All Rights Reserved **
+
+            This is an OAGIS® BOD XML Schema (XSD) Definition.
+
+            License information for this file is provided in the file **OAGi License Agreement.txt** that is provided with this download package.
+
+            For support, more information, or to report implementation bugs, please contact the Open Applications Group at xml@openapplications.org.
+
+            XML Schema
+
+-->
+ <!--
+ © Copyright 2011 Infor Global Solutions Technology GmbH and/or its affiliates and subsidiaries. All rights reserved. The
+word and design marks set forth herein are trademarks and/or registered trademarks of Infor Global Solutions
+Technology GmbH and/or its affiliates and subsidiaries. All rights reserved. All other trademarks listed herein
+are the property of their respective owners.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schema.infor.com/InforOAGIS/2"
+targetNamespace="http://schema.infor.com/InforOAGIS/2" elementFormDefault="qualified" attributeFormDefault="unqualified" 
+version="2.13.4"><xs:element name="QualitySpecification" type="QualitySpecificationType"/>
+<xs:complexType name="QualitySpecificationType">
+<xs:sequence>
+<xs:element name="QualitySpecificationHeader" minOccurs="0" maxOccurs="1" type="QualitySpecificationHeaderType">
+</xs:element>
+<xs:element name="QualitySpecificationLine" minOccurs="0" maxOccurs="unbounded" type="QualitySpecificationLineType">
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="QualitySpecificationHeaderType">
+<xs:sequence>
+<xs:element name="SpecificationID" minOccurs="0" maxOccurs="unbounded" type="SpecificationIDType">
+<xs:annotation>
+<xs:documentation>
+The unique ID for this QualitySpecification within an accounting entity.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="DisplayID" minOccurs="0" maxOccurs="1" type="String1BaseType">
+<xs:annotation>
+<xs:documentation>
+The ID for this object formatted as closely as possible to the way the customer would expect to see the ID. This element is used for display only and has no other purpose.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="LastModificationDateTime" minOccurs="0" maxOccurs="1" type="UnionType">
+<xs:annotation>
+<xs:documentation>
+The datetime on which the object was last modified.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="LastModificationPerson" minOccurs="0" maxOccurs="1" type="LastModificationPersonType">
+<xs:annotation>
+<xs:documentation>
+A reference tot he person that took the action that caused this BOD to be published.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="DocumentDateTime" minOccurs="0" maxOccurs="1" type="UnionType">
+<xs:annotation>
+<xs:documentation>
+The date that document was created within the system of record.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Description" minOccurs="0" maxOccurs="unbounded" type="DescriptionType">
+<xs:annotation>
+<xs:documentation>
+Free form text that describes the object and repeats as needed to provide support for multilingual descriptions
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Note" minOccurs="0" maxOccurs="unbounded" type="NoteType">
+<xs:annotation>
+<xs:documentation>
+A freeform note
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Status" minOccurs="0" maxOccurs="1" type="StatusType">
+<xs:annotation>
+<xs:documentation>
+Indicates the current state of the associated object.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="EffectiveTimePeriod" minOccurs="0" maxOccurs="1" type="EffectiveTimePeriodType">
+<xs:annotation>
+<xs:documentation>
+Indicates the time period in which the associated component is effective.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="unbounded" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the object in which associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:choice>
+<xs:element name="Item" minOccurs="0" maxOccurs="1" type="ItemType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Item associated with the Line or Detail of a transaction. The item provides the details of the generic Item component information.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="QualityGroup" minOccurs="0" maxOccurs="1" type="QualityGroupType">
+</xs:element>
+</xs:choice>
+<xs:element name="CustomSpecificationIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+</xs:element>
+<xs:element name="ValidUses" minOccurs="0" maxOccurs="unbounded" type="ValidUsesType">
+<xs:annotation>
+<xs:documentation>
+Information about cases where this specification is valid.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="AutoAttachIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+</xs:element>
+<xs:element name="ProcessBlockingMethodCode" minOccurs="0" maxOccurs="1" type="ProcessBlockingMethodCodeType">
+<xs:annotation>
+<xs:documentation>
+The way in which production, purchase, or sales, is stopped or
+				controlled in order to carry out inspections. Extensible code list. Valid values
+				include: Continue, Block, BlockOperation,
+				BlockCompletedOperation.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="RetestIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Specifies whether the current specification is used 				for standard retesting of samples. 
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="ReclassifyIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+</xs:element>
+<xs:element name="BlendingSpecIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Indicates whether the specification must be used when a blending transaction occurs. 
+			
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="GrowerAgreementIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Specifies that this is part of a grower agreement where the quality spec for the grower is defined by this Specification.
+				Grower agreement is where a manufacturer has a contract with a grower which defines what to grow, where, and what quality to deliver it with  
+			
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="RetestTransferReceiptIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Specifies whether retesting is required when a transfer orderis received in the receiving warehouse.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="LabManagerPerson" minOccurs="0" maxOccurs="1" type="LabManagerPersonType">
+</xs:element>
+<xs:element name="CopiesNumber" minOccurs="0" maxOccurs="1" type="PositiveInteger1BaseType">
+</xs:element>
+<xs:element name="UserArea" minOccurs="0" maxOccurs="1" type="UserAreaType">
+<xs:annotation>
+<xs:documentation>
+Allows the user of
+				OAGIS to extend the specification in order to provide additional information that is
+				not captured in OAGIS.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="SpecificationIDType">
+<xs:sequence>
+<xs:element name="ID" minOccurs="1" maxOccurs="1" type="IDType">
+<xs:annotation>
+<xs:documentation>
+An identifier for an object. The ID has a number of possible attributes to further define how it should be used..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="IDType">
+<xs:simpleContent>
+<xs:extension base="NormalizedStringBaseType">
+<xs:attribute name="accountingEntity" type="StringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="variationID" type="IntegerBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The number of times this object has been published with these attributes for the accounting entity and location.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="lid" type="AnyURIBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The LID of the system where the object can be maintained. This can be used by BIS to help automate the drill back process.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="LastModificationPersonType">
+<xs:sequence>
+<xs:element name="IDs" minOccurs="0" maxOccurs="1" type="IDsType">
+<xs:annotation>
+<xs:documentation>
+A container that holds a list of IDs without RevisionID.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="1" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the object in which associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="IDsType">
+<xs:sequence>
+<xs:element name="ID" minOccurs="0" maxOccurs="unbounded" type="ID1Type">
+<xs:annotation>
+<xs:documentation>
+An identifier for an object. The ID has a number of possible attributes to further define how it should be used..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ID1Type">
+<xs:simpleContent>
+<xs:extension base="NormalizedString1BaseType">
+<xs:attribute name="accountingEntity" type="StringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="lid" type="AnyURIBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The LID of the system where the object can be maintained. This can be used by BIS to help automate the drill back process.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="DescriptionType">
+<xs:simpleContent>
+<xs:extension base="String3BaseType">
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="NoteType">
+<xs:simpleContent>
+<xs:extension base="String4BaseType">
+<xs:attribute name="noteID" type="NormalizedString2BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+An optional identifier, that when used can uniquely identify each instance of a note within a BOD. It is only unique within the context of the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="use" type="NormalizedString3BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+Indicates if the note should be published externally or if it is for internal use only. It may have the values &apos;&apos;Internal&apos;&apos; and &apos;&apos;External&apos;&apos;.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="author" type="String2BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+Person who created the note
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="entryDateTime" type="UnionType" use="optional">
+<xs:annotation>
+<xs:documentation>
+Entry date and time in GMT.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="status" type="String5BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+Status of a note.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="type" type="NormalizedString4BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+Identifies where the note is used and is associated to an Infor defined code list, &apos;&apos;NoteType,&apos;&apos; that indicates the processes that might use the note.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="StatusType">
+<xs:sequence>
+<xs:element name="Code" minOccurs="0" maxOccurs="1" type="CodeType">
+<xs:annotation>
+<xs:documentation>
+Code used to define the status of this document. See the code list associated to this code for the list of valid codes and their meanings.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="EffectiveDateTime" minOccurs="0" maxOccurs="1" type="UnionType">
+<xs:annotation>
+<xs:documentation>
+date and time this document becomes effective
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="ReasonCode" minOccurs="0" maxOccurs="1" type="ReasonCodeType">
+<xs:annotation>
+<xs:documentation>
+Identifies the reason for an activity
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="ArchiveIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Indicator that determines if the BOD has been archived. The default value is false so there is no need to explicitly set this to false.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CodeType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString5BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="ReasonCodeType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString1BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="accountingEntity" type="String6BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="EffectiveTimePeriodType">
+<xs:sequence>
+<xs:element name="StartDateTime" minOccurs="0" maxOccurs="1" type="UnionType">
+<xs:annotation>
+<xs:documentation>
+The timestamp marking the beginning of a time period during which a related entity or status is effective or applicable.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:choice>
+<xs:element name="Duration" minOccurs="0" maxOccurs="1" type="DurationBaseType">
+<xs:annotation>
+<xs:documentation>
+Indicates the duration of time as represented by ISO 8601. Where the value space is a six dimensional space where the coordinates designate the Gregorian year, month, day, hour, minute, and second. The number of seconds can include decimal digits to arbitary pecision.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="EndDateTime" minOccurs="0" maxOccurs="1" type="UnionType">
+<xs:annotation>
+<xs:documentation>
+Is the ending timestamp of the event. This can be used in place of the Duration, but not with it.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:choice>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="NameType">
+<xs:simpleContent>
+<xs:extension base="String2BaseType">
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="ItemType">
+<xs:sequence>
+<xs:choice>
+<xs:sequence>
+<xs:element name="ItemID" minOccurs="0" maxOccurs="unbounded" type="ItemIDType">
+<xs:annotation>
+<xs:documentation>
+Is the primary item Identifier associated with the given item within the scope of the given integration as provided by the Party or entity that has created this document instance.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="UPCID" minOccurs="0" maxOccurs="1" type="NormalizedString8BaseType">
+<xs:annotation>
+<xs:documentation>
+UPC ID - This is the UPC-A general purpose code. It has 1 digit for a system number, 5 digits for the manufacturer number, 5 digits for the product number, and one check sum digit.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="EPCID" minOccurs="0" maxOccurs="1" type="NormalizedString9BaseType">
+<xs:annotation>
+<xs:documentation>
+Electronic Product CodeLike the Universal Product Code (UPC) or bar code, the Electronic Product Code(EPC) is the fundamental identifier for a physical object in a EPC Network. The EPC identifies the manufacturer, product, version and serial number, and uses an extra set of digits to identify unique items. The EPC Tag Data Standards Specification Version 1.1 defines the encoding of the Electronic Product Code onto the RFID chip, as well as how it is encoded for use in the information systems layer of the EPC Network (for example the RFID Information Server).
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="GTIN" minOccurs="0" maxOccurs="unbounded" type="GTINType">
+<xs:annotation>
+<xs:documentation>
+GTIN describes a family of GS1 (EAN.UCC) global data structures that employ 14 digits and can be encoded into various types of data carriers. Currently, GTIN is used exclusively within bar codes, but it could also be used in other data carriers such as radio frequency identification (RFID).  The GTIN is only a term and does not impact any existing standards, nor does it place any additional requirements on scanning hardware.   For North American companies, the UPC is an existing form of the GTIN.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:choice>
+<xs:element name="ServiceIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Identifies if the Item is a Service.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Description" minOccurs="0" maxOccurs="unbounded" type="Description1Type">
+<xs:annotation>
+<xs:documentation>
+Describes the associated item.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ItemIDType">
+<xs:sequence>
+<xs:element name="ID" minOccurs="1" maxOccurs="1" type="ID2Type">
+<xs:annotation>
+<xs:documentation>
+An identifier for an object. The ID has a number of possible attributes to further define how it should be used..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="RevisionID" minOccurs="0" maxOccurs="1" type="NormalizedString7BaseType">
+<xs:annotation>
+<xs:documentation>
+Identifies the engineering change revision that this entity addresses.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ID2Type">
+<xs:simpleContent>
+<xs:extension base="NormalizedString1BaseType">
+<xs:attribute name="schemeName" type="String2BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+When no schemeName exists this is the default ID for the enterprise and the value of the ID must, when combined with the accounting entity when present,  uniquely identify this item throughout the enterprise.  
+
+Valid values for the Item are Customer, Supplier, Manufacturer, SKU, and Duplicate.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="schemeAgencyID" type="NormalizedString6BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The ID of the entity that created the ID. When the schemeName is &quot;&quot;Customer&quot;&quot; or &quot;&quot;Supplier&quot;&quot; then this value is the ID of the customer or supplier.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="accountingEntity" type="StringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="lid" type="AnyURIBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The LID of the system where the object can be maintained. This can be used by BIS to help automate the drill back process.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="GTINType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString10BaseType">
+<xs:attribute name="schemeName" type="String7BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+GTIN is one of the multiple GS1 ID keys used for items. 
+
+When no schemeName is specified, the receiving application must try to identify the type of GTIN from the ID itself (like how it used to be when only a single GTIN could be specified in earlier versions).
+
+There could be multiple GTINs available in some cases; if there is a need to publish all these, then this attribute must be used. Valid values are GTIN-8, GTIN-12, GTIN-13, GTIN-14.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="Description1Type">
+<xs:simpleContent>
+<xs:extension base="String8BaseType">
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="QualityGroupType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString11BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="accountingEntity" type="String6BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="ValidUsesType">
+<xs:sequence>
+<xs:element name="CustomerParty" minOccurs="0" maxOccurs="1" type="CustomerPartyType">
+<xs:annotation>
+<xs:documentation>
+Is the organization 	that is the end customer of the goods or services being provided in the associated transaction.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="ShipToParty" minOccurs="0" maxOccurs="1" type="ShipToPartyType">
+<xs:annotation>
+<xs:documentation>
+Identifies the ShipToParty for the document or the line.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="SupplierParty" minOccurs="0" maxOccurs="1" type="SupplierPartyType">
+<xs:annotation>
+<xs:documentation>
+Contains the set of information about a Supplier Party necessary to execute and administer orders or requests.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="ShipFromParty" minOccurs="0" maxOccurs="1" type="ShipFromPartyType">
+<xs:annotation>
+<xs:documentation>
+Identifies the party that the goods or services are being shipped or sent from.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="ToWarehouse" minOccurs="0" maxOccurs="1" type="ToWarehouseType">
+</xs:element>
+<xs:element name="FromWarehouse" minOccurs="0" maxOccurs="1" type="FromWarehouseType">
+</xs:element>
+<xs:element name="Location" minOccurs="0" maxOccurs="1" type="Location2Type">
+<xs:annotation>
+<xs:documentation>
+Maintains the locations or sites (offices, warehouses, plants) within the enterprise.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="CountryAndPercent" minOccurs="0" maxOccurs="1" type="CountryAndPercentType">
+<xs:annotation>
+<xs:documentation>
+Country of Origin information including a country code and a percentage.It is a collection with percentages and source and assembly. Many industries use standard country codes for Country of Origin. When there is a need to use custom codes (for example with Automotive), use element &apos;ComplexCountryOfOriginCode&apos;. For example country of origin UC7M indicates at least 70% U.S. and Canadian content but assembled in Mexico.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CustomerPartyType">
+<xs:sequence>
+<xs:element name="PartyIDs" minOccurs="0" maxOccurs="1" type="PartyIDsType">
+<xs:annotation>
+<xs:documentation>
+Contains the set of possible identifiers for an associated Party.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="unbounded" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the object in which associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Communication" minOccurs="0" maxOccurs="unbounded" type="CommunicationType">
+<xs:annotation>
+<xs:documentation>
+Identifies the means of sending messages, orders, etc., including telephone, email, etc..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PartyIDsType">
+<xs:sequence>
+<xs:element name="ID" minOccurs="0" maxOccurs="unbounded" type="ID3Type">
+<xs:annotation>
+<xs:documentation>
+An identifier for an object. The ID has a number of possible attributes to further define how it should be used..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="TaxID" minOccurs="0" maxOccurs="unbounded" type="TaxIDType">
+<xs:annotation>
+<xs:documentation>
+Tax Identification Number of the party - Identifier for a business or individual provided by the government. This maybe a FIIN, Social Security Number, or Drivers License Number to name a few.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="SCACID" minOccurs="0" maxOccurs="1" type="SCACIDType">
+<xs:annotation>
+<xs:documentation>
+Identifier for Standard Carrier Alpha Code .
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="DUNSID" minOccurs="0" maxOccurs="1" type="NormalizedString12BaseType">
+<xs:annotation>
+<xs:documentation>
+Identifier for business provided by Dun and Bradstreet.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="CAGEID" minOccurs="0" maxOccurs="1" type="CAGEIDType">
+<xs:annotation>
+<xs:documentation>
+The Commercial and Government Entity (CAGE) code is a five-character ID number used extensively within the Department of Defense to identify specific companies.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="DODAACID" minOccurs="0" maxOccurs="1" type="DODAACIDType">
+<xs:annotation>
+<xs:documentation>
+DoDAAC (Dept. of Defense Activity Address Code) is a unique six-position, alphanumeric string that uniquely identifies departments, locations, units, and so on within the military. This identifier serves the same purpose as a company
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="BICID" minOccurs="0" maxOccurs="1" type="BICIDType">
+<xs:annotation>
+<xs:documentation>
+The Bank Identifier Code is a unique address which, in telecommunication messages, identifies precisely the financial institutions involved in financial transactions.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ID3Type">
+<xs:simpleContent>
+<xs:extension base="NormalizedString1BaseType">
+<xs:attribute name="schemeName" type="String2BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+When no schemeName exists this is the default ID for the enterprise at the level where this object is maintained. The value of the ID must uniquely identify this object throughout the enterprise within the scope of the level where it is maintained (tenant, accounting entity or location). The specific values for this attribute are determined by the individual noun.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="accountingEntity" type="StringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="lid" type="AnyURIBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The LID of the system where the object can be maintained. This can be used by BIS to help automate the drill back process.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="TaxIDType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString6BaseType">
+<xs:attribute name="schemeName" type="String7BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+When no schemeName exists this is the default ID for the enterprise at the level where this object is maintained. The value of the ID must uniquely identify this object throughout the enterprise within the scope of the level where it is maintained (tenant, accounting entity or location). The specific values for this attribute are determined by the individual noun.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="schemeAgencyName" type="String2BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The name of the entity that created the ID. This is only used when the ID is defined externally and there is no ID for that agency - like for government agencies.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="lid" type="AnyURI1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The LID of the system where the object can be maintained. This can be used by BIS to help automate the drill back process.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="SCACIDType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString6BaseType">
+<xs:attribute name="schemeName" type="String7BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+When no schemeName exists this is the default ID for the enterprise at the level where this object is maintained. The value of the ID must uniquely identify this object throughout the enterprise within the scope of the level where it is maintained (tenant, accounting entity or location). The specific values for this attribute are determined by the individual noun.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="location" type="String6BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The location that is associated with the maintenance of this instance of the noun. This attribute must not be included on the ID of objects that are maintained at the tenant or accounting entity level.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="variationID" type="IntegerBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The number of times this object has been published with these attributes for the accounting entity and location.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="lid" type="AnyURI1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The LID of the system where the object can be maintained. This can be used by BIS to help automate the drill back process.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="CAGEIDType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString6BaseType">
+<xs:attribute name="lid" type="AnyURI1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The LID of the system where the object can be maintained. This can be used by BIS to help automate the drill back process.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="DODAACIDType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString6BaseType">
+<xs:attribute name="lid" type="AnyURI1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The LID of the system where the object can be maintained. This can be used by BIS to help automate the drill back process.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="BICIDType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString13BaseType">
+<xs:attribute name="lid" type="AnyURI1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The LID of the system where the object can be maintained. This can be used by BIS to help automate the drill back process.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="CommunicationType">
+<xs:sequence>
+<xs:element name="ChannelCode" minOccurs="0" maxOccurs="1" type="ChannelCodeType">
+<xs:annotation>
+<xs:documentation>
+Identifies the channel in which the associated entity comes. phone, email, address, skype, ICQ, ...
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="UseCode" minOccurs="0" maxOccurs="1" type="UseCodeType">
+<xs:annotation>
+<xs:documentation>
+Code identifying the usage of the contact point e.g. business, private, etc.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:choice>
+<xs:sequence>
+<xs:element name="CountryDialing" minOccurs="0" maxOccurs="1" type="String9BaseType">
+<xs:annotation>
+<xs:documentation>
+The country dialing code for a communication number. Only a few applications support this value so it may be stored as a prefix on the DialNumber. This is the approach taken by ICB.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="AreaDialing" minOccurs="0" maxOccurs="1" type="String9BaseType">
+<xs:annotation>
+<xs:documentation>
+The area dialing code for a communication number. Area code is specific to the North American dialing pattern. The area code may be included in the dialing number or carried separately. If carried separately in an environment that supports a country code, the country access code must be carried in the CountryDialing element and not stored as a prefix on the DialNumber.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="DialNumber" minOccurs="0" maxOccurs="1" type="String10BaseType">
+<xs:annotation>
+<xs:documentation>
+The commication number, not including country dialing or area dialing codes.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Extension" minOccurs="0" maxOccurs="1" type="String9BaseType">
+<xs:annotation>
+<xs:documentation>
+The extension of the assoicated communication number.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Access" minOccurs="0" maxOccurs="1" type="String9BaseType">
+<xs:annotation>
+<xs:documentation>
+The text that permits access to the electronic network of the associated communication number such as telephone network, for example 9, *70.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+<xs:element name="Address" minOccurs="0" maxOccurs="unbounded" type="AddressType">
+<xs:annotation>
+<xs:documentation>
+A physical address usually including street name, number, city, country and postal code. Can be represented using a more complex format when necessary.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:sequence>
+<xs:element name="URI" minOccurs="0" maxOccurs="1" type="AnyURIBaseType">
+<xs:annotation>
+<xs:documentation>
+Uniform Resource Identifier. Identifies files and locations on the web.  This can also be used for email address under contact.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="HTMLPreferredIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Indicates that the associated entity preferrs HTML format.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:choice>
+<xs:element name="Preference" minOccurs="0" maxOccurs="1" type="PreferenceType">
+<xs:annotation>
+<xs:documentation>
+Holds preference information for the instance of the object being referenced.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="sequence" type="PositiveIntegerBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The sequence attribute is used for the ordering of elements within a document. It is not intended to be used as an identifier.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="preferredIndicator" type="BooleanBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+Identifies the preferred communication method to use.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:complexType>
+<xs:complexType name="ChannelCodeType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString14BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity. Channel Code
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="UseCodeType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString15BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ListID for the code that it is associated with. Communication Use Codes
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="AddressType">
+<xs:sequence>
+<xs:choice>
+<xs:element name="AddressLine" minOccurs="0" maxOccurs="unbounded" type="AddressLineType">
+<xs:annotation>
+<xs:documentation>
+Holds the lines that make up the address.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:sequence>
+<xs:element name="BuildingNumber" minOccurs="0" maxOccurs="1" type="BuildingNumberType">
+<xs:annotation>
+<xs:documentation>
+The Number of the building or house on the street that identifies the location. For example, Building 300 on Standards Parkway.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="BuildingName" minOccurs="0" maxOccurs="1" type="BuildingNameType">
+<xs:annotation>
+<xs:documentation>
+The building or house name on the street that identifies the location.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="StreetName" minOccurs="0" maxOccurs="1" type="StreetNameType">
+<xs:annotation>
+<xs:documentation>
+The street name of the building or house that identifies the location.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Unit" minOccurs="0" maxOccurs="1" type="UnitType">
+<xs:annotation>
+<xs:documentation>
+The unit of the building or house that identifies the location.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Floor" minOccurs="0" maxOccurs="1" type="FloorType">
+<xs:annotation>
+<xs:documentation>
+The floor of the building or house that identifies the location.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="PostOfficeBox" minOccurs="0" maxOccurs="1" type="PostOfficeBoxType">
+<xs:annotation>
+<xs:documentation>
+The post office box that is used for the location.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:choice>
+<xs:element name="CitySubDivisionName" minOccurs="0" maxOccurs="unbounded" type="String2BaseType">
+<xs:annotation>
+<xs:documentation>
+Qualifies the further division of the City, example a city may have many districts or Boroughs.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="CityName" minOccurs="0" maxOccurs="1" type="String2BaseType">
+<xs:annotation>
+<xs:documentation>
+Identifies the town or the city
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="CountrySubDivisionCode" minOccurs="0" maxOccurs="unbounded" type="CountrySubDivisionCodeType">
+<xs:annotation>
+<xs:documentation>
+Qualifies the further division of the Country. These may be Districts, Regions, States, Provinces etc. A possible list of values is as specified in ISO 3166-2.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="CountryCode" minOccurs="0" maxOccurs="1" type="CountryCodeType">
+<xs:annotation>
+<xs:documentation>
+Country in which the Address exists. The list of values is specified in ISO 3166-2.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="PostalCode" minOccurs="0" maxOccurs="1" type="PostalCodeType">
+<xs:annotation>
+<xs:documentation>
+Postal Code of the Address.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="languageCode" type="NormalizedString11BaseType" use="optional">
+</xs:attribute>
+<xs:attribute name="type" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The value may be &apos;&apos;text&apos;&apos; or &apos;&apos;discrete&apos;&apos;. Text indicates that the Address elements are used and discrete indicates that the &apos;&apos;Street&apos;&apos; and &apos;&apos;Number&apos;&apos; elements are used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:complexType>
+<xs:complexType name="AddressLineType">
+<xs:simpleContent>
+<xs:extension base="String2BaseType">
+<xs:attribute name="sequence" type="PositiveIntegerBaseType" use="required">
+<xs:annotation>
+<xs:documentation>
+The sequence number of this address line.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="BuildingNumberType">
+<xs:simpleContent>
+<xs:extension base="String11BaseType">
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="BuildingNameType">
+<xs:simpleContent>
+<xs:extension base="String5BaseType">
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="StreetNameType">
+<xs:simpleContent>
+<xs:extension base="String12BaseType">
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="UnitType">
+<xs:simpleContent>
+<xs:extension base="String12BaseType">
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="FloorType">
+<xs:simpleContent>
+<xs:extension base="String12BaseType">
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="PostOfficeBoxType">
+<xs:simpleContent>
+<xs:extension base="String11BaseType">
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="CountrySubDivisionCodeType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString1BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="CountryCodeType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString16BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ListID for the code that it is associated with.  Countries
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="PostalCodeType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString17BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="accountingEntity" type="String6BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="PreferenceType">
+<xs:sequence>
+<xs:element name="Sequence" minOccurs="0" maxOccurs="1" type="PositiveInteger1BaseType">
+<xs:annotation>
+<xs:documentation>
+The numeric ranking of this element in a collection of like elements where 1 is the preferred option.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Indicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Indicates that this element is the prefered element in a collection of like elements.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ShipToPartyType">
+<xs:sequence>
+<xs:element name="PartyIDs" minOccurs="0" maxOccurs="1" type="PartyIDsType">
+<xs:annotation>
+<xs:documentation>
+Contains the set of possible identifiers for an associated Party.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="unbounded" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the object in which associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Location" minOccurs="0" maxOccurs="unbounded" type="LocationType">
+<xs:annotation>
+<xs:documentation>
+Maintains the locations or sites (offices, warehouses, plants) within the enterprise.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Communication" minOccurs="0" maxOccurs="unbounded" type="CommunicationType">
+<xs:annotation>
+<xs:documentation>
+Identifies the means of sending messages, orders, etc., including telephone, email, etc..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="LocationType">
+<xs:sequence>
+<xs:element name="ID" minOccurs="0" maxOccurs="unbounded" type="ID4Type">
+<xs:annotation>
+<xs:documentation>
+Identifier of the given location within the scope of the integration
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="unbounded" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the Location
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Address" minOccurs="0" maxOccurs="unbounded" type="Address1Type">
+<xs:annotation>
+<xs:documentation>
+Address for the given location
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Description" minOccurs="0" maxOccurs="unbounded" type="Description1Type">
+<xs:annotation>
+<xs:documentation>
+Free form text that describes the object and repeats as needed to provide support for multilingual descriptions
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="type" type="NormalizedString18BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+From the LocationType code list, an extensible list that includes Warehouse, Manufacturing, Purchasing, Sales, Financial, Others.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:complexType>
+<xs:complexType name="ID4Type">
+<xs:simpleContent>
+<xs:extension base="NormalizedString7BaseType">
+<xs:attribute name="schemeName" type="String2BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+System, or not used
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="schemeAgencyID" type="NormalizedString6BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The ID of the System, Owner, Customer, Manufacturer or Supplier that uses this ID to reference this item, in the case where the ID is from another system, this is the LogicalID of that system.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="accountingEntity" type="StringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The ID of the accounting entity that is associated with this ID. Used with the global ID - no schemeNameAttribute.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="lid" type="AnyURIBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The logical ID of the system that is this SOR for this noun instance.. Used with the global ID- no schemeNameAttribute.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="Address1Type">
+<xs:sequence>
+<xs:element name="AttentionOfName" minOccurs="0" maxOccurs="unbounded" type="AttentionOfNameType">
+<xs:annotation>
+<xs:documentation>
+The name of the person to whom this document would be intended.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:choice>
+<xs:element name="AddressLine" minOccurs="0" maxOccurs="unbounded" type="AddressLine1Type">
+<xs:annotation>
+<xs:documentation>
+There are multiple methods of expressing an address line in OAGIS. The primary method supported by Infor will be a sequences collection of adderss lines. A more detailed address can be implemented and documented when the need arises. Only that actuall address lines should be included in these lines as the city, country sub-dicision, country and postal code are separate elements that should always be included in an address.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:sequence>
+<xs:element name="BuildingNumber" minOccurs="0" maxOccurs="1" type="BuildingNumberType">
+<xs:annotation>
+<xs:documentation>
+The Number of the building or house on the street that identifies the location. For example, Building 300 on Standards Parkway.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="BuildingName" minOccurs="0" maxOccurs="1" type="BuildingNameType">
+<xs:annotation>
+<xs:documentation>
+The building or house name on the street that identifies the location.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="StreetName" minOccurs="0" maxOccurs="1" type="StreetNameType">
+<xs:annotation>
+<xs:documentation>
+The street name of the building or house that identifies the location.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Unit" minOccurs="0" maxOccurs="1" type="UnitType">
+<xs:annotation>
+<xs:documentation>
+The unit of the building or house that identifies the location.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Floor" minOccurs="0" maxOccurs="1" type="FloorType">
+<xs:annotation>
+<xs:documentation>
+The floor of the building or house that identifies the location.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="PostOfficeBox" minOccurs="0" maxOccurs="1" type="PostOfficeBoxType">
+<xs:annotation>
+<xs:documentation>
+The post office box that is used for the location.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:choice>
+<xs:element name="CityName" minOccurs="0" maxOccurs="1" type="String2BaseType">
+<xs:annotation>
+<xs:documentation>
+The city must be provided for an address.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="CountrySubDivisionCode" minOccurs="0" maxOccurs="unbounded" type="CountrySubDivisionCodeType">
+<xs:annotation>
+<xs:documentation>
+Qualifies the further division of the Country. These may be Districts, Regions, States, Provinces etc. A possible list of values is as specified in ISO 3166-2.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="CountryCode" minOccurs="0" maxOccurs="1" type="CountryCodeType">
+<xs:annotation>
+<xs:documentation>
+CountryCode
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="PostalCode" minOccurs="0" maxOccurs="1" type="PostalCodeType">
+<xs:annotation>
+<xs:documentation>
+Postal Code of the Address.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Preference" minOccurs="0" maxOccurs="1" type="PreferenceType">
+<xs:annotation>
+<xs:documentation>
+Holds preference information for the instance of the object being referenced.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="languageCode" type="NormalizedString11BaseType" use="optional">
+</xs:attribute>
+<xs:attribute name="type" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The value may be &apos;&apos;text&apos;&apos; or &apos;&apos;discrete&apos;&apos;. Text indicates that the Address elements are used and discrete indicates that the &apos;&apos;Street&apos;&apos; and &apos;&apos;Number&apos;&apos; elements are used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:complexType>
+<xs:complexType name="AttentionOfNameType">
+<xs:simpleContent>
+<xs:extension base="String2BaseType">
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="AddressLine1Type">
+<xs:simpleContent>
+<xs:extension base="String2BaseType">
+<xs:attribute name="sequence" type="PositiveIntegerBaseType" use="required">
+<xs:annotation>
+<xs:documentation>
+The sequence number of an address.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="SupplierPartyType">
+<xs:sequence>
+<xs:element name="PartyIDs" minOccurs="0" maxOccurs="1" type="PartyIDsType">
+<xs:annotation>
+<xs:documentation>
+Contains the set of possible identifiers for an associated Party.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="unbounded" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the object in which associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Communication" minOccurs="0" maxOccurs="unbounded" type="CommunicationType">
+<xs:annotation>
+<xs:documentation>
+Identifies the means of sending messages, orders, etc., including telephone, email, etc..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ShipFromPartyType">
+<xs:sequence>
+<xs:element name="PartyIDs" minOccurs="0" maxOccurs="1" type="PartyIDsType">
+<xs:annotation>
+<xs:documentation>
+Contains the set of possible identifiers for an associated Party.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="unbounded" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the object in which associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Location" minOccurs="0" maxOccurs="unbounded" type="Location1Type">
+<xs:annotation>
+<xs:documentation>
+Maintains the locations or sites (offices, warehouses, plants) within the enterprise.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Communication" minOccurs="0" maxOccurs="unbounded" type="CommunicationType">
+<xs:annotation>
+<xs:documentation>
+Identifies the means of sending messages, orders, etc., including telephone, email, etc..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Location1Type">
+<xs:sequence>
+<xs:element name="ID" minOccurs="0" maxOccurs="unbounded" type="ID5Type">
+<xs:annotation>
+<xs:documentation>
+Identifier of the given location within the scope of the integration
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="unbounded" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the Location
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Address" minOccurs="0" maxOccurs="unbounded" type="Address1Type">
+<xs:annotation>
+<xs:documentation>
+Address for the given location
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="type" type="NormalizedString18BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+From the LocationType code list, an extensible list that includes Warehouse, Manufacturing, Purchasing, Sales, Financial, Others.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:complexType>
+<xs:complexType name="ID5Type">
+<xs:simpleContent>
+<xs:extension base="NormalizedString7BaseType">
+<xs:attribute name="accountingEntity" type="StringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The ID of the accounting entity that is associated with this ID. Used with the global ID - no schemeNameAttribute.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="lid" type="AnyURIBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The logical ID of the system that is this SOR for this noun instance.. Used with the global ID- no schemeNameAttribute.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="ToWarehouseType">
+<xs:sequence>
+<xs:element name="ID" minOccurs="0" maxOccurs="unbounded" type="ID6Type">
+<xs:annotation>
+<xs:documentation>
+An identifier for an object. The ID has a number of possible attributes to further define how it should be used..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="unbounded" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the object in which associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Description" minOccurs="0" maxOccurs="unbounded" type="DescriptionType">
+<xs:annotation>
+<xs:documentation>
+Free form text that describes the object and repeats as needed to provide support for multilingual descriptions
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ID6Type">
+<xs:simpleContent>
+<xs:extension base="NormalizedStringBaseType">
+<xs:attribute name="schemeName" type="String2BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+When no schemeName exists this is the default ID for the enterprise at the level where this object is maintained. The value of the ID must uniquely identify this object throughout the enterprise within the scope of the level where it is maintained (tenant, accounting entity or location). The specific values for this attribute are determined by the individual noun.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="accountingEntity" type="StringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="location" type="StringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The location that is associated with the maintenance of this instance of the noun. This attribute must not be included on the ID of objects that are maintained at the tenant or accounting entity level.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="variationID" type="IntegerBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The number of times this object has been published with these attributes for the accounting entity and location.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="lid" type="AnyURIBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The LID of the system where the object can be maintained. This can be used by BIS to help automate the drill back process.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="FromWarehouseType">
+<xs:sequence>
+<xs:element name="ID" minOccurs="0" maxOccurs="unbounded" type="ID6Type">
+<xs:annotation>
+<xs:documentation>
+An identifier for an object. The ID has a number of possible attributes to further define how it should be used..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="unbounded" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the object in which associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Description" minOccurs="0" maxOccurs="unbounded" type="DescriptionType">
+<xs:annotation>
+<xs:documentation>
+Free form text that describes the object and repeats as needed to provide support for multilingual descriptions
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Location2Type">
+<xs:sequence>
+<xs:element name="ID" minOccurs="0" maxOccurs="unbounded" type="ID7Type">
+<xs:annotation>
+<xs:documentation>
+Identifier of the given location within the scope of the integration
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="unbounded" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the Location
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Address" minOccurs="0" maxOccurs="unbounded" type="Address2Type">
+<xs:annotation>
+<xs:documentation>
+Address for the given location
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="type" type="NormalizedString18BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+From the LocationType code list, an extensible list that includes Warehouse, Manufacturing, Purchasing, Sales, Financial, Others.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:complexType>
+<xs:complexType name="ID7Type">
+<xs:simpleContent>
+<xs:extension base="NormalizedString7BaseType">
+<xs:attribute name="accountingEntity" type="StringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The ID of the accounting entity that is associated with this ID. Used with the global ID - no schemeNameAttribute.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="variationID" type="IntegerBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The sequence number that identifies the number of times that this BOD, for this object, has been published. Used with the global ID- no schemeNameAttribute.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="lid" type="AnyURIBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The logical ID of the system that is this SOR for this noun instance.. Used with the global ID- no schemeNameAttribute.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="Address2Type">
+<xs:sequence>
+<xs:element name="FormatCode" minOccurs="0" maxOccurs="1" type="FormatCodeType">
+<xs:annotation>
+<xs:documentation>
+Format Code indicates the format of the address. Examples are US Military, US Formatted Address, European Formatted Address etc. There is no intent to decode the address formats - these are informational only. No list of valid values exists or is proposed here.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="AttentionOfName" minOccurs="0" maxOccurs="unbounded" type="AttentionOfNameType">
+<xs:annotation>
+<xs:documentation>
+The name of the person to whom this document would be intended.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:choice>
+<xs:element name="AddressLine" minOccurs="0" maxOccurs="unbounded" type="AddressLine1Type">
+<xs:annotation>
+<xs:documentation>
+There are multiple methods of expressing an address line in OAGIS. The primary method supported by Infor will be a sequences collection of adderss lines. A more detailed address can be implemented and documented when the need arises. Only that actuall address lines should be included in these lines as the city, country sub-dicision, country and postal code are separate elements that should always be included in an address.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:sequence>
+<xs:element name="BuildingNumber" minOccurs="0" maxOccurs="1" type="BuildingNumberType">
+<xs:annotation>
+<xs:documentation>
+The Number of the building or house on the street that identifies the location. For example, Building 300 on Standards Parkway.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="BuildingName" minOccurs="0" maxOccurs="1" type="BuildingNameType">
+<xs:annotation>
+<xs:documentation>
+The building or house name on the street that identifies the location.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="StreetName" minOccurs="0" maxOccurs="1" type="StreetNameType">
+<xs:annotation>
+<xs:documentation>
+The street name of the building or house that identifies the location.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Unit" minOccurs="0" maxOccurs="1" type="UnitType">
+<xs:annotation>
+<xs:documentation>
+The unit of the building or house that identifies the location.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Floor" minOccurs="0" maxOccurs="1" type="FloorType">
+<xs:annotation>
+<xs:documentation>
+The floor of the building or house that identifies the location.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="PostOfficeBox" minOccurs="0" maxOccurs="1" type="PostOfficeBoxType">
+<xs:annotation>
+<xs:documentation>
+The post office box that is used for the location.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:choice>
+<xs:element name="CitySubDivisionName" minOccurs="0" maxOccurs="unbounded" type="String2BaseType">
+<xs:annotation>
+<xs:documentation>
+Vanity city name like La Jolla for San Diego
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="CityName" minOccurs="0" maxOccurs="1" type="String2BaseType">
+<xs:annotation>
+<xs:documentation>
+The city must be provided for an address.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="CountrySubDivisionCode" minOccurs="0" maxOccurs="unbounded" type="CountrySubDivisionCodeType">
+<xs:annotation>
+<xs:documentation>
+Qualifies the further division of the Country. These may be Districts, Regions, States, Provinces etc. A possible list of values is as specified in ISO 3166-2.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="CountryCode" minOccurs="0" maxOccurs="1" type="CountryCodeType">
+<xs:annotation>
+<xs:documentation>
+CountryCode
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="PostalCode" minOccurs="0" maxOccurs="1" type="PostalCodeType">
+<xs:annotation>
+<xs:documentation>
+Postal Code of the Address.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Preference" minOccurs="0" maxOccurs="1" type="PreferenceType">
+<xs:annotation>
+<xs:documentation>
+Holds preference information for the instance of the object being referenced.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="languageCode" type="NormalizedString11BaseType" use="optional">
+</xs:attribute>
+<xs:attribute name="type" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The value may be &apos;&apos;text&apos;&apos; or &apos;&apos;discrete&apos;&apos;. Text indicates that the Address elements are used and discrete indicates that the &apos;&apos;Street&apos;&apos; and &apos;&apos;Number&apos;&apos; elements are used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:complexType>
+<xs:complexType name="FormatCodeType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString19BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ListID for the code that it is associated with.  Address Format Codes
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="CountryAndPercentType">
+<xs:sequence>
+<xs:element name="CountryCode" minOccurs="1" maxOccurs="1" type="CountryCode1Type">
+<xs:annotation>
+<xs:documentation>
+Country in which the Address exists. The list of values is specified in ISO 3166-2.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Percent" minOccurs="0" maxOccurs="1" type="DecimalBaseType">
+<xs:annotation>
+<xs:documentation>
+The percentage of the item that comes from the specific country
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CountryCode1Type">
+<xs:simpleContent>
+<xs:extension base="NormalizedString20BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ListID for the code that it is associated with.  Countries
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="ProcessBlockingMethodCodeType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString21BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="LabManagerPersonType">
+<xs:sequence>
+<xs:element name="IDs" minOccurs="0" maxOccurs="1" type="IDs1Type">
+<xs:annotation>
+<xs:documentation>
+A container that holds a list of IDs without RevisionID.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="1" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the object in which associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="IDs1Type">
+<xs:sequence>
+<xs:element name="ID" minOccurs="0" maxOccurs="unbounded" type="ID8Type">
+<xs:annotation>
+<xs:documentation>
+An identifier for an object. The ID has a number of possible attributes to further define how it should be used..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ID8Type">
+<xs:simpleContent>
+<xs:extension base="NormalizedString1BaseType">
+<xs:attribute name="schemeName" type="String2BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+When no schemeName exists this is the default ID for the enterprise at the level where this object is maintained. The value of the ID must uniquely identify this object throughout the enterprise within the scope of the level where it is maintained (tenant, accounting entity or location). The specific values for this attribute are determined by the individual noun.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="accountingEntity" type="StringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="variationID" type="IntegerBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The number of times this object has been published with these attributes for the accounting entity and location.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="lid" type="AnyURIBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The LID of the system where the object can be maintained. This can be used by BIS to help automate the drill back process.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="QualitySpecificationLineType">
+<xs:sequence>
+<xs:element name="LineNumber" minOccurs="0" maxOccurs="1" type="NormalizedString22BaseType">
+<xs:annotation>
+<xs:documentation>
+Is the identifier of the given Line Component within the document
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Description" minOccurs="0" maxOccurs="unbounded" type="DescriptionType">
+<xs:annotation>
+<xs:documentation>
+Free form text that describes the object and repeats as needed to provide support for multilingual descriptions
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Note" minOccurs="0" maxOccurs="unbounded" type="NoteType">
+<xs:annotation>
+<xs:documentation>
+A freeform note
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="DocumentReference" minOccurs="0" maxOccurs="unbounded" type="DocumentReferenceType">
+<xs:annotation>
+<xs:documentation>
+A generic reference that uses the &quot;&quot;type&quot;&quot; attribute which contains the noun name of the referenced object.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Status" minOccurs="0" maxOccurs="1" type="Status1Type">
+<xs:annotation>
+<xs:documentation>
+Indicates the current state of the associated object.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="QualityTest" minOccurs="0" maxOccurs="1" type="QualityTestType">
+</xs:element>
+<xs:element name="IncludeTestInRequestIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Used to aid the QI request generation
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="PrintTestOnCOAIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Used for COA generation
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="PrintTestOnSpecIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Should be printed on specification document.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="SingleUseSampleIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Informational
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="CopyResultsIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Specifies whether the results have to be copied in the receiving warehouse in case of transfer orders. This would generally happen when the element RetestTransferReceiptIndicator is also set to true at the header level. 
+When RetestTransferReceiptIndicator is set to true, and CopyResultsIndicator is set to true, it would imply that the results are copied in the receiving warehouse.
+When RetestTransferReceiptIndicator is set to true, and CopyResultsIndicator is set to false, the tests are done again (results are not copied).
+Any other combination of options are not valid set up scenarios. The parameters must be set up appropriately depending on the need. 
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="UserArea" minOccurs="0" maxOccurs="1" type="UserAreaType">
+<xs:annotation>
+<xs:documentation>
+Allows the user of
+				OAGIS to extend the specification in order to provide additional information that is
+				not captured in OAGIS.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DocumentReferenceType">
+<xs:sequence>
+<xs:element name="DocumentID" minOccurs="0" maxOccurs="1" type="DocumentIDType">
+<xs:annotation>
+<xs:documentation>
+Is the primary document id for the document associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="DisplayID" minOccurs="0" maxOccurs="1" type="String1BaseType">
+<xs:annotation>
+<xs:documentation>
+The ID for this object formatted as closely as possible to the way the customer would expect to see the ID. This element is used for display only and has no other purpose.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="LineNumber" minOccurs="0" maxOccurs="1" type="NormalizedString7BaseType">
+<xs:annotation>
+<xs:documentation>
+Is the identifier of the given Line Component within the document
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Facility" minOccurs="0" maxOccurs="unbounded" type="FacilityType">
+<xs:annotation>
+<xs:documentation>
+A Facility identifies a location within an entity. The facility may have sub-locators identified using a sequenced identification notation e.g. Warehouse A100 Sub-Location 11, Row R10 would be represented as an array of three Facility elements with values as A100, 11, R10, name attribute as Warehouse, Sub-Location and Row and sequence attribute as 1,2 and 3 respectively.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="ScheduleLineNumber" minOccurs="0" maxOccurs="1" type="NormalizedString7BaseType">
+<xs:annotation>
+<xs:documentation>
+Is the ScheduleLineNumber of a particular item of interest for the given DocumentReference. The Line Number is of the primary DocumentId of the sender indicated by the DocumentId under DocumentIds.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="SubLineNumber" minOccurs="0" maxOccurs="1" type="SubLineNumberType">
+<xs:annotation>
+<xs:documentation>
+Is the SublineNumber of a particular item of interest for the given DocumentReference. The Line Number is of the primary DocumentId of the sender indicated by the DocumentId under DocumentIds.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="type" type="TokenBaseType" use="required">
+<xs:annotation>
+<xs:documentation>
+The type attribute is required on all DocumentReference elements and must be a valid noun name. The valid noun names are in the &quot;Noun Name&quot; code list for validation.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:complexType>
+<xs:complexType name="DocumentIDType">
+<xs:sequence>
+<xs:element name="ID" minOccurs="1" maxOccurs="1" type="ID9Type">
+<xs:annotation>
+<xs:documentation>
+An identifier for an object. The ID has a number of possible attributes to further define how it should be used..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="RevisionID" minOccurs="0" maxOccurs="1" type="NormalizedString23BaseType">
+<xs:annotation>
+<xs:documentation>
+Identifies the engineering change revision that this entity addresses.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ID9Type">
+<xs:simpleContent>
+<xs:extension base="NormalizedString1BaseType">
+<xs:attribute name="accountingEntity" type="StringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="location" type="StringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The location that is associated with the maintenance of this instance of the noun. This attribute must not be included on the ID of objects that are maintained at the tenant or accounting entity level.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="lid" type="AnyURIBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The LID of the system where the object can be maintained. This can be used by BIS to help automate the drill back process.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="FacilityType">
+<xs:sequence>
+<xs:element name="IDs" minOccurs="0" maxOccurs="1" type="IDs2Type">
+<xs:annotation>
+<xs:documentation>
+A container that holds a list of IDs without RevisionID.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="unbounded" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the object in which associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="IDs2Type">
+<xs:sequence>
+<xs:element name="ID" minOccurs="0" maxOccurs="unbounded" type="ID3Type">
+<xs:annotation>
+<xs:documentation>
+An identifier for an object. The ID has a number of possible attributes to further define how it should be used..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="SubLineNumberType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString6BaseType">
+<xs:attribute name="lid" type="AnyURI1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The LID of the system where the object can be maintained. This can be used by BIS to help automate the drill back process.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="Status1Type">
+<xs:sequence>
+<xs:element name="Code" minOccurs="0" maxOccurs="1" type="Code1Type">
+<xs:annotation>
+<xs:documentation>
+Code used to define the status of this document. See the code list associated to this code for the list of valid codes and their meanings.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="EffectiveDateTime" minOccurs="0" maxOccurs="1" type="UnionType">
+<xs:annotation>
+<xs:documentation>
+date and time this document becomes effective
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="ReasonCode" minOccurs="0" maxOccurs="1" type="ReasonCodeType">
+<xs:annotation>
+<xs:documentation>
+Identifies the reason for an activity
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="ArchiveIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Indicator that determines if the BOD has been archived. The default value is false so there is no need to explicitly set this to false.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Code1Type">
+<xs:simpleContent>
+<xs:extension base="NormalizedString24BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="QualityTestType">
+<xs:sequence>
+<xs:element name="IDs" minOccurs="0" maxOccurs="1" type="IDs1Type">
+<xs:annotation>
+<xs:documentation>
+A container that holds a list of IDs without RevisionID.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Description" minOccurs="0" maxOccurs="unbounded" type="DescriptionType">
+<xs:annotation>
+<xs:documentation>
+Free form text that describes the object and repeats as needed to provide support for multilingual descriptions
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Note" minOccurs="0" maxOccurs="unbounded" type="NoteType">
+<xs:annotation>
+<xs:documentation>
+A freeform note
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="EffectiveTimePeriod" minOccurs="0" maxOccurs="1" type="EffectiveTimePeriodType">
+<xs:annotation>
+<xs:documentation>
+Indicates the time period in which the associated component is effective.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="TestResultTypeCode" minOccurs="0" maxOccurs="1" type="TestResultTypeCodeType">
+<xs:annotation>
+<xs:documentation>
+Code defining the test type
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="TestValueTypeCode" minOccurs="0" maxOccurs="1" type="TestValueTypeCodeType">
+<xs:annotation>
+<xs:documentation>
+The value type of result reported to the user. Extensible code list. Valid
+				values include: Expected, Range, Target
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="SignificantDigits" minOccurs="0" maxOccurs="1" type="PositiveInteger2BaseType">
+<xs:annotation>
+<xs:documentation>
+The number of significant digits in the value - for numeric values only.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="DefaultRequiredIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Indicates if this test should be required by default when added to a specification.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="TestPriority" minOccurs="0" maxOccurs="1" type="PositiveInteger3BaseType">
+</xs:element>
+<xs:element name="TestOrder" minOccurs="0" maxOccurs="1" type="PositiveInteger3BaseType">
+</xs:element>
+<xs:element name="TestClass" minOccurs="0" maxOccurs="1" type="TestClassType">
+<xs:annotation>
+<xs:documentation>
+Physical, Chemical, Microbiological
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="TestAttribute" minOccurs="0" maxOccurs="1" type="String1BaseType">
+<xs:annotation>
+<xs:documentation>
+Free form entry to perform association between systems.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="TestStandard" minOccurs="0" maxOccurs="1" type="String1BaseType">
+<xs:annotation>
+<xs:documentation>
+The name of the standard used by the industry for this test.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="SamplingRequiredIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Indicates if samples need to be taken during production ???
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="InternalTestIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Indicates if this test is performed internally versus using an external lab.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="TestRate" minOccurs="0" maxOccurs="1" type="TestRateType">
+</xs:element>
+<xs:element name="SampleType" minOccurs="0" maxOccurs="1" type="SampleTypeType">
+<xs:annotation>
+<xs:documentation>
+Type of sample to be taken
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="SampleQuantity" minOccurs="0" maxOccurs="1" type="SampleQuantityType">
+<xs:annotation>
+<xs:documentation>
+Specifies the sample size
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="DestructiveTestIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+When true the sample is destroyed by the test.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="RetainSampleIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Indicates if the sample must be stored for traceability, verification etc.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="MeasurementMethod" minOccurs="0" maxOccurs="1" type="String12BaseType">
+</xs:element>
+<xs:element name="MeasurementResourceReference" minOccurs="0" maxOccurs="1" type="MeasurementResourceReferenceType">
+<xs:annotation>
+<xs:documentation>
+Reference to the Meter or other measurement resource used for this test
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="DepartmentCode" minOccurs="0" maxOccurs="1" type="DepartmentCodeType">
+<xs:annotation>
+<xs:documentation>
+Indentifies the department involved.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Laboratory" minOccurs="0" maxOccurs="1" type="LaboratoryType">
+</xs:element>
+<xs:element name="CalculatedTestIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Indicates if this is a calculated test
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="QualitativeCode" minOccurs="0" maxOccurs="1" type="QualitativeCodeType">
+<xs:annotation>
+<xs:documentation>
+Identifies the code list used for the result values.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="QualitativeTestCode" minOccurs="0" maxOccurs="1" type="QualitativeTestCodeType">
+</xs:element>
+<xs:element name="NormQuantity" minOccurs="0" maxOccurs="1" type="NormQuantityType">
+</xs:element>
+<xs:element name="NormQuantityDescription" minOccurs="0" maxOccurs="unbounded" type="NormQuantityDescriptionType">
+</xs:element>
+<xs:element name="ValueLimit" minOccurs="0" maxOccurs="unbounded" type="ValueLimitType">
+<xs:annotation>
+<xs:documentation>
+Repeating element to contain limits for a test
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="UserArea" minOccurs="0" maxOccurs="1" type="UserAreaType">
+<xs:annotation>
+<xs:documentation>
+Allows the user of
+				OAGIS to extend the specification in order to provide additional information that is
+				not captured in OAGIS.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="TestResultTypeCodeType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString25BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="accountingEntity" type="String6BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="location" type="String6BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The location that is associated with the maintenance of this instance of the noun. This attribute must not be included on the ID of objects that are maintained at the tenant or accounting entity level.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="TestValueTypeCodeType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString26BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="TestClassType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString27BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="accountingEntity" type="String6BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="location" type="String6BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The location that is associated with the maintenance of this instance of the noun. This attribute must not be included on the ID of objects that are maintained at the tenant or accounting entity level.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="TestRateType">
+<xs:sequence>
+<xs:element name="FrequencyType" minOccurs="0" maxOccurs="1" type="FrequencyTypeType">
+<xs:annotation>
+<xs:documentation>
+Identify the test&quot;&quot;s frequency type from Code List (possible values are: Lot, Quantity, Duration).
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:choice>
+<xs:element name="Quantity" minOccurs="0" maxOccurs="1" type="QuantityType">
+<xs:annotation>
+<xs:documentation>
+Identifies the quantity of the associated service or item that is addresses by the component in which the quantity is associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Duration" minOccurs="0" maxOccurs="1" type="DurationBaseType">
+<xs:annotation>
+<xs:documentation>
+Indicates the duration of time as represented by ISO 8601. Where the value space is a six dimensional space where the coordinates designate the Gregorian year, month, day, hour, minute, and second. The number of seconds can include decimal digits to arbitary pecision.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:choice>
+<xs:element name="FrequencyNumber" minOccurs="0" maxOccurs="1" type="PositiveInteger3BaseType">
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="FrequencyTypeType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString2BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="QuantityType">
+<xs:simpleContent>
+<xs:extension base="DecimalBaseType">
+<xs:attribute name="unitCode" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The unit-of-measure (UOM) code associated with a quantity. This is based upon the ISO standard.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="SampleTypeType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString28BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="accountingEntity" type="String6BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="location" type="String6BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The location that is associated with the maintenance of this instance of the noun. This attribute must not be included on the ID of objects that are maintained at the tenant or accounting entity level.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="SampleQuantityType">
+<xs:simpleContent>
+<xs:extension base="DecimalBaseType">
+<xs:attribute name="unitCode" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The unit-of-measure (UOM) code associated with a quantity. This is based upon the ISO standard.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="MeasurementResourceReferenceType">
+<xs:sequence>
+<xs:element name="ResourceID" minOccurs="0" maxOccurs="1" type="ResourceIDType">
+<xs:annotation>
+<xs:documentation>
+The ID assigned to an associated Resource.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Quantity" minOccurs="0" maxOccurs="1" type="QuantityType">
+<xs:annotation>
+<xs:documentation>
+Identifies the quantity of the associated service or item that is addresses by the component in which the quantity is associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="BaseUOMQuantity" minOccurs="0" maxOccurs="1" type="BaseUOMQuantityType">
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="1" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the object in which associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ResourceIDType">
+<xs:sequence>
+<xs:element name="ID" minOccurs="1" maxOccurs="1" type="ID10Type">
+<xs:annotation>
+<xs:documentation>
+An identifier for an object. The ID has a number of possible attributes to further define how it should be used..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ID10Type">
+<xs:simpleContent>
+<xs:extension base="NormalizedString1BaseType">
+<xs:attribute name="schemeName" type="String2BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+When no schemeName exists this is the default ID for the enterprise at the level where this object is maintained. The value of the ID must uniquely identify this object throughout the enterprise within the scope of the level where it is maintained (tenant, accounting entity or location). The specific values for this attribute are determined by the individual noun.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="accountingEntity" type="StringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="location" type="StringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The location that is associated with the maintenance of this instance of the noun. This attribute must not be included on the ID of objects that are maintained at the tenant or accounting entity level.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="variationID" type="IntegerBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The number of times this object has been published with these attributes for the accounting entity and location.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="lid" type="AnyURIBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The LID of the system where the object can be maintained. This can be used by BIS to help automate the drill back process.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="BaseUOMQuantityType">
+<xs:simpleContent>
+<xs:extension base="DecimalBaseType">
+<xs:attribute name="unitCode" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The unit-of-measure (UOM) code associated with a quantity. This is based upon the ISO standard.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="DepartmentCodeType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString29BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="accountingEntity" type="String6BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="LaboratoryType">
+<xs:sequence>
+<xs:choice>
+<xs:element name="SupplierParty" minOccurs="0" maxOccurs="1" type="SupplierParty1Type">
+<xs:annotation>
+<xs:documentation>
+Contains the set of information about a Supplier Party necessary to execute and administer orders or requests.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Location" minOccurs="0" maxOccurs="1" type="Location3Type">
+<xs:annotation>
+<xs:documentation>
+Maintains the locations or sites (offices, warehouses, plants) within the enterprise.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:choice>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="SupplierParty1Type">
+<xs:sequence>
+<xs:element name="PartyIDs" minOccurs="0" maxOccurs="1" type="PartyIDs1Type">
+<xs:annotation>
+<xs:documentation>
+Contains the set of possible identifiers for an associated Party.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="unbounded" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the object in which associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Communication" minOccurs="0" maxOccurs="unbounded" type="CommunicationType">
+<xs:annotation>
+<xs:documentation>
+Identifies the means of sending messages, orders, etc., including telephone, email, etc..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="CustomerServiceContact" minOccurs="0" maxOccurs="unbounded" type="CustomerServiceContactType">
+<xs:annotation>
+<xs:documentation>
+Identifies the contact information of the person, organization, department, or group that is responsible for customer service.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PartyIDs1Type">
+<xs:sequence>
+<xs:element name="ID" minOccurs="0" maxOccurs="unbounded" type="ID3Type">
+<xs:annotation>
+<xs:documentation>
+An identifier for an object. The ID has a number of possible attributes to further define how it should be used..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="SCACID" minOccurs="0" maxOccurs="1" type="SCACIDType">
+<xs:annotation>
+<xs:documentation>
+Identifier for Standard Carrier Alpha Code .
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="DUNSID" minOccurs="0" maxOccurs="1" type="NormalizedString12BaseType">
+<xs:annotation>
+<xs:documentation>
+Identifier for business provided by Dun and Bradstreet.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CustomerServiceContactType">
+<xs:sequence>
+<xs:element name="ID" minOccurs="0" maxOccurs="unbounded" type="ID11Type">
+<xs:annotation>
+<xs:documentation>
+An identifier for an object. The ID has a number of possible attributes to further define how it should be used..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="1" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Name of the CS Contact.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Communication" minOccurs="0" maxOccurs="unbounded" type="CommunicationType">
+<xs:annotation>
+<xs:documentation>
+Methods of establishsing communication with the CS Contact.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ID11Type">
+<xs:simpleContent>
+<xs:extension base="NormalizedStringBaseType">
+<xs:attribute name="accountingEntity" type="StringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="lid" type="AnyURIBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The LID of the system where the object can be maintained. This can be used by BIS to help automate the drill back process.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="Location3Type">
+<xs:sequence>
+<xs:element name="ID" minOccurs="0" maxOccurs="unbounded" type="ID7Type">
+<xs:annotation>
+<xs:documentation>
+Identifier of the given location within the scope of the integration
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="DisplayID" minOccurs="0" maxOccurs="1" type="String1BaseType">
+<xs:annotation>
+<xs:documentation>
+The ID for this object formatted as closely as possible to the way the customer would expect to see the ID. This element is used for display only and has no other purpose.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="unbounded" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the Location
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Description" minOccurs="0" maxOccurs="unbounded" type="Description1Type">
+<xs:annotation>
+<xs:documentation>
+Free form text that describes the object and repeats as needed to provide support for multilingual descriptions
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="type" type="NormalizedString18BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+From the LocationType code list, an extensible list that includes Warehouse, Manufacturing, Purchasing, Sales, Financial, Others.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:complexType>
+<xs:complexType name="QualitativeCodeType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString30BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="accountingEntity" type="String6BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="QualitativeTestCodeType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString2BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="accountingEntity" type="String6BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="location" type="String6BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The location that is associated with the maintenance of this instance of the noun. This attribute must not be included on the ID of objects that are maintained at the tenant or accounting entity level.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="NormQuantityType">
+<xs:simpleContent>
+<xs:extension base="Decimal1BaseType">
+<xs:attribute name="unitCode" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The unit-of-measure (UOM) code associated with a quantity. This is based upon the ISO standard.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="NormQuantityDescriptionType">
+<xs:simpleContent>
+<xs:extension base="String12BaseType">
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="ValueLimitType">
+<xs:sequence>
+<xs:element name="Limit" minOccurs="0" maxOccurs="1" type="NormalizedString11BaseType">
+<xs:annotation>
+<xs:documentation>
+The value that the result should be tested against.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="ValueOperator" minOccurs="0" maxOccurs="1" type="ValueOperatorType">
+<xs:annotation>
+<xs:documentation>
+The operator that is used against the limit to validate the test.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="type" type="NormalizedString32BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+Indicates the type of limit (minimum, maximum, external minimum, external maximum, alarm)
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:complexType>
+<xs:complexType name="ValueOperatorType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString31BaseType">
+<xs:attribute name="listID" type="NormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="accountingEntity" type="String6BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="location" type="String6BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The location that is associated with the maintenance of this instance of the noun. This attribute must not be included on the ID of objects that are maintained at the tenant or accounting entity level.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:simpleType name="NormalizedStringBaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "1"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="StringBaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "22"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="IntegerBaseType">
+<xs:restriction base="xs:integer">
+<xs:totalDigits value = "22"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="AnyURIBaseType">
+<xs:restriction base="xs:anyURI">
+<xs:maxLength value = "255"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="String1BaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "100"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="UnionType">
+<xs:union memberTypes="xs:date xs:time xs:dateTime "/>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString1BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="String2BaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "64"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="LanguageBaseType">
+<xs:restriction base="xs:language">
+<xs:maxLength value = "17"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="String3BaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "1024"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="String4BaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "10240"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString2BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString3BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "10"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="String5BaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString4BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "64"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString5BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "0"/>
+<xs:enumeration value = "Draft"/>
+<xs:enumeration value = "Approved"/>
+<xs:enumeration value = "Deactivated"/>
+<xs:enumeration value = "Pending"/>
+<xs:enumeration value = "Deleted"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="String6BaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "22"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="BooleanBaseType">
+<xs:restriction base="xs:boolean">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="DurationBaseType">
+<xs:restriction base="xs:duration">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString6BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "64"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString7BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "22"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString8BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "12"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString9BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "255"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString10BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "14"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="String7BaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "64"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="String8BaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "1024"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString11BaseType">
+<xs:restriction base="xs:normalizedString">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="AnyURI1BaseType">
+<xs:restriction base="xs:anyURI">
+<xs:maxLength value = "255"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString12BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "9"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString13BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "11"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString14BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString15BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="String9BaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "24"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="String10BaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "32"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="PositiveIntegerBaseType">
+<xs:restriction base="xs:positiveInteger">
+<xs:minInclusive value = "1"/>
+<xs:totalDigits value = "22"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="String11BaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "25"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="String12BaseType">
+<xs:restriction base="xs:string">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString16BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "0"/>
+<xs:enumeration value = "AF"/>
+<xs:enumeration value = "AX"/>
+<xs:enumeration value = "AL"/>
+<xs:enumeration value = "DZ"/>
+<xs:enumeration value = "AS"/>
+<xs:enumeration value = "AD"/>
+<xs:enumeration value = "AO"/>
+<xs:enumeration value = "AI"/>
+<xs:enumeration value = "AQ"/>
+<xs:enumeration value = "AG"/>
+<xs:enumeration value = "AR"/>
+<xs:enumeration value = "AM"/>
+<xs:enumeration value = "AW"/>
+<xs:enumeration value = "AU"/>
+<xs:enumeration value = "AT"/>
+<xs:enumeration value = "AZ"/>
+<xs:enumeration value = "BS"/>
+<xs:enumeration value = "BH"/>
+<xs:enumeration value = "BD"/>
+<xs:enumeration value = "BB"/>
+<xs:enumeration value = "BY"/>
+<xs:enumeration value = "BE"/>
+<xs:enumeration value = "BZ"/>
+<xs:enumeration value = "BJ"/>
+<xs:enumeration value = "BM"/>
+<xs:enumeration value = "BT"/>
+<xs:enumeration value = "BO"/>
+<xs:enumeration value = "BQ"/>
+<xs:enumeration value = "BA"/>
+<xs:enumeration value = "BW"/>
+<xs:enumeration value = "BV"/>
+<xs:enumeration value = "BR"/>
+<xs:enumeration value = "IO"/>
+<xs:enumeration value = "BN"/>
+<xs:enumeration value = "BG"/>
+<xs:enumeration value = "BF"/>
+<xs:enumeration value = "BI"/>
+<xs:enumeration value = "KH"/>
+<xs:enumeration value = "CM"/>
+<xs:enumeration value = "CA"/>
+<xs:enumeration value = "CV"/>
+<xs:enumeration value = "KY"/>
+<xs:enumeration value = "CF"/>
+<xs:enumeration value = "TD"/>
+<xs:enumeration value = "CL"/>
+<xs:enumeration value = "CN"/>
+<xs:enumeration value = "CX"/>
+<xs:enumeration value = "CC"/>
+<xs:enumeration value = "CO"/>
+<xs:enumeration value = "KM"/>
+<xs:enumeration value = "CG"/>
+<xs:enumeration value = "CD"/>
+<xs:enumeration value = "CK"/>
+<xs:enumeration value = "CR"/>
+<xs:enumeration value = "CI"/>
+<xs:enumeration value = "HR"/>
+<xs:enumeration value = "CU"/>
+<xs:enumeration value = "CW"/>
+<xs:enumeration value = "CY"/>
+<xs:enumeration value = "CZ"/>
+<xs:enumeration value = "DK"/>
+<xs:enumeration value = "DJ"/>
+<xs:enumeration value = "DM"/>
+<xs:enumeration value = "DO"/>
+<xs:enumeration value = "EC"/>
+<xs:enumeration value = "EG"/>
+<xs:enumeration value = "SV"/>
+<xs:enumeration value = "GQ"/>
+<xs:enumeration value = "ER"/>
+<xs:enumeration value = "EE"/>
+<xs:enumeration value = "ET"/>
+<xs:enumeration value = "FK"/>
+<xs:enumeration value = "FO"/>
+<xs:enumeration value = "FJ"/>
+<xs:enumeration value = "FI"/>
+<xs:enumeration value = "FR"/>
+<xs:enumeration value = "GF"/>
+<xs:enumeration value = "PF"/>
+<xs:enumeration value = "TF"/>
+<xs:enumeration value = "GA"/>
+<xs:enumeration value = "GM"/>
+<xs:enumeration value = "GE"/>
+<xs:enumeration value = "DE"/>
+<xs:enumeration value = "GH"/>
+<xs:enumeration value = "GI"/>
+<xs:enumeration value = "GR"/>
+<xs:enumeration value = "GL"/>
+<xs:enumeration value = "GD"/>
+<xs:enumeration value = "GP"/>
+<xs:enumeration value = "GU"/>
+<xs:enumeration value = "GT"/>
+<xs:enumeration value = "GG"/>
+<xs:enumeration value = "GN"/>
+<xs:enumeration value = "GW"/>
+<xs:enumeration value = "GY"/>
+<xs:enumeration value = "HT"/>
+<xs:enumeration value = "HM"/>
+<xs:enumeration value = "VA"/>
+<xs:enumeration value = "HN"/>
+<xs:enumeration value = "HK"/>
+<xs:enumeration value = "HU"/>
+<xs:enumeration value = "IS"/>
+<xs:enumeration value = "IN"/>
+<xs:enumeration value = "ID"/>
+<xs:enumeration value = "IR"/>
+<xs:enumeration value = "IQ"/>
+<xs:enumeration value = "IE"/>
+<xs:enumeration value = "IM"/>
+<xs:enumeration value = "IL"/>
+<xs:enumeration value = "IT"/>
+<xs:enumeration value = "JM"/>
+<xs:enumeration value = "JP"/>
+<xs:enumeration value = "JE"/>
+<xs:enumeration value = "JO"/>
+<xs:enumeration value = "KZ"/>
+<xs:enumeration value = "KE"/>
+<xs:enumeration value = "KI"/>
+<xs:enumeration value = "KP"/>
+<xs:enumeration value = "KR"/>
+<xs:enumeration value = "KW"/>
+<xs:enumeration value = "KG"/>
+<xs:enumeration value = "LA"/>
+<xs:enumeration value = "LV"/>
+<xs:enumeration value = "LB"/>
+<xs:enumeration value = "LS"/>
+<xs:enumeration value = "LR"/>
+<xs:enumeration value = "LY"/>
+<xs:enumeration value = "LI"/>
+<xs:enumeration value = "LT"/>
+<xs:enumeration value = "LU"/>
+<xs:enumeration value = "MO"/>
+<xs:enumeration value = "MK"/>
+<xs:enumeration value = "MG"/>
+<xs:enumeration value = "MW"/>
+<xs:enumeration value = "MY"/>
+<xs:enumeration value = "MV"/>
+<xs:enumeration value = "ML"/>
+<xs:enumeration value = "MT"/>
+<xs:enumeration value = "MH"/>
+<xs:enumeration value = "MQ"/>
+<xs:enumeration value = "MR"/>
+<xs:enumeration value = "MU"/>
+<xs:enumeration value = "YT"/>
+<xs:enumeration value = "MX"/>
+<xs:enumeration value = "FM"/>
+<xs:enumeration value = "MD"/>
+<xs:enumeration value = "MC"/>
+<xs:enumeration value = "MN"/>
+<xs:enumeration value = "ME"/>
+<xs:enumeration value = "MS"/>
+<xs:enumeration value = "MA"/>
+<xs:enumeration value = "MZ"/>
+<xs:enumeration value = "MM"/>
+<xs:enumeration value = "NA"/>
+<xs:enumeration value = "NR"/>
+<xs:enumeration value = "NP"/>
+<xs:enumeration value = "NL"/>
+<xs:enumeration value = "NC"/>
+<xs:enumeration value = "NZ"/>
+<xs:enumeration value = "NI"/>
+<xs:enumeration value = "NE"/>
+<xs:enumeration value = "NG"/>
+<xs:enumeration value = "NU"/>
+<xs:enumeration value = "NF"/>
+<xs:enumeration value = "MP"/>
+<xs:enumeration value = "NO"/>
+<xs:enumeration value = "OM"/>
+<xs:enumeration value = "PK"/>
+<xs:enumeration value = "PW"/>
+<xs:enumeration value = "PS"/>
+<xs:enumeration value = "PA"/>
+<xs:enumeration value = "PG"/>
+<xs:enumeration value = "PY"/>
+<xs:enumeration value = "PE"/>
+<xs:enumeration value = "PH"/>
+<xs:enumeration value = "PN"/>
+<xs:enumeration value = "PL"/>
+<xs:enumeration value = "PT"/>
+<xs:enumeration value = "PR"/>
+<xs:enumeration value = "QA"/>
+<xs:enumeration value = "RE"/>
+<xs:enumeration value = "RO"/>
+<xs:enumeration value = "RU"/>
+<xs:enumeration value = "RW"/>
+<xs:enumeration value = "BL"/>
+<xs:enumeration value = "SH"/>
+<xs:enumeration value = "KN"/>
+<xs:enumeration value = "LC"/>
+<xs:enumeration value = "MF"/>
+<xs:enumeration value = "PM"/>
+<xs:enumeration value = "VC"/>
+<xs:enumeration value = "WS"/>
+<xs:enumeration value = "SM"/>
+<xs:enumeration value = "ST"/>
+<xs:enumeration value = "SA"/>
+<xs:enumeration value = "SN"/>
+<xs:enumeration value = "RS"/>
+<xs:enumeration value = "SC"/>
+<xs:enumeration value = "SL"/>
+<xs:enumeration value = "SG"/>
+<xs:enumeration value = "SX"/>
+<xs:enumeration value = "SK"/>
+<xs:enumeration value = "SI"/>
+<xs:enumeration value = "SB"/>
+<xs:enumeration value = "SO"/>
+<xs:enumeration value = "ZA"/>
+<xs:enumeration value = "GS"/>
+<xs:enumeration value = "SS"/>
+<xs:enumeration value = "ES"/>
+<xs:enumeration value = "LK"/>
+<xs:enumeration value = "SD"/>
+<xs:enumeration value = "SR"/>
+<xs:enumeration value = "SJ"/>
+<xs:enumeration value = "SZ"/>
+<xs:enumeration value = "SE"/>
+<xs:enumeration value = "CH"/>
+<xs:enumeration value = "SY"/>
+<xs:enumeration value = "TW"/>
+<xs:enumeration value = "TJ"/>
+<xs:enumeration value = "TZ"/>
+<xs:enumeration value = "TH"/>
+<xs:enumeration value = "TL"/>
+<xs:enumeration value = "TG"/>
+<xs:enumeration value = "TK"/>
+<xs:enumeration value = "TO"/>
+<xs:enumeration value = "TT"/>
+<xs:enumeration value = "TN"/>
+<xs:enumeration value = "TR"/>
+<xs:enumeration value = "TM"/>
+<xs:enumeration value = "TC"/>
+<xs:enumeration value = "TV"/>
+<xs:enumeration value = "UG"/>
+<xs:enumeration value = "UA"/>
+<xs:enumeration value = "AE"/>
+<xs:enumeration value = "GB"/>
+<xs:enumeration value = "UM"/>
+<xs:enumeration value = "US"/>
+<xs:enumeration value = "UY"/>
+<xs:enumeration value = "UZ"/>
+<xs:enumeration value = "VU"/>
+<xs:enumeration value = "VE"/>
+<xs:enumeration value = "VN"/>
+<xs:enumeration value = "VG"/>
+<xs:enumeration value = "VI"/>
+<xs:enumeration value = "WF"/>
+<xs:enumeration value = "EH"/>
+<xs:enumeration value = "YE"/>
+<xs:enumeration value = "ZM"/>
+<xs:enumeration value = "ZW"/>
+<xs:enumeration value = "XK"/>
+<xs:enumeration value = "XZ"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString17BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="PositiveInteger1BaseType">
+<xs:restriction base="xs:positiveInteger">
+<xs:totalDigits value = "22"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString18BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString19BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString20BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+<xs:enumeration value = "AF"/>
+<xs:enumeration value = "AX"/>
+<xs:enumeration value = "AL"/>
+<xs:enumeration value = "DZ"/>
+<xs:enumeration value = "AS"/>
+<xs:enumeration value = "AD"/>
+<xs:enumeration value = "AO"/>
+<xs:enumeration value = "AI"/>
+<xs:enumeration value = "AQ"/>
+<xs:enumeration value = "AG"/>
+<xs:enumeration value = "AR"/>
+<xs:enumeration value = "AM"/>
+<xs:enumeration value = "AW"/>
+<xs:enumeration value = "AU"/>
+<xs:enumeration value = "AT"/>
+<xs:enumeration value = "AZ"/>
+<xs:enumeration value = "BS"/>
+<xs:enumeration value = "BH"/>
+<xs:enumeration value = "BD"/>
+<xs:enumeration value = "BB"/>
+<xs:enumeration value = "BY"/>
+<xs:enumeration value = "BE"/>
+<xs:enumeration value = "BZ"/>
+<xs:enumeration value = "BJ"/>
+<xs:enumeration value = "BM"/>
+<xs:enumeration value = "BT"/>
+<xs:enumeration value = "BO"/>
+<xs:enumeration value = "BQ"/>
+<xs:enumeration value = "BA"/>
+<xs:enumeration value = "BW"/>
+<xs:enumeration value = "BV"/>
+<xs:enumeration value = "BR"/>
+<xs:enumeration value = "IO"/>
+<xs:enumeration value = "BN"/>
+<xs:enumeration value = "BG"/>
+<xs:enumeration value = "BF"/>
+<xs:enumeration value = "BI"/>
+<xs:enumeration value = "KH"/>
+<xs:enumeration value = "CM"/>
+<xs:enumeration value = "CA"/>
+<xs:enumeration value = "CV"/>
+<xs:enumeration value = "KY"/>
+<xs:enumeration value = "CF"/>
+<xs:enumeration value = "TD"/>
+<xs:enumeration value = "CL"/>
+<xs:enumeration value = "CN"/>
+<xs:enumeration value = "CX"/>
+<xs:enumeration value = "CC"/>
+<xs:enumeration value = "CO"/>
+<xs:enumeration value = "KM"/>
+<xs:enumeration value = "CG"/>
+<xs:enumeration value = "CD"/>
+<xs:enumeration value = "CK"/>
+<xs:enumeration value = "CR"/>
+<xs:enumeration value = "CI"/>
+<xs:enumeration value = "HR"/>
+<xs:enumeration value = "CU"/>
+<xs:enumeration value = "CW"/>
+<xs:enumeration value = "CY"/>
+<xs:enumeration value = "CZ"/>
+<xs:enumeration value = "DK"/>
+<xs:enumeration value = "DJ"/>
+<xs:enumeration value = "DM"/>
+<xs:enumeration value = "DO"/>
+<xs:enumeration value = "EC"/>
+<xs:enumeration value = "EG"/>
+<xs:enumeration value = "SV"/>
+<xs:enumeration value = "GQ"/>
+<xs:enumeration value = "ER"/>
+<xs:enumeration value = "EE"/>
+<xs:enumeration value = "ET"/>
+<xs:enumeration value = "FK"/>
+<xs:enumeration value = "FO"/>
+<xs:enumeration value = "FJ"/>
+<xs:enumeration value = "FI"/>
+<xs:enumeration value = "FR"/>
+<xs:enumeration value = "GF"/>
+<xs:enumeration value = "PF"/>
+<xs:enumeration value = "TF"/>
+<xs:enumeration value = "GA"/>
+<xs:enumeration value = "GM"/>
+<xs:enumeration value = "GE"/>
+<xs:enumeration value = "DE"/>
+<xs:enumeration value = "GH"/>
+<xs:enumeration value = "GI"/>
+<xs:enumeration value = "GR"/>
+<xs:enumeration value = "GL"/>
+<xs:enumeration value = "GD"/>
+<xs:enumeration value = "GP"/>
+<xs:enumeration value = "GU"/>
+<xs:enumeration value = "GT"/>
+<xs:enumeration value = "GG"/>
+<xs:enumeration value = "GN"/>
+<xs:enumeration value = "GW"/>
+<xs:enumeration value = "GY"/>
+<xs:enumeration value = "HT"/>
+<xs:enumeration value = "HM"/>
+<xs:enumeration value = "VA"/>
+<xs:enumeration value = "HN"/>
+<xs:enumeration value = "HK"/>
+<xs:enumeration value = "HU"/>
+<xs:enumeration value = "IS"/>
+<xs:enumeration value = "IN"/>
+<xs:enumeration value = "ID"/>
+<xs:enumeration value = "IR"/>
+<xs:enumeration value = "IQ"/>
+<xs:enumeration value = "IE"/>
+<xs:enumeration value = "IM"/>
+<xs:enumeration value = "IL"/>
+<xs:enumeration value = "IT"/>
+<xs:enumeration value = "JM"/>
+<xs:enumeration value = "JP"/>
+<xs:enumeration value = "JE"/>
+<xs:enumeration value = "JO"/>
+<xs:enumeration value = "KZ"/>
+<xs:enumeration value = "KE"/>
+<xs:enumeration value = "KI"/>
+<xs:enumeration value = "KP"/>
+<xs:enumeration value = "KR"/>
+<xs:enumeration value = "KW"/>
+<xs:enumeration value = "KG"/>
+<xs:enumeration value = "LA"/>
+<xs:enumeration value = "LV"/>
+<xs:enumeration value = "LB"/>
+<xs:enumeration value = "LS"/>
+<xs:enumeration value = "LR"/>
+<xs:enumeration value = "LY"/>
+<xs:enumeration value = "LI"/>
+<xs:enumeration value = "LT"/>
+<xs:enumeration value = "LU"/>
+<xs:enumeration value = "MO"/>
+<xs:enumeration value = "MK"/>
+<xs:enumeration value = "MG"/>
+<xs:enumeration value = "MW"/>
+<xs:enumeration value = "MY"/>
+<xs:enumeration value = "MV"/>
+<xs:enumeration value = "ML"/>
+<xs:enumeration value = "MT"/>
+<xs:enumeration value = "MH"/>
+<xs:enumeration value = "MQ"/>
+<xs:enumeration value = "MR"/>
+<xs:enumeration value = "MU"/>
+<xs:enumeration value = "YT"/>
+<xs:enumeration value = "MX"/>
+<xs:enumeration value = "FM"/>
+<xs:enumeration value = "MD"/>
+<xs:enumeration value = "MC"/>
+<xs:enumeration value = "MN"/>
+<xs:enumeration value = "ME"/>
+<xs:enumeration value = "MS"/>
+<xs:enumeration value = "MA"/>
+<xs:enumeration value = "MZ"/>
+<xs:enumeration value = "MM"/>
+<xs:enumeration value = "NA"/>
+<xs:enumeration value = "NR"/>
+<xs:enumeration value = "NP"/>
+<xs:enumeration value = "NL"/>
+<xs:enumeration value = "NC"/>
+<xs:enumeration value = "NZ"/>
+<xs:enumeration value = "NI"/>
+<xs:enumeration value = "NE"/>
+<xs:enumeration value = "NG"/>
+<xs:enumeration value = "NU"/>
+<xs:enumeration value = "NF"/>
+<xs:enumeration value = "MP"/>
+<xs:enumeration value = "NO"/>
+<xs:enumeration value = "OM"/>
+<xs:enumeration value = "PK"/>
+<xs:enumeration value = "PW"/>
+<xs:enumeration value = "PS"/>
+<xs:enumeration value = "PA"/>
+<xs:enumeration value = "PG"/>
+<xs:enumeration value = "PY"/>
+<xs:enumeration value = "PE"/>
+<xs:enumeration value = "PH"/>
+<xs:enumeration value = "PN"/>
+<xs:enumeration value = "PL"/>
+<xs:enumeration value = "PT"/>
+<xs:enumeration value = "PR"/>
+<xs:enumeration value = "QA"/>
+<xs:enumeration value = "RE"/>
+<xs:enumeration value = "RO"/>
+<xs:enumeration value = "RU"/>
+<xs:enumeration value = "RW"/>
+<xs:enumeration value = "BL"/>
+<xs:enumeration value = "SH"/>
+<xs:enumeration value = "KN"/>
+<xs:enumeration value = "LC"/>
+<xs:enumeration value = "MF"/>
+<xs:enumeration value = "PM"/>
+<xs:enumeration value = "VC"/>
+<xs:enumeration value = "WS"/>
+<xs:enumeration value = "SM"/>
+<xs:enumeration value = "ST"/>
+<xs:enumeration value = "SA"/>
+<xs:enumeration value = "SN"/>
+<xs:enumeration value = "RS"/>
+<xs:enumeration value = "SC"/>
+<xs:enumeration value = "SL"/>
+<xs:enumeration value = "SG"/>
+<xs:enumeration value = "SX"/>
+<xs:enumeration value = "SK"/>
+<xs:enumeration value = "SI"/>
+<xs:enumeration value = "SB"/>
+<xs:enumeration value = "SO"/>
+<xs:enumeration value = "ZA"/>
+<xs:enumeration value = "GS"/>
+<xs:enumeration value = "SS"/>
+<xs:enumeration value = "ES"/>
+<xs:enumeration value = "LK"/>
+<xs:enumeration value = "SD"/>
+<xs:enumeration value = "SR"/>
+<xs:enumeration value = "SJ"/>
+<xs:enumeration value = "SZ"/>
+<xs:enumeration value = "SE"/>
+<xs:enumeration value = "CH"/>
+<xs:enumeration value = "SY"/>
+<xs:enumeration value = "TW"/>
+<xs:enumeration value = "TJ"/>
+<xs:enumeration value = "TZ"/>
+<xs:enumeration value = "TH"/>
+<xs:enumeration value = "TL"/>
+<xs:enumeration value = "TG"/>
+<xs:enumeration value = "TK"/>
+<xs:enumeration value = "TO"/>
+<xs:enumeration value = "TT"/>
+<xs:enumeration value = "TN"/>
+<xs:enumeration value = "TR"/>
+<xs:enumeration value = "TM"/>
+<xs:enumeration value = "TC"/>
+<xs:enumeration value = "TV"/>
+<xs:enumeration value = "UG"/>
+<xs:enumeration value = "UA"/>
+<xs:enumeration value = "AE"/>
+<xs:enumeration value = "GB"/>
+<xs:enumeration value = "UM"/>
+<xs:enumeration value = "US"/>
+<xs:enumeration value = "UY"/>
+<xs:enumeration value = "UZ"/>
+<xs:enumeration value = "VU"/>
+<xs:enumeration value = "VE"/>
+<xs:enumeration value = "VN"/>
+<xs:enumeration value = "VG"/>
+<xs:enumeration value = "VI"/>
+<xs:enumeration value = "WF"/>
+<xs:enumeration value = "EH"/>
+<xs:enumeration value = "YE"/>
+<xs:enumeration value = "ZM"/>
+<xs:enumeration value = "ZW"/>
+<xs:enumeration value = "XK"/>
+<xs:enumeration value = "XZ"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="DecimalBaseType">
+<xs:restriction base="xs:decimal">
+<xs:fractionDigits value = "8"/>
+<xs:totalDigits value = "25"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString21BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:complexType name="UserAreaType">
+<xs:sequence>
+<xs:any namespace="##any" processContents="strict" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="NormalizedString22BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "22"/>
+<xs:minLength value = "1"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString23BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "22"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="TokenBaseType">
+<xs:restriction base="xs:token">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "0"/>
+<xs:enumeration value = "AccountingBookDefinition"/>
+<xs:enumeration value = "AccountingChart"/>
+<xs:enumeration value = "AccountingJournal"/>
+<xs:enumeration value = "AdvanceShipNotice"/>
+<xs:enumeration value = "Alert"/>
+<xs:enumeration value = "AssetMaster"/>
+<xs:enumeration value = "AssetMeterReading"/>
+<xs:enumeration value = "BillOfResources"/>
+<xs:enumeration value = "BillToPartyMaster"/>
+<xs:enumeration value = "BOD"/>
+<xs:enumeration value = "BusinessPlan"/>
+<xs:enumeration value = "Calendar"/>
+<xs:enumeration value = "CarrierParty"/>
+<xs:enumeration value = "CarrierRoute"/>
+<xs:enumeration value = "ChartOfAccounts"/>
+<xs:enumeration value = "CodeDefinition"/>
+<xs:enumeration value = "ConstrainedResource"/>
+<xs:enumeration value = "ContactMaster"/>
+<xs:enumeration value = "Contract"/>
+<xs:enumeration value = "CurrencyExchangeRateMaster"/>
+<xs:enumeration value = "CurrencyRateType"/>
+<xs:enumeration value = "CustomerPartyMaster"/>
+<xs:enumeration value = "CustomerPurchaseOrder"/>
+<xs:enumeration value = "CustomerReturn"/>
+<xs:enumeration value = "CustomerRFQ"/>
+<xs:enumeration value = "EmployeeWorkSchedule"/>
+<xs:enumeration value = "EmployeeWorkTime"/>
+<xs:enumeration value = "ExpenseReport"/>
+<xs:enumeration value = "FinancialCalendar"/>
+<xs:enumeration value = "FinancialPartyMaster"/>
+<xs:enumeration value = "HandlingGroup"/>
+<xs:enumeration value = "InspectDelivery"/>
+<xs:enumeration value = "InventoryAdjustment"/>
+<xs:enumeration value = "InventoryConsumption"/>
+<xs:enumeration value = "InventoryCount"/>
+<xs:enumeration value = "InventoryHold"/>
+<xs:enumeration value = "Invoice"/>
+<xs:enumeration value = "ItemMaster"/>
+<xs:enumeration value = "Location"/>
+<xs:enumeration value = "MaintenanceOrder"/>
+<xs:enumeration value = "Opportunity"/>
+<xs:enumeration value = "PayableTransaction"/>
+<xs:enumeration value = "PayFromPartyMaster"/>
+<xs:enumeration value = "Person"/>
+<xs:enumeration value = "Personnel"/>
+<xs:enumeration value = "PlanningSchedule"/>
+<xs:enumeration value = "ProductionOrder"/>
+<xs:enumeration value = "ProductionReceiver"/>
+<xs:enumeration value = "ProjectBalance"/>
+<xs:enumeration value = "ProjectBid"/>
+<xs:enumeration value = "ProjectBudget"/>
+<xs:enumeration value = "ProjectCosts"/>
+<xs:enumeration value = "ProjectEstimate"/>
+<xs:enumeration value = "ProjectExtension"/>
+<xs:enumeration value = "ProjectMaster"/>
+<xs:enumeration value = "ProjectPeriodBalance"/>
+<xs:enumeration value = "ProjectRevenue"/>
+<xs:enumeration value = "PurchaseOrder"/>
+<xs:enumeration value = "Quote"/>
+<xs:enumeration value = "ReceivableTransaction"/>
+<xs:enumeration value = "ReceiveDelivery"/>
+<xs:enumeration value = "RemittanceAdvice"/>
+<xs:enumeration value = "RemitToPartyMaster"/>
+<xs:enumeration value = "Requisition"/>
+<xs:enumeration value = "RFQ"/>
+<xs:enumeration value = "SalesOrder"/>
+<xs:enumeration value = "SequenceSchedule"/>
+<xs:enumeration value = "ServiceConsumption"/>
+<xs:enumeration value = "ShipFromPartyMaster"/>
+<xs:enumeration value = "Shipment"/>
+<xs:enumeration value = "ShipmentSchedule"/>
+<xs:enumeration value = "ShipToPartyMaster"/>
+<xs:enumeration value = "SourceSystemGLMovement"/>
+<xs:enumeration value = "SourceSystemJournalEntry"/>
+<xs:enumeration value = "SupplierInvoice"/>
+<xs:enumeration value = "SupplierBalance"/>
+<xs:enumeration value = "SupplierPartyMaster"/>
+<xs:enumeration value = "SupplierQuote"/>
+<xs:enumeration value = "TextMessage"/>
+<xs:enumeration value = "TradingPartner"/>
+<xs:enumeration value = "Transfer"/>
+<xs:enumeration value = "TransportationRequisition"/>
+<xs:enumeration value = "TransportationStatus"/>
+<xs:enumeration value = "UOMGroup"/>
+<xs:enumeration value = "Workflow"/>
+<xs:enumeration value = "AssetFinancialLedger"/>
+<xs:enumeration value = "EDITransport"/>
+<xs:enumeration value = "CashReceipt"/>
+<xs:enumeration value = "ConfiguredAssetMaster"/>
+<xs:enumeration value = "ServiceContract"/>
+<xs:enumeration value = "CustomerCall"/>
+<xs:enumeration value = "ServiceOrder"/>
+<xs:enumeration value = "PlannedPurchaseOrder"/>
+<xs:enumeration value = "PlannedProductionOrder"/>
+<xs:enumeration value = "PlannedTransfer"/>
+<xs:enumeration value = "AssetTransaction"/>
+<xs:enumeration value = "SupplierPlanningSchedule"/>
+<xs:enumeration value = "SupplierShipmentSchedule"/>
+<xs:enumeration value = "AssetTrackingData"/>
+<xs:enumeration value = "BillOfMaterials"/>
+<xs:enumeration value = "LaborCostMaster"/>
+<xs:enumeration value = "SundryCostMaster"/>
+<xs:enumeration value = "ProjectProgress"/>
+<xs:enumeration value = "PulseAlert"/>
+<xs:enumeration value = "PulseNotification"/>
+<xs:enumeration value = "PulseTask"/>
+<xs:enumeration value = "ManufacturerPartyMaster"/>
+<xs:enumeration value = "ManufacturingPart"/>
+<xs:enumeration value = "EquipmentAlert"/>
+<xs:enumeration value = "SupplierRMA"/>
+<xs:enumeration value = "TransportationRoute"/>
+<xs:enumeration value = "CorrectiveActionPlan"/>
+<xs:enumeration value = "ProjectContract"/>
+<xs:enumeration value = "ProjectContractDeliverable"/>
+<xs:enumeration value = "ProjectContractInstallment"/>
+<xs:enumeration value = "BillFromPartyMaster"/>
+<xs:enumeration value = "DefectiveMaterialNotice"/>
+<xs:enumeration value = "SupportProduct"/>
+<xs:enumeration value = "SupportEnvironment"/>
+<xs:enumeration value = "WorkShiftMaster"/>
+<xs:enumeration value = "SecurityPermissionMaster"/>
+<xs:enumeration value = "SecurityRoleMaster"/>
+<xs:enumeration value = "LocationResource"/>
+<xs:enumeration value = "PackageLabel"/>
+<xs:enumeration value = "CustomerRemittanceAdvice"/>
+<xs:enumeration value = "SecurityUserMaster"/>
+<xs:enumeration value = "PayableTracker"/>
+<xs:enumeration value = "ReceivableTracker"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString24BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "0"/>
+<xs:enumeration value = "Open"/>
+<xs:enumeration value = "Deleted"/>
+<xs:enumeration value = "Pending"/>
+<xs:enumeration value = "Closed"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString25BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString26BaseType">
+<xs:restriction base="xs:normalizedString">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="PositiveInteger2BaseType">
+<xs:restriction base="xs:positiveInteger">
+<xs:fractionDigits value = "0"/>
+<xs:totalDigits value = "3"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="PositiveInteger3BaseType">
+<xs:restriction base="xs:positiveInteger">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString27BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString28BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString29BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString30BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="Decimal1BaseType">
+<xs:restriction base="xs:decimal">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString31BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:enumeration value = "Minimum"/>
+<xs:enumeration value = "Maximum"/>
+<xs:enumeration value = "Target"/>
+<xs:enumeration value = "ExternalMinimum"/>
+<xs:enumeration value = "ExternalMaximum"/>
+<xs:enumeration value = "ExternalTarget"/>
+<xs:enumeration value = "AlarmMinimum"/>
+<xs:enumeration value = "AlarmMaximum"/>
+<xs:enumeration value = "AlarmTarget"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString32BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:element name="Property" type="InforUAPropertyType"/>
+<xs:complexType name="InforUAPropertyType">
+<xs:sequence>
+<xs:element name="NameValue" minOccurs="0" maxOccurs="1" type="InforUANameValueType">
+<xs:annotation>
+<xs:documentation>
+Is the tag and information of the new information to be passed.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Description" minOccurs="0" maxOccurs="unbounded" type="InforUADescriptionType">
+<xs:annotation>
+<xs:documentation>
+Free form text that describes the object and repeats as needed to provide support for multilingual descriptions
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Note" minOccurs="0" maxOccurs="unbounded" type="InforUANoteType">
+<xs:annotation>
+<xs:documentation>
+A freeform note
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="EffectiveTimePeriod" minOccurs="0" maxOccurs="1" type="InforUAEffectiveTimePeriodType">
+<xs:annotation>
+<xs:documentation>
+Indicates the time period in which the associated component is effective.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="sequence" type="InforUAPositiveIntegerBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The sequence attribute is used for the ordering of elements within a document. It is not intended to be used as an identifier.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="listID" type="InforUANormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity. Workflow Properties
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:complexType>
+<xs:complexType name="InforUANameValueType">
+<xs:simpleContent>
+<xs:extension base="InforUAStringBaseType">
+<xs:attribute name="name" type="InforUANormalizedStringBaseType" use="required">
+<xs:annotation>
+<xs:documentation>
+This is the identifier for this Property within this document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="type" type="InforUANormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+Identifies the data type of the value of this property.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="unitCode" type="InforUANormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The unit-of-measure (UOM) code associated with a quantity. This is based upon the ISO standard.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="unitCodeListVersionID" type="InforUANormalizedString2BaseType" use="optional">
+</xs:attribute>
+<xs:attribute name="currencyID" type="InforUANormalizedString3BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The code for the currency associated with an amount.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="listID" type="InforUANormalizedString1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.  Dimension
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="nounName" type="InforUANormalizedString2BaseType" use="optional">
+</xs:attribute>
+<xs:attribute name="accountingEntity" type="InforUANormalizedString4BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="schemeName" type="InforUANormalizedString5BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+When no schemeName exists this is the default ID for the enterprise at the level where this object is maintained. The value of the ID must uniquely identify this object throughout the enterprise within the scope of the level where it is maintained (tenant, accounting entity or location). The specific values for this attribute are determined by the individual noun.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="InforUADescriptionType">
+<xs:simpleContent>
+<xs:extension base="InforUAString1BaseType">
+<xs:attribute name="languageID" type="InforUALanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="InforUANoteType">
+<xs:simpleContent>
+<xs:extension base="InforUAString2BaseType">
+<xs:attribute name="noteID" type="InforUANormalizedString6BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+An optional identifier, that when used can uniquely identify each instance of a note within a BOD. It is only unique within the context of the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="use" type="InforUANormalizedString7BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+Indicates if the note should be published externally or if it is for internal use only. It may have the values &apos;&apos;Internal&apos;&apos; and &apos;&apos;External&apos;&apos;.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="author" type="InforUAStringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+Person who created the note
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="entryDateTime" type="InforUAUnionType" use="optional">
+<xs:annotation>
+<xs:documentation>
+Entry date and time in GMT.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="status" type="InforUAString3BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+Status of a note.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="type" type="InforUANormalizedString8BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+Identifies where the note is used and is associated to an Infor defined code list, &apos;&apos;NoteType,&apos;&apos; that indicates the processes that might use the note.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="languageID" type="InforUALanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="InforUAEffectiveTimePeriodType">
+<xs:sequence>
+<xs:element name="StartDateTime" minOccurs="0" maxOccurs="1" type="InforUAUnionType">
+<xs:annotation>
+<xs:documentation>
+The timestamp marking the beginning of a time period during which a related entity or status is effective or applicable.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:choice>
+<xs:element name="Duration" minOccurs="0" maxOccurs="1" type="InforUADurationBaseType">
+<xs:annotation>
+<xs:documentation>
+Indicates the duration of time as represented by ISO 8601. Where the value space is a six dimensional space where the coordinates designate the Gregorian year, month, day, hour, minute, and second. The number of seconds can include decimal digits to arbitary pecision. This can be used in place of the EndDateTime, but not in conjunction with it.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="EndDateTime" minOccurs="0" maxOccurs="1" type="InforUAUnionType">
+<xs:annotation>
+<xs:documentation>
+Is the ending timestamp of the event. This can be used in place of the Duration, but not with it.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:choice>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="InforUAStringBaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "64"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="InforUANormalizedStringBaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "64"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="InforUANormalizedString1BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="InforUANormalizedString2BaseType">
+<xs:restriction base="xs:normalizedString">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="InforUANormalizedString3BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+<xs:enumeration value = "AED"/>
+<xs:enumeration value = "AFN"/>
+<xs:enumeration value = "ALL"/>
+<xs:enumeration value = "AMD"/>
+<xs:enumeration value = "ANG"/>
+<xs:enumeration value = "AOA"/>
+<xs:enumeration value = "ARS"/>
+<xs:enumeration value = "AUD"/>
+<xs:enumeration value = "AWG"/>
+<xs:enumeration value = "AZN"/>
+<xs:enumeration value = "BAM"/>
+<xs:enumeration value = "BBD"/>
+<xs:enumeration value = "BDT"/>
+<xs:enumeration value = "BGN"/>
+<xs:enumeration value = "BHD"/>
+<xs:enumeration value = "BIF"/>
+<xs:enumeration value = "BMD"/>
+<xs:enumeration value = "BND"/>
+<xs:enumeration value = "BOB"/>
+<xs:enumeration value = "BRL"/>
+<xs:enumeration value = "BSD"/>
+<xs:enumeration value = "BTN"/>
+<xs:enumeration value = "BWP"/>
+<xs:enumeration value = "BYR"/>
+<xs:enumeration value = "BZD"/>
+<xs:enumeration value = "CAD"/>
+<xs:enumeration value = "CDF"/>
+<xs:enumeration value = "CHF"/>
+<xs:enumeration value = "CLP"/>
+<xs:enumeration value = "CNY"/>
+<xs:enumeration value = "COP"/>
+<xs:enumeration value = "CRC"/>
+<xs:enumeration value = "CUC"/>
+<xs:enumeration value = "CUP"/>
+<xs:enumeration value = "CVE"/>
+<xs:enumeration value = "CZK"/>
+<xs:enumeration value = "DJF"/>
+<xs:enumeration value = "DKK"/>
+<xs:enumeration value = "DOP"/>
+<xs:enumeration value = "DZD"/>
+<xs:enumeration value = "EGP"/>
+<xs:enumeration value = "ERN"/>
+<xs:enumeration value = "ETB"/>
+<xs:enumeration value = "EUR"/>
+<xs:enumeration value = "FJD"/>
+<xs:enumeration value = "FKP"/>
+<xs:enumeration value = "GBP"/>
+<xs:enumeration value = "GEL"/>
+<xs:enumeration value = "GGP"/>
+<xs:enumeration value = "GHS"/>
+<xs:enumeration value = "GIP"/>
+<xs:enumeration value = "GMD"/>
+<xs:enumeration value = "GNF"/>
+<xs:enumeration value = "GTQ"/>
+<xs:enumeration value = "GYD"/>
+<xs:enumeration value = "HKD"/>
+<xs:enumeration value = "HNL"/>
+<xs:enumeration value = "HRK"/>
+<xs:enumeration value = "HTG"/>
+<xs:enumeration value = "HUF"/>
+<xs:enumeration value = "IDR"/>
+<xs:enumeration value = "ILS"/>
+<xs:enumeration value = "IMP"/>
+<xs:enumeration value = "INR"/>
+<xs:enumeration value = "IQD"/>
+<xs:enumeration value = "IRR"/>
+<xs:enumeration value = "ISK"/>
+<xs:enumeration value = "JEP"/>
+<xs:enumeration value = "JMD"/>
+<xs:enumeration value = "JOD"/>
+<xs:enumeration value = "JPY"/>
+<xs:enumeration value = "KES"/>
+<xs:enumeration value = "KGS"/>
+<xs:enumeration value = "KHR"/>
+<xs:enumeration value = "KMF"/>
+<xs:enumeration value = "KPW"/>
+<xs:enumeration value = "KRW"/>
+<xs:enumeration value = "KWD"/>
+<xs:enumeration value = "KYD"/>
+<xs:enumeration value = "KZT"/>
+<xs:enumeration value = "LAK"/>
+<xs:enumeration value = "LBP"/>
+<xs:enumeration value = "LKR"/>
+<xs:enumeration value = "LRD"/>
+<xs:enumeration value = "LSL"/>
+<xs:enumeration value = "LTL"/>
+<xs:enumeration value = "LVL"/>
+<xs:enumeration value = "LYD"/>
+<xs:enumeration value = "MAD"/>
+<xs:enumeration value = "MDL"/>
+<xs:enumeration value = "MGA"/>
+<xs:enumeration value = "MKD"/>
+<xs:enumeration value = "MMK"/>
+<xs:enumeration value = "MNT"/>
+<xs:enumeration value = "MOP"/>
+<xs:enumeration value = "MRO"/>
+<xs:enumeration value = "MUR"/>
+<xs:enumeration value = "MVR"/>
+<xs:enumeration value = "MWK"/>
+<xs:enumeration value = "MXN"/>
+<xs:enumeration value = "MYR"/>
+<xs:enumeration value = "MZN"/>
+<xs:enumeration value = "NAD"/>
+<xs:enumeration value = "NGN"/>
+<xs:enumeration value = "NIO"/>
+<xs:enumeration value = "NOK"/>
+<xs:enumeration value = "NPR"/>
+<xs:enumeration value = "NZD"/>
+<xs:enumeration value = "OMR"/>
+<xs:enumeration value = "PAB"/>
+<xs:enumeration value = "PEN"/>
+<xs:enumeration value = "PGK"/>
+<xs:enumeration value = "PHP"/>
+<xs:enumeration value = "PKR"/>
+<xs:enumeration value = "PLN"/>
+<xs:enumeration value = "PYG"/>
+<xs:enumeration value = "QAR"/>
+<xs:enumeration value = "RON"/>
+<xs:enumeration value = "RSD"/>
+<xs:enumeration value = "RUB"/>
+<xs:enumeration value = "RWF"/>
+<xs:enumeration value = "SAR"/>
+<xs:enumeration value = "SBD"/>
+<xs:enumeration value = "SCR"/>
+<xs:enumeration value = "SDG"/>
+<xs:enumeration value = "SEK"/>
+<xs:enumeration value = "SGD"/>
+<xs:enumeration value = "SHP"/>
+<xs:enumeration value = "SLL"/>
+<xs:enumeration value = "SOS"/>
+<xs:enumeration value = "SPL*"/>
+<xs:enumeration value = "SRD"/>
+<xs:enumeration value = "STD"/>
+<xs:enumeration value = "SVC"/>
+<xs:enumeration value = "SYP"/>
+<xs:enumeration value = "SZL"/>
+<xs:enumeration value = "THB"/>
+<xs:enumeration value = "TJS"/>
+<xs:enumeration value = "TMT"/>
+<xs:enumeration value = "TND"/>
+<xs:enumeration value = "TOP"/>
+<xs:enumeration value = "TRY"/>
+<xs:enumeration value = "TTD"/>
+<xs:enumeration value = "TVD"/>
+<xs:enumeration value = "TWD"/>
+<xs:enumeration value = "TZS"/>
+<xs:enumeration value = "UAH"/>
+<xs:enumeration value = "UGX"/>
+<xs:enumeration value = "USD"/>
+<xs:enumeration value = "UYU"/>
+<xs:enumeration value = "UZS"/>
+<xs:enumeration value = "VEF"/>
+<xs:enumeration value = "VND"/>
+<xs:enumeration value = "VUV"/>
+<xs:enumeration value = "WST"/>
+<xs:enumeration value = "XAF"/>
+<xs:enumeration value = "XCD"/>
+<xs:enumeration value = "XDR"/>
+<xs:enumeration value = "XOF"/>
+<xs:enumeration value = "XPF"/>
+<xs:enumeration value = "YER"/>
+<xs:enumeration value = "ZAR"/>
+<xs:enumeration value = "ZMK"/>
+<xs:enumeration value = "ZWD"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="InforUANormalizedString4BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "22"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="InforUANormalizedString5BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "64"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="InforUAString1BaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "1024"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="InforUALanguageBaseType">
+<xs:restriction base="xs:language">
+<xs:maxLength value = "17"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="InforUAString2BaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "10240"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="InforUANormalizedString6BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="InforUANormalizedString7BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "10"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="InforUAUnionType">
+<xs:union memberTypes="xs:date xs:time xs:dateTime "/>
+</xs:simpleType>
+<xs:simpleType name="InforUAString3BaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="InforUANormalizedString8BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "64"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="InforUADurationBaseType">
+<xs:restriction base="xs:duration">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="InforUAPositiveIntegerBaseType">
+<xs:restriction base="xs:positiveInteger">
+<xs:minInclusive value = "1"/>
+<xs:totalDigits value = "22"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

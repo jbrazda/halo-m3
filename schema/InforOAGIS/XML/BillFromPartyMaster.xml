@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.5"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>BillFromPartyMaster</NounName>
+<NounType>MasterData</NounType>
+<Version> 2.13.5</Version> 
+<IDXPath>/*/DataArea/BillFromPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/BillFromPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath></IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/BillFromPartyMaster[1]/Name | /*/DataArea/BillFromPartyMaster[1]/Name/@languageID</DescriptionXPath>
+<RevisionXPath></RevisionXPath>
+<VariationXPath>/*/DataArea/BillFromPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/BillFromPartyMaster[1]/Status/Code</StatusXPath>
+<DocumentDateTimeXPath></DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Acknowledge</SupportedVerb>
+<SupportedVerb>Get</SupportedVerb>
+<SupportedVerb>Process</SupportedVerb>
+<SupportedVerb>Show</SupportedVerb>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Warehouse location?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillFromPartyMaster/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Supplier's Bill From Contact</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillFromPartyMaster/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Warehouse location of the financial party</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillFromPartyMaster/FinancialParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>SupplierPartyMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Parent supplier for the Bill From Party</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillFromPartyMaster/SupplierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/SupplierPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Warehouse location of the supplier</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillFromPartyMaster/SupplierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Sales contact of the supplier</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillFromPartyMaster/SupplierParty/SalesContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Shipping contact of the supplier</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillFromPartyMaster/SupplierParty/ShippingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Customer Service contact of the supplier</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/BillFromPartyMaster/SupplierParty/CustomerServiceContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

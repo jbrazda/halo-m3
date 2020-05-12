@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.3"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>EmployeeWorkSchedule</NounName>
+<NounType>Transactional</NounType>
+<Version> 2.13.3</Version> 
+<IDXPath>/*/DataArea/EmployeeWorkSchedule/DocumentID[1]/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/EmployeeWorkSchedule/DocumentID[1]/ID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath>/*/DataArea/EmployeeWorkSchedule/DocumentID[1]/ID[not (@schemeName)]/@location</IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/EmployeeWorkSchedule/Description | /*/DataArea/EmployeeWorkSchedule/Description/@languageID</DescriptionXPath>
+<RevisionXPath>/*/DataArea/EmployeeWorkSchedule/DocumentID[1]/ID[not (@schemeName)]/following-sibling::RevisionID</RevisionXPath>
+<VariationXPath>/*/DataArea/EmployeeWorkSchedule/DocumentID[1]/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/EmployeeWorkSchedule/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/EmployeeWorkSchedule/DocumentDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Acknowledge</SupportedVerb>
+<SupportedVerb>Get</SupportedVerb>
+<SupportedVerb>Process</SupportedVerb>
+<SupportedVerb>Show</SupportedVerb>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>Personnel</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Personnel in the Work Schedule</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/EmployeeWorkSchedule/Employee/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Personnel/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/EmployeeWorkSchedule/PersonReference/IDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Contract</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Contract of Employee</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/EmployeeWorkSchedule/ContractReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Contract/ContractHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Work location associated with the Work Schedule</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/EmployeeWorkSchedule/WorkLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

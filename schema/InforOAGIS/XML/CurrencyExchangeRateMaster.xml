@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.8"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>CurrencyExchangeRateMaster</NounName>
+<NounType>MasterData</NounType>
+<Version> 2.13.8</Version> 
+<IDXPath>/*/DataArea/CurrencyExchangeRateMaster[1]/IDs[1]/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/CurrencyExchangeRateMaster[1]/IDs[1]/ID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath></IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath></DescriptionXPath>
+<RevisionXPath></RevisionXPath>
+<VariationXPath>/*/DataArea/CurrencyExchangeRateMaster[1]/IDs[1]/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/CurrencyExchangeRateMaster[1]/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/CurrencyExchangeRateMaster[1]/DocumentDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Acknowledge</SupportedVerb>
+<SupportedVerb>Get</SupportedVerb>
+<SupportedVerb>Load</SupportedVerb>
+<SupportedVerb>Process</SupportedVerb>
+<SupportedVerb>Show</SupportedVerb>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>FinancialCalendar</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Financial period in which exchange rate is applicable</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CurrencyExchangeRateMaster/FinancialPeriod/FinancialCalendarReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/FinancialCalendar/FinancialCalendarID[1]/ID</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>CurrencyRateType</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Currency Rate Type for exchange rate</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/CurrencyExchangeRateMaster/CurrencyRateTypeReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/CurrencyRateType/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

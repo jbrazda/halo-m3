@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.6"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>AccountingEntity</NounName>
+<NounType>MasterData</NounType>
+<Version> 2.13.6</Version> 
+<IDXPath>/*/DataArea/AccountingEntity/IDs[1]/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath></IDAccountingEntityXPath>
+<IDLocationXPath></IDLocationXPath>
+<DisplayIDXPath>/*/DataArea/AccountingEntity/ShortName | /*/DataArea/AccountingEntity/ShortName/@languageID</DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/AccountingEntity/Name | /*/DataArea/AccountingEntity/Name/@languageID</DescriptionXPath>
+<RevisionXPath></RevisionXPath>
+<VariationXPath>/*/DataArea/AccountingEntity/IDs[1]/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/AccountingEntity/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/AccountingEntity/DocumentDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Acknowledge</SupportedVerb>
+<SupportedVerb>Get</SupportedVerb>
+<SupportedVerb>Process</SupportedVerb>
+<SupportedVerb>Show</SupportedVerb>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>AccountingChart</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Chart used for this AE</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/AccountingEntity/AccountingChartReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/AccountingChart/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>A location associated with this AE</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/AccountingEntity/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Need to check with LN to see if this is even valid.</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/AccountingEntity/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>FinancialCalendar</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Calendar used for this AE</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/AccountingEntity/FinancialCalendarReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/FinancialCalendar/FinancialCalendarID[1]/ID</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

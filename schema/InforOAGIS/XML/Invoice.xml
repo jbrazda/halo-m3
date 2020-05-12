@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.9"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>Invoice</NounName>
+<NounType>Transactional</NounType>
+<Version> 2.13.9</Version> 
+<IDXPath>/*/DataArea/Invoice/InvoiceHeader/DocumentID[1]/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/Invoice/InvoiceHeader/DocumentID[1]/ID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath>/*/DataArea/Invoice/InvoiceHeader/DocumentID[1]/ID[not (@schemeName)]/@location</IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/Invoice/InvoiceHeader/Description | /*/DataArea/Invoice/InvoiceHeader/Description/@languageID</DescriptionXPath>
+<RevisionXPath>/*/DataArea/Invoice/InvoiceHeader/DocumentID[1]/ID[not (@schemeName)]/following-sibling::RevisionID</RevisionXPath>
+<VariationXPath>/*/DataArea/Invoice/InvoiceHeader/DocumentID[1]/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/Invoice/InvoiceHeader/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/Invoice/InvoiceHeader/DocumentDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Acknowledge</SupportedVerb>
+<SupportedVerb>Get</SupportedVerb>
+<SupportedVerb>Load</SupportedVerb>
+<SupportedVerb>Process</SupportedVerb>
+<SupportedVerb>Show</SupportedVerb>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>SupplierPartyMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed here - need on SupplierInvoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/SupplierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/SupplierPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/SupplierParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Department's logistic location from which the invoice is sent</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/SupplierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - must be part of SupplierInvoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/SupplierParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - must be part of SupplierInvoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/SupplierParty/SalesContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - must be part of SupplierInvoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/SupplierParty/ShippingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - must be part of SupplierInvoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/SupplierParty/CustomerServiceContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>CustomerPartyMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Customer Party for the invoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/CustomerParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/CustomerPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Customer location on the invoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/CustomerParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Customer Contact for the Invoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/CustomerParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Requester contact for the invoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/CustomerParty/RequesterContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Planner contact for the invoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/CustomerParty/PlannerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Buyer contact for the invoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/CustomerParty/BuyerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Receving contact for the invoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/CustomerParty/ReceivingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>RemitToPartyMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed here - need on SupplierInvoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/RemitToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/RemitToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Remit to Party Location on the invoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/RemitToParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed since location is customer's address  not an internal location</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/RemitToParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Remit to Contact for the invoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/RemitToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/CreditorParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/CreditorParty/BranchParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/DebtorParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/DebtorParty/BranchParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>PurchaseOrder</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed here - need on SupplierInvoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/PurchaseOrderReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/PurchaseOrder/PurchaseOrderHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Contract</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Contract reference on the invoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/ContractReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Contract/ContractHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>ProjectContract</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/ProjectContractReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectContract/ProjectContractHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>AccountingChart</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/Tax/Distribution/GLAccount/AccountingChartReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/AccountingChart/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ChartOfAccounts</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/Tax/Distribution/GLAccount/ChartOfAccountsReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ChartOfAccounts[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/Tax/Distribution/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>AccountingChart</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/Charge/Distribution/GLAccount/AccountingChartReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/AccountingChart/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ChartOfAccounts</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/Charge/Distribution/GLAccount/ChartOfAccountsReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ChartOfAccounts[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/Charge/Distribution/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipToPartyMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Ship to party on the invoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/ShipToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Ship To Party Location of the invoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/ShipToParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Ship to contact for the invoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/ShipToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>BillToPartyMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Bill to Party on the Invoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/BillToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/BillToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed since location is customer's address  not an internal location</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/BillToParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Bill to Party contact on the invoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/BillToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Is this needed at invoice level?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/BillToParty/PlannerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Is this needed at invoice level?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/BillToParty/BuyerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/BillFromParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/BillFromParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>PayFromPartyMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Pay from Party for the invoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/PayFromParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/PayFromPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed since location is customer's address  not an internal location</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/PayFromParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipFromPartyMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed here - need on SupplierInvoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/ShipFromParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipFromPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Ship From Location (Warehouse) on the Invoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/ShipFromParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Logistic location of the warehouse</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/ShipFromParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Is this needed at invoice level?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/ShipFromParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/TaxRepresentativeParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>AccountingChart</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/Distribution/GLAccount/AccountingChartReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/AccountingChart/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ChartOfAccounts</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/Distribution/GLAccount/ChartOfAccountsReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ChartOfAccounts[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/Distribution/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Sales Person on the invoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/SalesPersonReference/IDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Billing Person</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceHeader/BillingPersonReference/IDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Invoice line item</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/Item/ItemID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>PurchaseOrder</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed here - need on SupplierInvoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/PurchaseOrderReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/PurchaseOrder/PurchaseOrderHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>ProjectContract</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/ProjectContractReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectContract/ProjectContractHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>AccountingChart</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/Tax/Distribution/GLAccount/AccountingChartReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/AccountingChart/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ChartOfAccounts</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/Tax/Distribution/GLAccount/ChartOfAccountsReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ChartOfAccounts[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/Tax/Distribution/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>AccountingChart</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/InvoiceCharge/Distribution/GLAccount/AccountingChartReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/AccountingChart/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ChartOfAccounts</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/InvoiceCharge/Distribution/GLAccount/ChartOfAccountsReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ChartOfAccounts[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/InvoiceCharge/Distribution/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Check with Pat</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/OrderCommission/SalesPerson/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>SupplierPartyMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed here - need on SupplierInvoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/SupplierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/SupplierPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/SupplierParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - ship from cannot change on the line level - could be  a problem for tax</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/SupplierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed here - need on SupplierInvoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/SupplierParty/SalesContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed here - need on SupplierInvoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/SupplierParty/ShippingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed here - need on SupplierInvoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/SupplierParty/CustomerServiceContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>CustomerPartyMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Customer Party for the invoice line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/CustomerParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/CustomerPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Customer Location on the invoice line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/CustomerParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Customer contact for the invoice line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/CustomerParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Requester contact for the invoice line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/CustomerParty/RequesterContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Planner contact for the invoice line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/CustomerParty/PlannerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Buyer contact for the invoice line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/CustomerParty/BuyerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Receving contact for the invoice line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/CustomerParty/ReceivingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>SalesOrder</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Sales order on the invoice line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/SalesOrderReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipToPartyMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Ship to party on the invoice line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/ShipToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Ship to location on the invoice line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/ShipToParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Ship to contact for the invoice line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/ShipToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>BillToPartyMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Is it possible to have a different Bill-To on the line?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/BillToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/BillToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - customer location is not an internal location</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/BillToParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Bill to contact for the invoice line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/BillToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Planner contact of the line Bill To Party</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/BillToParty/PlannerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Buyer contact of the line Bill To Party</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/BillToParty/BuyerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>PayFromPartyMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Pay from Party for the invoice line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/PayFromParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/PayFromPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - customer location is not an internal location</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/PayFromParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipFromPartyMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed here - need on SupplierInvoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/ShipFromParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipFromPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Can ship-from party change on the line?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/ShipFromParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Logistic location of the warehouse</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/ShipFromParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed here - need on SupplierInvoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/ShipFromParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>RemitToPartyMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed here - need on SupplierInvoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/RemitToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/RemitToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed here - need on SupplierInvoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/RemitToParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed here - need on SupplierInvoice</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/RemitToParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Remit to Contact for the invoice line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/RemitToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>AccountingChart</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/Distribution/GLAccount/AccountingChartReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/AccountingChart/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ChartOfAccounts</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/Distribution/GLAccount/ChartOfAccountsReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ChartOfAccounts[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/Invoice/InvoiceLine/Distribution/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.6"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>PayrollAdvice</NounName>
+<NounType>Transactional</NounType>
+<Version> 2.13.6</Version> 
+<IDXPath>/*/DataArea/PayrollAdvice[1]/PayrollAdviceHeader/DocumentID/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/PayrollAdvice[1]/PayrollAdviceHeader/DocumentID/ID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath>/*/DataArea/PayrollAdvice[1]/PayrollAdviceHeader/DocumentID/ID[not (@schemeName)]/@location</IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/PayrollAdvice/PayrollAdviceHeader/Description | /*/DataArea/PayrollAdvice/PayrollAdviceHeader/Description/@languageID</DescriptionXPath>
+<RevisionXPath>/*/DataArea/PayrollAdvice[1]/PayrollAdviceHeader/DocumentID/ID[not (@schemeName)]/following-sibling::RevisionID</RevisionXPath>
+<VariationXPath>/*/DataArea/PayrollAdvice[1]/PayrollAdviceHeader/DocumentID/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/PayrollAdvice[1]/PayrollAdviceHeader/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/PayrollAdvice[1]/PayrollAdviceHeader/DocumentDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Acknowledge</SupportedVerb>
+<SupportedVerb>Get</SupportedVerb>
+<SupportedVerb>Process</SupportedVerb>
+<SupportedVerb>Show</SupportedVerb>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>Personnel</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/PayrollAdvice/PayrollAdviceHeader/PersonnelReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Personnel/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/PayrollAdvice/PayrollAdviceHeader/FinancialParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/PayrollAdvice/PayrollAdviceHeader/FinancialParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>AccountingChart</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/PayrollAdvice/PayrollAdviceDetail/GLAccount/AccountingChartReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/AccountingChart/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ChartOfAccounts</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Not yet defined</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/PayrollAdvice/PayrollAdviceDetail/GLAccount/ChartOfAccountsReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ChartOfAccounts[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>ExpenseReport</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Expense report being reimbursed</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/PayrollAdvice/PayrollAdviceDetail/ExpenseReportReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ExpenseReport/ExpenseReportHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/PayrollAdvice/PayrollAdviceDetail/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

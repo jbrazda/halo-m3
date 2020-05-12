@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.3"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>EmployeeTimesheet</NounName>
+<NounType>Transactional</NounType>
+<Version> 2.13.3</Version> 
+<IDXPath>/*/DataArea/EmployeeTimesheet/EmployeeTimesheetHeader/DocumentID[1]/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/EmployeeTimesheet/EmployeeTimesheetHeader/DocumentID[1]/ID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath>/*/DataArea/EmployeeTimesheet/EmployeeTimesheetHeader/DocumentID[1]/ID[not (@schemeName)]/@location</IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/EmployeeTimesheetEmployeeTimesheetHeader/Description | /*/DataArea/EmployeeTimesheet/EmployeeTimesheetHeader/Description/@languageID</DescriptionXPath>
+<RevisionXPath>/*/DataArea/EmployeeTimesheet/EmployeeTimesheetHeader/DocumentID[1]/ID[not (@schemeName)]/following-sibling::RevisionID</RevisionXPath>
+<VariationXPath>/*/DataArea/EmployeeTimesheet/EmployeeTimesheetHeader/DocumentID[1]/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/EmployeeTimesheet/EmployeeTimesheetHeader/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/EmployeeTimesheet/EmployeeTimesheetHeader/DocumentDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>Personnel</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/EmployeeTimesheet/EmployeeTimesheetHeader/Employee/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Personnel/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/EmployeeTimesheet/EmployeeTimesheetHeader/PersonReference/IDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/EmployeeTimesheet/EmployeeTimesheetHeader/WorkLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/EmployeeTimesheet/EmployeeTimesheetLine/TimeEntryDetail/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/EmployeeTimesheet/EmployeeTimesheetLine/TimeEntryDetail/WorkLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

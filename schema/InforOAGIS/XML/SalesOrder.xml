@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.8"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>SalesOrder</NounName>
+<NounType>Transactional</NounType>
+<Version> 2.13.8</Version> 
+<IDXPath>/*/DataArea/SalesOrder/SalesOrderHeader/DocumentID[1]/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/SalesOrder/SalesOrderHeader/DocumentID[1]/ID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath>/*/DataArea/SalesOrder/SalesOrderHeader/DocumentID[1]/ID[not (@schemeName)]/@location</IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/SalesOrder/SalesOrderHeader/Description | /*/DataArea/SalesOrder/SalesOrderHeader/Description/@languageID</DescriptionXPath>
+<RevisionXPath>/*/DataArea/SalesOrder/SalesOrderHeader/DocumentID[1]/ID[not (@schemeName)]/following-sibling::RevisionID</RevisionXPath>
+<VariationXPath>/*/DataArea/SalesOrder/SalesOrderHeader/DocumentID[1]/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/SalesOrder/SalesOrderHeader/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/SalesOrder/SalesOrderHeader/DocumentDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Acknowledge</SupportedVerb>
+<SupportedVerb>Get</SupportedVerb>
+<SupportedVerb>Load</SupportedVerb>
+<SupportedVerb>Process</SupportedVerb>
+<SupportedVerb>Show</SupportedVerb>
+<SupportedVerb>Sync</SupportedVerb>
+<SupportedVerb>Update</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>CustomerPartyMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Customer Party for the Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/CustomerParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/CustomerPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Customer's Location on the Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/CustomerParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Customer Contact of the sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/CustomerParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Requester Contact of the Sales Order's Customer</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/CustomerParty/RequesterContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Planner Contact of the Sales Order's Customer</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/CustomerParty/PlannerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Buyer Contact of the Sales Order's Customer</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/CustomerParty/BuyerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Receiving Contact of the Sales Order's Customer</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/CustomerParty/ReceivingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>SupplierPartyMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Supplier Party on the Sales Order?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/SupplierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/SupplierPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/SupplierParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - this is not an internal location</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/SupplierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Supplier Party's Sales contact for the Sales order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/SupplierParty/SalesContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Supplier Party's Shipping contact for the Sales order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/SupplierParty/ShippingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Supplier Party's Customer Service Contact for the Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/SupplierParty/CustomerServiceContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipToPartyMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Ship To Party on the Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/ShipToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Ship to Party's Contact for the Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/ShipToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipFromPartyMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Ship From Party on the Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/ShipFromParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipFromPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Warehouse on the Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/ShipFromParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Logistic Location of the Warehouse</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/ShipFromParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Ship From Party's Contact for the Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/ShipFromParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Planner Contact of the Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/PlannerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Contract</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Contract linked to the Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/ContractReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Contract/ContractHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>BillToPartyMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Bill To Party of the Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/BillToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/BillToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - this is not an internal location</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/BillToParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Bill To Party's Contact for the Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/BillToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Bill To Party's Planner  Contact for the Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/BillToParty/PlannerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Bill To Party's Buyer Contact for the Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/BillToParty/BuyerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>CarrierParty</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Carrier Party of the Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/CarrierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/CarrierParty/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - this is not an internal location</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/CarrierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Carrier Contact for this Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/CarrierParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>PayFromPartyMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Pay from Party on the Sales Order Header</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/PayFromParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/PayFromPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - this is not an internal location</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/PayFromParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Pay From Party's Contact for this Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/PayFromParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Place of Ownership Transfer on the Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/TransportationTerm/PlaceOfOwnershipTransferLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>PurchaseOrder</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Purchase Order linked to the Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/PurchaseOrderReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/PurchaseOrder/PurchaseOrderHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Sales Person on the Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/SalesPersonReference/IDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>RemitToPartyMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Remit To party for the Sales Order?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/RemitToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/RemitToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Remit To Party's Location on the Sales Order</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/RemitToParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - this is not an internal location</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/RemitToParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Is this needed on Sales order?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/RemitToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>FinancialCalendar</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderHeader/CurrencyRateType/FinancialCalendarReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/FinancialCalendar/FinancialCalendarID[1]/ID</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Item on the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/Item/ItemID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipToPartyMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Ship To Party on the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/ShipToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Ship To Location on the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/ShipToParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Ship To Party's Contact for the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/ShipToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Place of Ownership Transfer on the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/TransportationTerm/PlaceOfOwnershipTransferLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>Requisition</ToNoun>
+<Priority>40</Priority>
+<RelationLabel>Requisition needed on Sales Order?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/RequisitionReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Requisition/RequisitionHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>SupplierPartyMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/LineSourcing/SupplierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/SupplierPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/LineSourcing/SupplierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/LineSourcing/SupplierParty/SalesContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/LineSourcing/SupplierParty/ShippingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/LineSourcing/SupplierParty/CustomerServiceContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/LineSourcing/WarehouseLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>WorkCenter</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/LineSourcing/WorkCenterReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/WorkCenter[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>PurchaseOrder</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Purchase Order linked to the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/PurchaseOrderReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/PurchaseOrder/PurchaseOrderHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Sales Person on the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/OrderCommission/SalesPerson/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Item on the Sales Order SubLine</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/SalesOrderSubLine/Item/ItemID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>PurchaseOrder</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Purchase Order linked to Sales Order Schedule</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/SalesOrderSchedule/PurchaseOrderReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/PurchaseOrder/PurchaseOrderHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>CarrierParty</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Carrier Party of the Sales Order Schedule</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/SalesOrderSchedule/CarrierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/CarrierParty/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - this is not an internal location</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/SalesOrderSchedule/CarrierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Carrier Contact for this Sales Order Schedule</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/SalesOrderSchedule/CarrierParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipToPartyMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Ship To Party on the Sales Order Schedule</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/SalesOrderSchedule/ShipToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Ship To Party's Location on the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/SalesOrderSchedule/ShipToParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Ship To Party Contact of the Sales Order Schedule</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/SalesOrderSchedule/ShipToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Project reference on the Sales Order Schedule</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/SalesOrderSchedule/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipFromPartyMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Ship From Party on the Sales Order Schedule</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/SalesOrderSchedule/ShipFromParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipFromPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Warehouse on the Sales Order Schedule</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/SalesOrderSchedule/ShipFromParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Logistic Location of the Warehouse</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/SalesOrderSchedule/ShipFromParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Ship From Party's Contact for the Sales Order Schedule</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/SalesOrderSchedule/ShipFromParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Contract</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Contract linked to the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/ContractReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Contract/ContractHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>Quote</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Quote Linked to the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/QuoteReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Quote/QuoteHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>CarrierParty</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Carrier Party of the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/CarrierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/CarrierParty/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - this is not an internal location</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/CarrierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Carrier Contact for the Sales order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/CarrierParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ShipFromPartyMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Ship From Party on the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/ShipFromParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ShipFromPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Warehouse on the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/ShipFromParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Logistic Location of the Warehouse</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/ShipFromParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Ship From Party's Contact for the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/ShipFromParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>RemitToPartyMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Remit To Party  for the Sales Order Line?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/RemitToParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/RemitToPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Remit To Party's Location on the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/RemitToParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - this is not an internal location</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/RemitToParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Remit To party Contact for the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/RemitToParty/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>SupplierPartyMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Supplier Party on the Sales Order Line?</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/SupplierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/SupplierPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/SupplierParty/Location/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - this is not an internal location</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/SupplierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Supplier Party's Sales contact for the Sales order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/SupplierParty/SalesContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Supplier Party's Shipping contact for the Sales order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/SupplierParty/ShippingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Supplier Party's Customer Service Contact for the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/SupplierParty/CustomerServiceContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Configured Item on the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/ItemConfiguration/ConfigurationComponent/Item/ItemID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ProjectMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Project Reference on the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/ProjectReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ProjectMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>SupplierPartyMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Outsourcing Supplier on the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/OutsourcingInformation/SupplierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/SupplierPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Not needed - this is not an internal location</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/OutsourcingInformation/SupplierParty/Location/LogisticsLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Outsourcing Sales Contact for the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/OutsourcingInformation/SupplierParty/SalesContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Outsourcing Shipping Contact for the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/OutsourcingInformation/SupplierParty/ShippingContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Outsourcing Customer Service Contact for the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/OutsourcingInformation/SupplierParty/CustomerServiceContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Provided item with OutSourcing on the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/OutsourcingInformation/ProvidedItems/ItemID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Available Item with Outsourcing on the Sales Order Line</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/SalesOrder/SalesOrderLine/OutsourcingInformation/AvailaibleItems/ItemID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

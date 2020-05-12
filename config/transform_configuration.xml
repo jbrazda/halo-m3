@@ -1,0 +1,28 @@
+<configuration>
+  <use-sample-input>true</use-sample-input>
+  <sample-input-format>csv</sample-input-format>
+  <mappings>
+    <!-- DEV should be 210_USA TST=110_USA PRD=310_USA -->
+    <field name="AccountingEntityID">210_US</field>
+    <field name="languageID">GB</field>
+    <field name="LogicalID">lid://infor.halo.catalog_dev</field>
+  </mappings>
+  <database>
+    <class>com.microsoft.sqlserver.jdbc.SQLServerDriver</class>
+    <jdbcUrl>jdbc:sqlserver://HBSAWS-DEV-DB01:1433;databaseName=halo_stage;</jdbcUrl>
+    <username>halo_pc</username>
+    <password>Infa_Halo</password>
+  </database>
+  <sql>
+    <statement name="price_list">
+      SELECT * FROM dbo.STG_Pricelist
+    </statement>
+    <statement name="item_master_parents">
+      SELECT * FROM dbo.STG_ItemMaster where Config_Code in(6 ,0)
+    </statement>
+    <statement name="item_master_children">
+      SELECT * FROM dbo.STG_ItemMaster where User_Defined_Field_5 = ?
+    </statement>
+  </sql>
+
+</configuration>

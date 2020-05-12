@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProcessItemMaster xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns0="http://schema.infor.com/InforOAGIS/2" xmlns="http://schema.infor.com/InforOAGIS/2" languageCode="GB" releaseID="9.2" systemEnvironmentCode="Production" versionID="2.12.2" xsi:type="ns0:ProcessItemMasterType">
+  <ApplicationArea>
+    <Sender>
+      <LogicalID>lid://infor.file.cim_dev</LogicalID>
+      <ComponentID>Webstar</ComponentID>
+      <ConfirmationCode>OnError</ConfirmationCode>
+    </Sender>
+    <CreationDateTime>2020-05-11T20:17:00.144-04:00</CreationDateTime>
+    <BODID>f6bd0528-41f9-4854-af9c-1758f7e3ab10</BODID>
+  </ApplicationArea>
+  <DataArea>
+    <Process>
+      <TenantID>infor</TenantID>
+      <AccountingEntityID>210_USA</AccountingEntityID>
+      <ActionCriteria>
+        <ActionExpression actionCode="Add"/>
+      </ActionCriteria>
+    </Process>
+    <ItemMaster>
+      <ItemMasterHeader>
+        <ItemID>
+          <ID>ERROR</ID>
+        </ItemID>
+        <ID>
+          <schemeName>MNS TRAINING JRSY</schemeName>
+        </ID>
+        <Description/>
+        <Specification>
+          <ID name="ITNM" schemeName="A003" lid="YY01">SPK0001.BLK-SM</ID>
+          <Property listID="">
+            <NameValue name="ITDS">MNS TRAINING JRSY-BLK-SM</NameValue>
+          </Property>
+        </Specification>
+        <Specification>
+          <ID name="ITNM" schemeName="A004" lid="YY01">SPK0001.BLK-MD</ID>
+          <Property listID="">
+            <NameValue name="ITDS">MNS TRAINING JRSY-BLK-MD</NameValue>
+          </Property>
+        </Specification>
+        <Specification>
+          <ID name="ITNM" schemeName="A005" lid="YY01">SPK0001.BLK-LG</ID>
+          <Property listID="">
+            <NameValue name="ITDS">MNS TRAINING JRSY-BLK-LG</NameValue>
+          </Property>
+        </Specification>
+        <Specification>
+          <ID name="ITNM" schemeName="A006" lid="YY01">SPK0001.BLK-XL</ID>
+          <Property listID="">
+            <NameValue name="ITDS">MNS TRAINING JRSY-BLK-XL</NameValue>
+          </Property>
+        </Specification>
+        <Specification>
+          <ID name="ITNM" schemeName="A006" lid="YY01">SPK0001.BLK-2X</ID>
+          <Property listID="">
+            <NameValue name="ITDS">MNS TRAINING JRSY-BLK-2X</NameValue>
+          </Property>
+        </Specification>
+        <Specification>
+          <ID name="ITNM" schemeName="A006" lid="YY01">SPK0001.BLK-3X</ID>
+          <Property listID="">
+            <NameValue name="ITDS">MNS TRAINING JRSY-BLK-3X</NameValue>
+          </Property>
+        </Specification>
+        <Specification>
+          <Description/>
+          <Property listID="">
+            <!-- Not sure about the currency field -->
+            <NameValue name="CurrencyID"/>
+          </Property>
+        </Specification>
+        <ItemStatus>
+          <Code>10</Code>
+        </ItemStatus>
+        <BuyerPersonReference>
+          <IDs>
+            <ID/>
+          </IDs>
+        </BuyerPersonReference>
+        <BaseUOMCode>EA</BaseUOMCode>
+        <PackagingUnit>
+          <Dimensions>
+            <LengthMeasure>1.00</LengthMeasure>
+            <WidthMeasure>2.00</WidthMeasure>
+            <HeightMeasure>3.00</HeightMeasure>
+          </Dimensions>
+          <GrossWeightMeasure>20</GrossWeightMeasure>
+        </PackagingUnit>
+        <UserArea>
+          <Property listID="">
+            <NameValue name="ITNE">SPK0001</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="ITTY">PO1</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="PRGP">ILF</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="ITCL">ERROR</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="PDLN"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="TAXC"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="RIDE">SPK</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="CHCD">6</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="HAZI"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="CFI4">HO</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="SAPR"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="PRGR">2</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="HEI1"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="HEI2"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="HEI3"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="HEI4"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="HEI5"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="GRP1"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="GRP2"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="GRP3"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="GRP4"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="GRP5"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="ATMN"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="ATMO"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="MABU"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="FTID"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="TPCD">0</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="CFI1"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="CFI5"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="RESP"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="LEA1">42</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="PUIT">2</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="ORTY"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="SUWH">CAS</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="SUNO">0</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="REOP"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="EOQT"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="WHSL"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="BUYE"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="CSNO"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="FDAC"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="ORCO">US</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="REWH">LIV</NameValue>
+          </Property>
+        </UserArea>
+      </ItemMasterHeader>
+    </ItemMaster>
+    <ItemMaster>
+      <ItemMasterHeader>
+        <ItemID>
+          <ID>ERROR</ID>
+        </ItemID>
+        <ID>
+          <schemeName>TRUCKER HAT -BLK/WHT</schemeName>
+        </ID>
+        <Description/>
+        <Specification>
+          <Description/>
+          <Property listID="">
+            <!-- Not sure about the currency field -->
+            <NameValue name="CurrencyID"/>
+          </Property>
+        </Specification>
+        <ItemStatus>
+          <Code>10</Code>
+        </ItemStatus>
+        <BuyerPersonReference>
+          <IDs>
+            <ID/>
+          </IDs>
+        </BuyerPersonReference>
+        <BaseUOMCode>EA</BaseUOMCode>
+        <PackagingUnit>
+          <Dimensions>
+            <LengthMeasure>8.00</LengthMeasure>
+            <WidthMeasure>9.00</WidthMeasure>
+            <HeightMeasure>10.00</HeightMeasure>
+          </Dimensions>
+          <GrossWeightMeasure>3</GrossWeightMeasure>
+        </PackagingUnit>
+        <UserArea>
+          <Property listID="">
+            <NameValue name="ITNE">SPK0019</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="ITTY">PO1</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="PRGP">ILF</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="ITCL">ERROR</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="PDLN"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="TAXC"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="RIDE">SPK</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="CHCD">6</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="HAZI"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="CFI4">HO</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="SAPR"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="PRGR">0</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="HEI1"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="HEI2"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="HEI3"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="HEI4"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="HEI5"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="GRP1"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="GRP2"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="GRP3"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="GRP4"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="GRP5"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="ATMN"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="ATMO"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="MABU"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="FTID"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="TPCD">0</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="CFI1"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="CFI5"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="RESP"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="LEA1">1</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="PUIT">2</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="ORTY"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="SUWH">DEC</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="SUNO">0</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="REOP"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="EOQT"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="WHSL"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="BUYE"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="CSNO"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="FDAC"/>
+          </Property>
+          <Property listID="">
+            <NameValue name="ORCO">US</NameValue>
+          </Property>
+          <Property listID="">
+            <NameValue name="REWH">LIV</NameValue>
+          </Property>
+        </UserArea>
+      </ItemMasterHeader>
+    </ItemMaster>
+  </DataArea>
+</ProcessItemMaster>

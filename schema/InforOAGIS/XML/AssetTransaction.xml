@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.4"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>AssetTransaction</NounName>
+<NounType>Transactional</NounType>
+<Version> 2.13.4</Version> 
+<IDXPath>/*/DataArea/AssetTransaction/AssetTransactionHeader/DocumentID[1]/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/AssetTransaction/AssetTransactionHeader/DocumentID[1]/ID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath>/*/DataArea/AssetTransaction/AssetTransactionHeader/DocumentID[1]/ID[not (@schemeName)]/@location</IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/AssetTransaction/AssetTransactionHeader/Description | /*/DataArea/AssetTransaction/AssetTransactionHeader/Description/@languageID</DescriptionXPath>
+<RevisionXPath>/*/DataArea/AssetTransaction/AssetTransactionHeader/DocumentID[1]/ID[not (@schemeName)]/following-sibling::RevisionID</RevisionXPath>
+<VariationXPath>/*/DataArea/AssetTransaction/AssetTransactionHeader/DocumentID[1]/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/AssetTransaction/AssetTransactionHeader/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/AssetTransaction/AssetTransactionHeader/DocumentDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>AssetMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Asset used in the transaction</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/AssetTransaction/AssetTransactionHeader/Asset/ID</FromNounPath>
+<ToNounPath>/*/DataArea/AssetMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>SupplierPartyMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/AssetTransaction/AssetTransactionHeader/SupplierParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/SupplierPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>AssetMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Transaction Line level asset</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/AssetTransaction/AssetTransactionLine/Asset/ID</FromNounPath>
+<ToNounPath>/*/DataArea/AssetMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>CurrencyRateType</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Currency Rate Type of the Asset Transaction</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/AssetTransaction/AssetTransactionLine/AmountToFunctionalExchangeRate/CurrencyRateTypeReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/CurrencyRateType/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

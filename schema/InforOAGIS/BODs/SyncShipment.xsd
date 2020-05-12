@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+
+            ** OAGIS® Revision: 9.2  ** 
+            ** Date: 11 May 2007 **
+            ** Copyright 1997-2007, All Rights Reserved **
+
+            This is an OAGIS® BOD XML Schema (XSD) Definition.
+
+            License information for this file is provided in the file **OAGi License Agreement.txt** that is provided with this download package.
+
+            For support, more information, or to report implementation bugs, please contact the Open Applications Group at xml@openapplications.org.
+
+            XML Schema
+
+-->
+ <!--
+ © Copyright 2011 Infor Global Solutions Technology GmbH and/or its affiliates and subsidiaries. All rights reserved. The
+word and design marks set forth herein are trademarks and/or registered trademarks of Infor Global Solutions
+Technology GmbH and/or its affiliates and subsidiaries. All rights reserved. All other trademarks listed herein
+are the property of their respective owners.
+-->
+<xs:schema targetNamespace="http://schema.infor.com/InforOAGIS/2" 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schema.infor.com/InforOAGIS/2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:include schemaLocation="../Nouns/Shipment.xsd"/>
+<xs:include schemaLocation="../Resources/Meta.xsd"/>
+<xs:element name="SyncShipment" type="SyncShipmentType"/>
+<xs:complexType name="SyncShipmentType">
+<xs:complexContent>
+<xs:extension base="BusinessObjectDocumentType">
+<xs:sequence>
+<xs:element name="DataArea" type="SyncShipmentDataAreaType"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="SyncShipmentDataAreaType">
+<xs:sequence>
+<xs:element ref="Sync"/>
+<xs:element ref="Shipment" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

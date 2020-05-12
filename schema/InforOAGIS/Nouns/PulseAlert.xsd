@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+
+            ** OAGIS® Revision: 9.2  ** 
+            ** Date: 11 May 2007 **
+            ** Copyright 1997-2007, All Rights Reserved **
+
+            This is an OAGIS® BOD XML Schema (XSD) Definition.
+
+            License information for this file is provided in the file **OAGi License Agreement.txt** that is provided with this download package.
+
+            For support, more information, or to report implementation bugs, please contact the Open Applications Group at xml@openapplications.org.
+
+            XML Schema
+
+-->
+ <!--
+ © Copyright 2011 Infor Global Solutions Technology GmbH and/or its affiliates and subsidiaries. All rights reserved. The
+word and design marks set forth herein are trademarks and/or registered trademarks of Infor Global Solutions
+Technology GmbH and/or its affiliates and subsidiaries. All rights reserved. All other trademarks listed herein
+are the property of their respective owners.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schema.infor.com/InforOAGIS/2"
+targetNamespace="http://schema.infor.com/InforOAGIS/2" elementFormDefault="qualified" attributeFormDefault="unqualified" 
+version="2.13.6"><xs:element name="PulseAlert" type="PulseAlertType"/>
+<xs:complexType name="PulseAlertType">
+<xs:sequence>
+<xs:element name="DocumentID" minOccurs="0" maxOccurs="1" type="DocumentIDType">
+<xs:annotation>
+<xs:documentation>
+Is the primary document id for the document associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="CreationDateTime" minOccurs="0" maxOccurs="1" type="UnionType">
+<xs:annotation>
+<xs:documentation>
+The data and time (optional) when this object was created.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="LastModificationDateTime" minOccurs="0" maxOccurs="1" type="UnionType">
+<xs:annotation>
+<xs:documentation>
+The datetime on which the object was last modified.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="LastModificationPerson" minOccurs="0" maxOccurs="1" type="LastModificationPersonType">
+<xs:annotation>
+<xs:documentation>
+A reference tot he person that took the action that caused this BOD to be published.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Status" minOccurs="0" maxOccurs="1" type="StatusType">
+<xs:annotation>
+<xs:documentation>
+Indicates the current state of the associated object.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="IsEscalated" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Indicates whether there is an escalation for the object
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="EscalationLevel" minOccurs="0" maxOccurs="1" type="Integer1BaseType">
+<xs:annotation>
+<xs:documentation>
+If &gt;0 then Task is escalated. The number determines the number of levels in the Organizational Hierarchy it currently is escalated to. Default:0
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="DueDateTime" minOccurs="0" maxOccurs="1" type="UnionType">
+<xs:annotation>
+<xs:documentation>
+The date and time that the associated object is to be completed. Allows to have e-mail reminder(s) before/after DueDateTime; to allow the administrator to escalate before/after DueDateTime
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Description" minOccurs="0" maxOccurs="unbounded" type="DescriptionType">
+<xs:annotation>
+<xs:documentation>
+e form text that describes the object and only one description is accepted for each pulse alert noun, repeated descriptions will be discarded by application
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Note" minOccurs="0" maxOccurs="unbounded" type="NoteType">
+<xs:annotation>
+<xs:documentation>
+A freeform note
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Source" minOccurs="0" maxOccurs="1" type="SourceType">
+<xs:annotation>
+<xs:documentation>
+Defines the message initiator details
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="AlertDetail" minOccurs="0" maxOccurs="unbounded" type="AlertDetailType">
+</xs:element>
+<xs:element name="AssignedPerson" minOccurs="0" maxOccurs="1" type="AssignedPersonType">
+<xs:annotation>
+<xs:documentation>
+The person ID of the user that assigned to this document.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="DistributionPerson" minOccurs="0" maxOccurs="unbounded" type="DistributionPersonType">
+<xs:annotation>
+<xs:documentation>
+Used to hold a list of Persons to whom the document has been distributed.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="DistributionGroup" minOccurs="0" maxOccurs="unbounded" type="DistributionGroupType">
+<xs:annotation>
+<xs:documentation>
+List of distribution groups to which the task must be distributed
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DocumentIDType">
+<xs:sequence>
+<xs:element name="ID" minOccurs="1" maxOccurs="1" type="IDType">
+<xs:annotation>
+<xs:documentation>
+An identifier for an object. The ID has a number of possible attributes to further define how it should be used..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="IDType">
+<xs:simpleContent>
+<xs:extension base="NormalizedStringBaseType">
+<xs:attribute name="variationID" type="IntegerBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The number of times this object has been published with these attributes for the accounting entity and location.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="lid" type="AnyURIBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The LID of the system where the object can be maintained. This can be used by BIS to help automate the drill back process.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="LastModificationPersonType">
+<xs:sequence>
+<xs:element name="IDs" minOccurs="0" maxOccurs="1" type="IDsType">
+<xs:annotation>
+<xs:documentation>
+A container that holds a list of IDs without RevisionID.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="1" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the object in which associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="IDsType">
+<xs:sequence>
+<xs:element name="ID" minOccurs="0" maxOccurs="unbounded" type="ID1Type">
+<xs:annotation>
+<xs:documentation>
+An identifier for an object. The ID has a number of possible attributes to further define how it should be used..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ID1Type">
+<xs:simpleContent>
+<xs:extension base="NormalizedStringBaseType">
+<xs:attribute name="accountingEntity" type="StringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="lid" type="AnyURIBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The LID of the system where the object can be maintained. This can be used by BIS to help automate the drill back process.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="NameType">
+<xs:simpleContent>
+<xs:extension base="String1BaseType">
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="StatusType">
+<xs:sequence>
+<xs:element name="Code" minOccurs="0" maxOccurs="1" type="CodeType">
+<xs:annotation>
+<xs:documentation>
+Code used to define the status of this document. See the code list associated to this code for the list of valid codes and their meanings.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="ReasonCode" minOccurs="0" maxOccurs="1" type="ReasonCodeType">
+<xs:annotation>
+<xs:documentation>
+Identifies the reason for an activity
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="ArchiveIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+<xs:annotation>
+<xs:documentation>
+Indicator that determines if the BOD has been archived. The default value is false so there is no need to explicitly set this to false.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CodeType">
+<xs:simpleContent>
+<xs:extension base="NormalizedString1BaseType">
+<xs:attribute name="listID" type="NormalizedStringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="ReasonCodeType">
+<xs:simpleContent>
+<xs:extension base="NormalizedStringBaseType">
+<xs:attribute name="listID" type="NormalizedStringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="accountingEntity" type="String2BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="DescriptionType">
+<xs:simpleContent>
+<xs:extension base="String3BaseType">
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="NoteType">
+<xs:simpleContent>
+<xs:extension base="String4BaseType">
+<xs:attribute name="noteID" type="NormalizedString2BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+An optional identifier, that when used can uniquely identify each instance of a note within a BOD. It is only unique within the context of the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="use" type="NormalizedString3BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+Indicates if the note should be published externally or if it is for internal use only. It may have the values &apos;&apos;Internal&apos;&apos; and &apos;&apos;External&apos;&apos;.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="userID" type="NormalizedString2BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+User ID from IFS of the author (also known as “personId�? in IFS and ION). This could be either manually entered or could be the UPN in IFS depending on the configuration parameters. This will be used to display the picture of the author in a note. This is used for now in Pulse nouns only.
+						
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="author" type="String1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+Person who created the note
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="entryDateTime" type="UnionType" use="optional">
+<xs:annotation>
+<xs:documentation>
+Entry date and time in GMT.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="status" type="String5BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+Status of a note.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="type" type="NormalizedString4BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+Identifies where the note is used and is associated to an Infor defined code list, &apos;&apos;NoteType,&apos;&apos; that indicates the processes that might use the note.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="SourceType">
+<xs:sequence>
+<xs:element name="Type" minOccurs="0" maxOccurs="1" type="TypeType">
+<xs:annotation>
+<xs:documentation>
+Source application from code list. The possible options includes Monitor or Workflow or BOD.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="1" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the application instance that triggered the message.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Version" minOccurs="0" maxOccurs="1" type="NormalizedString5BaseType">
+<xs:annotation>
+<xs:documentation>
+The version is as follows. If type is WORKFLOW: the version of the workflow definition that generated the item. If type is MONITOR: the version of the monitor that generated the item. Otherwise it is unused.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="TypeType">
+<xs:simpleContent>
+<xs:extension base="NormalizedStringBaseType">
+<xs:attribute name="listID" type="NormalizedStringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="AlertDetailType">
+<xs:sequence>
+<xs:element name="PulseDocumentReference" minOccurs="0" maxOccurs="unbounded" type="PulseDocumentReferenceType">
+<xs:annotation>
+<xs:documentation>
+Specifies the document information to be interpreted by receiving applications to build a drillback.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="TreeNode" minOccurs="0" maxOccurs="unbounded" type="TreeNodeType">
+<xs:annotation>
+<xs:documentation>
+A node in a tree using a parent relationship and containing properties needed for the node.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="sequence" type="PositiveInteger1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The sequence attribute is used for the ordering of elements within a document. It is not intended to be used as an identifier.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:complexType>
+<xs:complexType name="PulseDocumentReferenceType">
+<xs:sequence>
+<xs:element name="DocumentID" minOccurs="0" maxOccurs="1" type="DocumentID1Type">
+<xs:annotation>
+<xs:documentation>
+Is the primary document id for the document associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="LineNumber" minOccurs="0" maxOccurs="1" type="NormalizedString7BaseType">
+<xs:annotation>
+<xs:documentation>
+Is the identifier of the given Line Component within the document
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="sequence" type="PositiveIntegerBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The sequence attribute is used for the ordering of elements within a document. It is not intended to be used as an identifier.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="type" type="TokenBaseType" use="required">
+</xs:attribute>
+</xs:complexType>
+<xs:complexType name="DocumentID1Type">
+<xs:sequence>
+<xs:element name="ID" minOccurs="1" maxOccurs="1" type="ID2Type">
+<xs:annotation>
+<xs:documentation>
+An identifier for an object. The ID has a number of possible attributes to further define how it should be used..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="RevisionID" minOccurs="0" maxOccurs="1" type="NormalizedString6BaseType">
+<xs:annotation>
+<xs:documentation>
+Identifies the engineering change revision that this entity addresses.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ID2Type">
+<xs:simpleContent>
+<xs:extension base="NormalizedStringBaseType">
+<xs:attribute name="schemeName" type="String1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+When no schemeName exists this is the default ID for the enterprise at the level where this object is maintained. The value of the ID must uniquely identify this object throughout the enterprise within the scope of the level where it is maintained (tenant, accounting entity or location). The specific values for this attribute are determined by the individual noun.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="accountingEntity" type="StringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The accounting entity that is associated with the maintenance of this instance of the noun. For objects that are maintained at the tenant level this attribute must not be included in the document.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="location" type="StringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The location that is associated with the maintenance of this instance of the noun. This attribute must not be included on the ID of objects that are maintained at the tenant or accounting entity level.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="variationID" type="IntegerBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The number of times this object has been published with these attributes for the accounting entity and location.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="lid" type="AnyURIBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The LID of the system where the object can be maintained. This can be used by BIS to help automate the drill back process.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="TreeNodeType">
+<xs:sequence>
+<xs:element name="ID" minOccurs="0" maxOccurs="1" type="NormalizedString8BaseType">
+<xs:annotation>
+<xs:documentation>
+The unique identifier for this tree node within the document. It is only required to be unique within the document.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="ParentID" minOccurs="0" maxOccurs="1" type="NormalizedString9BaseType">
+<xs:annotation>
+<xs:documentation>
+The ID of the node that is the parent of this node within the tree.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="NodeName" minOccurs="0" maxOccurs="1" type="String6BaseType">
+</xs:element>
+<xs:element name="TreeNodeParameter" minOccurs="0" maxOccurs="unbounded" type="TreeNodeParameterType">
+</xs:element>
+</xs:sequence>
+<xs:attribute name="sequence" type="PositiveInteger1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The sequence attribute is used for the ordering of elements within a document. It is not intended to be used as an identifier.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:complexType>
+<xs:complexType name="TreeNodeParameterType">
+<xs:sequence>
+<xs:element name="Name" minOccurs="1" maxOccurs="1" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the object in which associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Value" minOccurs="0" maxOccurs="1" type="NormalizedString9BaseType">
+<xs:annotation>
+<xs:documentation>
+Data value
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="DataType" minOccurs="0" maxOccurs="1" type="DataTypeType">
+<xs:annotation>
+<xs:documentation>
+The data type of the associated value.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Label" minOccurs="0" maxOccurs="unbounded" type="LabelType">
+</xs:element>
+</xs:sequence>
+<xs:attribute name="sequence" type="PositiveInteger1BaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+The sequence attribute is used for the ordering of elements within a document. It is not intended to be used as an identifier.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:complexType>
+<xs:complexType name="DataTypeType">
+<xs:simpleContent>
+<xs:extension base="String6BaseType">
+<xs:attribute name="listID" type="NormalizedStringBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This attribute contains the Code List ID for the codes that are associated with corresponding entity.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="LabelType">
+<xs:simpleContent>
+<xs:extension base="String6BaseType">
+<xs:attribute name="languageID" type="LanguageBaseType" use="optional">
+<xs:annotation>
+<xs:documentation>
+This is required for language codes other than &quot;&quot;en-us&quot;&quot; when the element that includes this attribute is used.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="AssignedPersonType">
+<xs:sequence>
+<xs:choice>
+<xs:element name="PersonReference" minOccurs="0" maxOccurs="1" type="PersonReferenceType">
+<xs:annotation>
+<xs:documentation>
+Reference to a Person Noun
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="1" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the object in which associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:choice>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PersonReferenceType">
+<xs:sequence>
+<xs:element name="IDs" minOccurs="0" maxOccurs="1" type="IDsType">
+<xs:annotation>
+<xs:documentation>
+A container that holds a list of IDs without RevisionID.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Name" minOccurs="0" maxOccurs="1" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the object in which associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="SystemUserIndicator" minOccurs="0" maxOccurs="1" type="BooleanBaseType">
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DistributionPersonType">
+<xs:sequence>
+<xs:element name="ID" minOccurs="0" maxOccurs="1" type="NormalizedString8BaseType">
+<xs:annotation>
+<xs:documentation>
+An identifier for an object. The ID has a number of possible attributes to further define how it should be used..
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="PersonReference" minOccurs="0" maxOccurs="1" type="PersonReferenceType">
+<xs:annotation>
+<xs:documentation>
+Reference to a Person Noun
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DistributionGroupType">
+<xs:sequence>
+<xs:element name="Name" minOccurs="0" maxOccurs="1" type="NameType">
+<xs:annotation>
+<xs:documentation>
+Identifies the Name of the object in which associated.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Description" minOccurs="0" maxOccurs="unbounded" type="DescriptionType">
+<xs:annotation>
+<xs:documentation>
+Free form text that describes the object and repeats as needed to provide support for multilingual descriptions
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="NormalizedStringBaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="IntegerBaseType">
+<xs:restriction base="xs:integer">
+<xs:totalDigits value = "22"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="AnyURIBaseType">
+<xs:restriction base="xs:anyURI">
+<xs:maxLength value = "255"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="UnionType">
+<xs:union memberTypes="xs:date xs:time xs:dateTime "/>
+</xs:simpleType>
+<xs:simpleType name="StringBaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "22"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="String1BaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "64"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="LanguageBaseType">
+<xs:restriction base="xs:language">
+<xs:maxLength value = "17"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString1BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "0"/>
+<xs:enumeration value = "Deleted"/>
+<xs:enumeration value = "Pending"/>
+<xs:enumeration value = "NEW"/>
+<xs:enumeration value = "ASSIGNED"/>
+<xs:enumeration value = "UNASSIGNED"/>
+<xs:enumeration value = "DONE"/>
+<xs:enumeration value = "CANCELLED"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="String2BaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "22"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="BooleanBaseType">
+<xs:restriction base="xs:boolean">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="Integer1BaseType">
+<xs:restriction base="xs:integer">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="String3BaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "1024"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="String4BaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "10240"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString2BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString3BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "10"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="String5BaseType">
+<xs:restriction base="xs:string">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString4BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "64"/>
+<xs:minLength value = "0"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString5BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "20"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString6BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "22"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString7BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "22"/>
+<xs:minLength value = "1"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="PositiveIntegerBaseType">
+<xs:restriction base="xs:positiveInteger">
+<xs:totalDigits value = "22"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="TokenBaseType">
+<xs:restriction base="xs:token">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "0"/>
+<xs:enumeration value = "AccountingBookDefinition"/>
+<xs:enumeration value = "AccountingChart"/>
+<xs:enumeration value = "AccountingJournal"/>
+<xs:enumeration value = "AdvanceShipNotice"/>
+<xs:enumeration value = "Alert"/>
+<xs:enumeration value = "AssetMaster"/>
+<xs:enumeration value = "AssetMeterReading"/>
+<xs:enumeration value = "BillOfResources"/>
+<xs:enumeration value = "BillToPartyMaster"/>
+<xs:enumeration value = "BOD"/>
+<xs:enumeration value = "BusinessPlan"/>
+<xs:enumeration value = "Calendar"/>
+<xs:enumeration value = "CarrierParty"/>
+<xs:enumeration value = "CarrierRoute"/>
+<xs:enumeration value = "ChartOfAccounts"/>
+<xs:enumeration value = "CodeDefinition"/>
+<xs:enumeration value = "ConstrainedResource"/>
+<xs:enumeration value = "ContactMaster"/>
+<xs:enumeration value = "Contract"/>
+<xs:enumeration value = "CurrencyExchangeRateMaster"/>
+<xs:enumeration value = "CurrencyRateType"/>
+<xs:enumeration value = "CustomerPartyMaster"/>
+<xs:enumeration value = "CustomerPurchaseOrder"/>
+<xs:enumeration value = "CustomerReturn"/>
+<xs:enumeration value = "CustomerRFQ"/>
+<xs:enumeration value = "EmployeeWorkSchedule"/>
+<xs:enumeration value = "EmployeeWorkTime"/>
+<xs:enumeration value = "ExpenseReport"/>
+<xs:enumeration value = "FinancialCalendar"/>
+<xs:enumeration value = "FinancialPartyMaster"/>
+<xs:enumeration value = "HandlingGroup"/>
+<xs:enumeration value = "InspectDelivery"/>
+<xs:enumeration value = "InventoryAdjustment"/>
+<xs:enumeration value = "InventoryConsumption"/>
+<xs:enumeration value = "InventoryCount"/>
+<xs:enumeration value = "InventoryHold"/>
+<xs:enumeration value = "Invoice"/>
+<xs:enumeration value = "ItemMaster"/>
+<xs:enumeration value = "Location"/>
+<xs:enumeration value = "MaintenanceOrder"/>
+<xs:enumeration value = "Opportunity"/>
+<xs:enumeration value = "PayableTransaction"/>
+<xs:enumeration value = "PayFromPartyMaster"/>
+<xs:enumeration value = "Person"/>
+<xs:enumeration value = "Personnel"/>
+<xs:enumeration value = "PlanningSchedule"/>
+<xs:enumeration value = "ProductionOrder"/>
+<xs:enumeration value = "ProductionReceiver"/>
+<xs:enumeration value = "ProjectBalance"/>
+<xs:enumeration value = "ProjectBid"/>
+<xs:enumeration value = "ProjectBudget"/>
+<xs:enumeration value = "ProjectCosts"/>
+<xs:enumeration value = "ProjectEstimate"/>
+<xs:enumeration value = "ProjectExtension"/>
+<xs:enumeration value = "ProjectMaster"/>
+<xs:enumeration value = "ProjectPeriodBalance"/>
+<xs:enumeration value = "ProjectRevenue"/>
+<xs:enumeration value = "PurchaseOrder"/>
+<xs:enumeration value = "Quote"/>
+<xs:enumeration value = "ReceivableTransaction"/>
+<xs:enumeration value = "ReceiveDelivery"/>
+<xs:enumeration value = "RemittanceAdvice"/>
+<xs:enumeration value = "RemitToPartyMaster"/>
+<xs:enumeration value = "Requisition"/>
+<xs:enumeration value = "RFQ"/>
+<xs:enumeration value = "SalesOrder"/>
+<xs:enumeration value = "SequenceSchedule"/>
+<xs:enumeration value = "ServiceConsumption"/>
+<xs:enumeration value = "ShipFromPartyMaster"/>
+<xs:enumeration value = "Shipment"/>
+<xs:enumeration value = "ShipmentSchedule"/>
+<xs:enumeration value = "ShipToPartyMaster"/>
+<xs:enumeration value = "SourceSystemGLMovement"/>
+<xs:enumeration value = "SourceSystemJournalEntry"/>
+<xs:enumeration value = "SupplierInvoice"/>
+<xs:enumeration value = "SupplierBalance"/>
+<xs:enumeration value = "SupplierPartyMaster"/>
+<xs:enumeration value = "SupplierQuote"/>
+<xs:enumeration value = "TextMessage"/>
+<xs:enumeration value = "TradingPartner"/>
+<xs:enumeration value = "Transfer"/>
+<xs:enumeration value = "TransportationRequisition"/>
+<xs:enumeration value = "TransportationStatus"/>
+<xs:enumeration value = "UOMGroup"/>
+<xs:enumeration value = "Workflow"/>
+<xs:enumeration value = "AssetFinancialLedger"/>
+<xs:enumeration value = "EDITransport"/>
+<xs:enumeration value = "CashReceipt"/>
+<xs:enumeration value = "ConfiguredAssetMaster"/>
+<xs:enumeration value = "ServiceContract"/>
+<xs:enumeration value = "CustomerCall"/>
+<xs:enumeration value = "ServiceOrder"/>
+<xs:enumeration value = "PlannedPurchaseOrder"/>
+<xs:enumeration value = "PlannedProductionOrder"/>
+<xs:enumeration value = "PlannedTransfer"/>
+<xs:enumeration value = "AssetTransaction"/>
+<xs:enumeration value = "SupplierPlanningSchedule"/>
+<xs:enumeration value = "SupplierShipmentSchedule"/>
+<xs:enumeration value = "AssetTrackingData"/>
+<xs:enumeration value = "BillOfMaterials"/>
+<xs:enumeration value = "LaborCostMaster"/>
+<xs:enumeration value = "SundryCostMaster"/>
+<xs:enumeration value = "ProjectProgress"/>
+<xs:enumeration value = "PulseAlert"/>
+<xs:enumeration value = "PulseNotification"/>
+<xs:enumeration value = "PulseTask"/>
+<xs:enumeration value = "ManufacturerPartyMaster"/>
+<xs:enumeration value = "ManufacturingPart"/>
+<xs:enumeration value = "EquipmentAlert"/>
+<xs:enumeration value = "SupplierRMA"/>
+<xs:enumeration value = "TransportationRoute"/>
+<xs:enumeration value = "CorrectiveActionPlan"/>
+<xs:enumeration value = "ProjectContract"/>
+<xs:enumeration value = "ProjectContractDeliverable"/>
+<xs:enumeration value = "ProjectContractInstallment"/>
+<xs:enumeration value = "BillFromPartyMaster"/>
+<xs:enumeration value = "DefectiveMaterialNotice"/>
+<xs:enumeration value = "SupportProduct"/>
+<xs:enumeration value = "SupportEnvironment"/>
+<xs:enumeration value = "WorkShiftMaster"/>
+<xs:enumeration value = "SecurityPermissionMaster"/>
+<xs:enumeration value = "SecurityRoleMaster"/>
+<xs:enumeration value = "LocationResource"/>
+<xs:enumeration value = "PackageLabel"/>
+<xs:enumeration value = "CustomerRemittanceAdvice"/>
+<xs:enumeration value = "SecurityUserMaster"/>
+<xs:enumeration value = "PayableTracker"/>
+<xs:enumeration value = "ReceivableTracker"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString8BaseType">
+<xs:restriction base="xs:normalizedString">
+<xs:maxLength value = "100"/>
+<xs:minLength value = "1"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="NormalizedString9BaseType">
+<xs:restriction base="xs:normalizedString">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="String6BaseType">
+<xs:restriction base="xs:string">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="PositiveInteger1BaseType">
+<xs:restriction base="xs:positiveInteger">
+<xs:minInclusive value = "1"/>
+<xs:totalDigits value = "22"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

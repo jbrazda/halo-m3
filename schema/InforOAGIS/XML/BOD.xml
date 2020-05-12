@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.2"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>BOD</NounName>
+<NounType>System</NounType>
+<Version> 2.13.2</Version> 
+<IDXPath>/*/DataArea/BOD/OriginalApplicationArea/BODID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/BOD/OriginalApplicationArea/BODID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath>/*/DataArea/BOD/OriginalApplicationArea/BODID[not (@schemeName)]/@location</IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/BOD/Description | /*/DataArea/BOD/Description/@languageID</DescriptionXPath>
+<RevisionXPath></RevisionXPath>
+<VariationXPath>/*/DataArea/BOD/OriginalApplicationArea/BODID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/BOD/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/BOD/OriginalApplicationArea/CreationDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Confirm</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation/>
+</NounMetadata>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.6"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>PublicSectorReview</NounName>
+<NounType>Transactional</NounType>
+<Version> 2.13.6</Version> 
+<IDXPath>/*/DataArea/PublicSectorReview[1]/DocumentID/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/PublicSectorReview[1]/DocumentID/ID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath>/*/DataArea/PublicSectorReview[1]/DocumentID/ID[not (@schemeName)]/@location</IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/PublicSectorReview[1]/Description[1] | /*/DataArea/PublicSectorReview[1]/Description[1]/@languageID</DescriptionXPath>
+<RevisionXPath></RevisionXPath>
+<VariationXPath>/*/DataArea/PublicSectorReview[1]/DocumentID/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/PublicSectorReview[1]/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/PublicSectorReview[1]/DocumentDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Acknowledge</SupportedVerb>
+<SupportedVerb>Get</SupportedVerb>
+<SupportedVerb>Process</SupportedVerb>
+<SupportedVerb>Show</SupportedVerb>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="Transactional">
+<ToNoun>PublicSectorPermit</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/PublicSectorReview/PublicSectorPermitReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/PublicSectorPermit[1]/DocumentID/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>PublicSectorLicense</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/PublicSectorReview/PublicSectorLicenseReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/PublicSectorLicense/DocumentID/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/PublicSectorReview/ReviewActivity/PersonReference/IDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.7"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>AssetMaster</NounName>
+<NounType>MasterData</NounType>
+<Version> 2.13.7</Version> 
+<IDXPath>/*/DataArea/AssetMaster[1]/IDs[1]/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/AssetMaster[1]/IDs[1]/ID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath></IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/AssetMaster[1]/Description | /*/DataArea/AssetMaster[1]/Description/@languageID</DescriptionXPath>
+<RevisionXPath></RevisionXPath>
+<VariationXPath>/*/DataArea/AssetMaster[1]/IDs[1]/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/AssetMaster[1]/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/AssetMaster[1]/DocumentDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Acknowledge</SupportedVerb>
+<SupportedVerb>Get</SupportedVerb>
+<SupportedVerb>Process</SupportedVerb>
+<SupportedVerb>Show</SupportedVerb>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>ConstrainedResource</ToNoun>
+<Priority>30</Priority>
+<RelationLabel>Asset used in production</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/AssetMaster/ConstrainedResourceReference/ResourceID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ConstrainedResource/ResourceID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ItemMaster</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Item associated with the asset</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/AssetMaster/ItemInstance/ItemID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ItemMaster[1]/ItemMasterHeader/ItemID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Location</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/AssetMaster/ItemInstance/StorageLocation/IDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Location/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/AssetMaster/AssignedToPersonReference/IDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>PurchaseOrder</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Purchase order for the asset</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/AssetMaster/PurchaseOrderReference/DocumentID/ID</FromNounPath>
+<ToNounPath>/*/DataArea/PurchaseOrder/PurchaseOrderHeader/DocumentID[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ManufacturerPartyMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Manufacturer of the asset</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/AssetMaster/ManufacturerParty/PartyIDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ManufacturerPartyMaster[1]/PartyIDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Customer's Planner contact</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/AssetMaster/FleetAsset/FleetCustomer/PlannerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<Priority>20</Priority>
+<RelationLabel>Customer's Buyer Contact</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/AssetMaster/FleetAsset/FleetCustomer/BuyerContact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<Priority>10</Priority>
+<RelationLabel>Person to whom the asset is issued</RelationLabel>
+<RelationPaths>
+<FromNounPath>/*/DataArea/AssetMaster/FleetAsset/IssuedToPersonReference/IDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="Transactional">
+<ToNoun>AssetMeterReading</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/AssetMaster/MeterReference/MeterID</FromNounPath>
+<ToNounPath>/*/DataArea/AssetMeterReading/AssetMeterReadingHeader/IDs[1]/ID[not(@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>PublicSectorLocationMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/AssetMaster/PublicSectorLocationReference/ID</FromNounPath>
+<ToNounPath>/*/DataArea/PublicSectorLocationMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>

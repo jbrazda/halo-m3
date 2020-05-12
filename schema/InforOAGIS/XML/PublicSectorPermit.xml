@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NounMetadata xmlns="http://schema.infor.com/InforOAGIS/2" version="2.13.6"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Noun>
+<NounName>PublicSectorPermit</NounName>
+<NounType>Transactional</NounType>
+<Version> 2.13.6</Version> 
+<IDXPath>/*/DataArea/PublicSectorPermit[1]/DocumentID/ID[not (@schemeName)]</IDXPath>
+<IDAccountingEntityXPath>/*/DataArea/PublicSectorPermit[1]/DocumentID/ID[not (@schemeName)]/@accountingEntity</IDAccountingEntityXPath>
+<IDLocationXPath>/*/DataArea/PublicSectorPermit[1]/DocumentID/ID[not (@schemeName)]/@location</IDLocationXPath>
+<DisplayIDXPath></DisplayIDXPath>
+<AccountingEntityXPath>/*/DataArea[1]/*/AccountingEntityID[1]</AccountingEntityXPath>
+<LocationXPath>/*/DataArea[1]/*/LocationID[1]</LocationXPath> 
+<DescriptionXPath>/*/DataArea/PublicSectorPermit[1]/Description | /*/DataArea/PublicSectorPermit[1]/Description/@languageID</DescriptionXPath>
+<RevisionXPath>/*/DataArea/PublicSectorPermit[1]/DocumentID/ID[not (@schemeName)]/following-sibling::RevisionID</RevisionXPath>
+<VariationXPath>/*/DataArea/PublicSectorPermit[1]/DocumentID/ID[not (@schemeName)]/@variationID</VariationXPath>
+<StatusXPath>/*/DataArea/PublicSectorPermit[1]/Status/Code</StatusXPath>
+<DocumentDateTimeXPath>/*/DataArea/PublicSectorPermit[1]/DocumentDateTime</DocumentDateTimeXPath>
+<SupportedVerbs>
+<SupportedVerb>Acknowledge</SupportedVerb>
+<SupportedVerb>Get</SupportedVerb>
+<SupportedVerb>Process</SupportedVerb>
+<SupportedVerb>Show</SupportedVerb>
+<SupportedVerb>Sync</SupportedVerb>
+</SupportedVerbs>
+</Noun>
+<Relation type="MasterData">
+<ToNoun>PublicSectorLocationMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/PublicSectorPermit/PublicSectorLocation/ID</FromNounPath>
+<ToNounPath>/*/DataArea/PublicSectorLocationMaster[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ContactMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/PublicSectorPermit/PublicSectorApplicant/Contact/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ContactMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>ConfiguredAssetMaster</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/PublicSectorPermit/ConfiguredAsset/ID</FromNounPath>
+<ToNounPath>/*/DataArea/ConfiguredAssetMaster[1]/IDs[1]/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/PublicSectorPermit/PermitActivity/PersonReference/IDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+<Relation type="MasterData">
+<ToNoun>Person</ToNoun>
+<RelationPaths>
+<FromNounPath>/*/DataArea/PublicSectorPermit/CertificateOfOccupancy/PersonReference/IDs/ID</FromNounPath>
+<ToNounPath>/*/DataArea/Person/ID[not (@schemeName)]</ToNounPath>
+</RelationPaths>
+</Relation>
+</NounMetadata>
