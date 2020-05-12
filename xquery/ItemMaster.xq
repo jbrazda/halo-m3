@@ -17,7 +17,7 @@ declare function local:read-from-db($db, $statement)
 };
 
 
-(:~:)
+(:~ function to Initialize DB:)
 declare function local:init-db($config as node()?) {
    let $class := $config/database/class/text()      (:'com.microsoft.sqlserver.jdbc.SQLServerDriver':)
    let $url := $config/database/jdbcUrl/text()      (:'jdbc:sqlserver://HBSAWS-DEV-DB01:1433;databaseName=halo_stage;':)
